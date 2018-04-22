@@ -5,6 +5,8 @@ const LOADING = 'loading';
 const FAILED = 'failed';
 const SUCCESS = 'success';
 
+import * as api from '../api';
+
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +22,23 @@ class Contact extends Component {
   };
   handleSubmit = event => {    
     console.log(send(this.state.name,this.state.email,this.state.message))
+    const {name,email,message} = this.state;
+    api.send({
+      to: "jose56wonton@gmail.com",
+      from: "Notify@ZachRauch.com",
+      subject: `New Contact - ${name}`,
+      message: `Name: ${name}
+      Email: ${email}
+      Message: ${message}
+      `
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
     this.state.event.preventDefault();
   };
   render() {
