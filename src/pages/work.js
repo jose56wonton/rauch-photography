@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ShootSnippet from "../components/shoot-snippet";
 import Link from "gatsby-link";
 export default ({ data }) => {
-  console.log(data.allMarkdownRemark.edges[0].node);
   const asdf = data.allMarkdownRemark.edges.map(({ node }) => {
     return (
       <div key={node.id}>

@@ -1,20 +1,52 @@
 import React from "react";
 import Link from "gatsby-link";
 
-const IndexPage = () => (
-  <div className="columns">
-    <div className="column ">
-      <img src="../images/about/about-1.jpg" className="about-image-1" />
-      <img src="../images/about/about-1.jpg" className="about-image-1" />
-    </div>
-    <div className="column">
-      <h1>About Zach</h1>
-      <p>
-        asdfasdfasdfasdfasdfasd sadf asdfasdefa sdfasdf asd fasd fasdf
-        asdfasdfasdfasd asdfasdfasdfa asdfasd fas
-      </p>
-    </div>
-  </div>
-);
+export default ({ data }) => {
+  console.log(data);
 
-export default IndexPage;
+  const aboutData = data.allMarkdownRemark.edges[0].node;
+  console.log(aboutData);
+  return (
+    <div className="columns">
+      <div className="column ">
+        <img
+          src={aboutData.frontmatter.left.publicURL}
+          className="about-image-1"
+        />
+        <img
+          src={aboutData.frontmatter.right.publicURL}
+          className="about-image-2"
+        />
+      </div>
+      <div className="column">
+        <h1>{aboutData.frontmatter.title}</h1>
+        
+        <div dangerouslySetInnerHTML ={{__html: aboutData.html}} />
+      </div>
+    </div>
+  );
+};
+
+export const query = graphql`
+  query aboutQuery {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "about" } } }) {
+      totalCount
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+
+            left {
+              publicURL
+            }
+            right {
+              publicURL
+            }
+          }
+          html
+        }
+      }
+    }
+  }
+`;
