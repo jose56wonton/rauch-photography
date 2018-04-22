@@ -1,0 +1,95 @@
+.content {
+    margin-top: 9rem;
+}
+
+.navbar {
+    padding: 3rem 4.6rem;
+    background-color: transparent;
+    .navbar-item {
+      font-size: 2rem;
+      position: relative;
+      .underline {
+          position: absolute;
+          z-index: -100;
+          top: 55%;
+          left: 20px;
+          height: 0%;
+          right: 20px;
+          animation: hover-out 0.3s ease;
+          background-color: $color-2;
+      }
+  }
+  .navbar-item:hover {
+      color: $color-3;
+      .underline {
+          animation: hover-in 0.3s ease;
+          top: 0%;
+          height: 100%;
+      }
+  }
+  .navbar-item-active {
+    font-size: 2rem;
+    position: relative;
+    .underline {
+        position: absolute;
+        z-index: -100;
+        top: 55%;
+        left: 20px;
+        height: 20%;
+        right: 20px;
+        animation: hover-out-active 0.3s ease;
+    }
+}
+.navbar-item-active:hover {
+    color: $color-3;
+    .underline {
+        animation: hover-in-active 0.3s ease;
+        top: 0%;
+        height: 100%;
+    }
+}
+}
+
+@keyframes hover-in-active {
+  0% {
+      top: 55%;
+      height: 20%;
+  }
+  100% {
+      top: 0%;
+      height: 100%;
+  }
+}
+
+@keyframes hover-out-active {
+  0% {
+      top: 0%;
+      height: 100%;
+  }
+  100% {
+      top: 55%;
+      height: 20%;
+  }
+}
+
+@keyframes hover-in {
+  0% {
+      top: 55%;
+      height: 0%;
+  }
+  100% {
+      top: 0%;
+      height: 100%;
+  }
+}
+
+@keyframes hover-out {
+  0% {
+      top: 0%;
+      height: 100%;
+  }
+  100% {
+      top: 55%;
+      height: 0%;
+  }
+}

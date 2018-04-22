@@ -1,0 +1,60 @@
+
+.work-item {
+  height: 100vh;
+}
+
+.work-item-column {
+  position: relative;
+}
+
+.asdf {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.left {
+  .left-picture {
+      height: 50%;
+      width: 80%;
+      position: absolute;
+      top: 25%;
+      background-color: white;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  .center-picture {
+      top: 10%;
+      height: 70%;
+      width: 80%;
+      position: absolute;
+      background-color: white;
+  }
+  .center-content {
+      top: 82%;
+      position: absolute;
+      a {
+          width: 100px;
+          height: 100%;
+          border: 3px solid black;
+      }
+      a:hover {
+          color: green;
+          cursor: crosshair;
+      }
+  }
+}
+
+.right {
+  .right-picture {
+      height: 30%;
+      width: 100%;
+      top: 40%;
+      position: absolute;
+      background-color: white;
+  }
+}

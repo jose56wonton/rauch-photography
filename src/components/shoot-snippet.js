@@ -18,11 +18,11 @@ const ShootSnippet = (props) => {
     }
 
     return (
-      <div className="columns fill" >
-        <div className="left column hide-md col-3 col-sm-3">
+      <div className="columns work-item " >
+        <div className="left column work-item-column hide-md col-3 col-sm-3">
           <div className="left-picture" style={leftStyle} />
         </div>
-        <div className="center column col-5 col-sm-6 col-xs-6" >
+        <div className="center column work-item-column col-5 col-sm-6 col-xs-6" >
           <div className="center-picture" style={centerStyle} onClick={link}/>
           <div className="center-content" onClick={link} >           
             <h3>
@@ -30,7 +30,7 @@ const ShootSnippet = (props) => {
             </h3>
           </div>
         </div>
-        <div className="right column col-sm-6 col-xs-6">
+        <div className="right column work-item-column col-sm-6 col-xs-6">
           <div className="right-picture" style={rightStyle} />
         </div>
       </div>
