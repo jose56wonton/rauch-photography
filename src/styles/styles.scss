@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+root {
+    font-size: 10px;
+    overflow-y: auto;
+}
+@import '../../node_modules/bulma/sass/utilities/initial-variables.sass';
+
+
+@import '../../node_modules/bulma/bulma.sass';
+
+
+$color-0: rgb(157, 141, 241);
+$color-1: rgb(173, 168, 182);
+$color-2: rgb(148, 251, 171);
+$color-3: rgb(30, 21, 42);
+
+
+.content{
+    margin-top:9rem;
+}
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    text-align: right;
+    padding: 3rem 4.6rem;
+    background-color: white;
+    .right {
+        position: absolute;
+        background-color: white;
+        right: 0;
+    }
+}
+
+.fill {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+.columns {
+    height: 100vh;
+}
+
+.column {
+    position: relative;
+}
+
+.left {
+    .left-picture {
+        height: 50%;
+        width: 80%;
+        position: absolute;
+        top: 25%;
+        background-color: white;
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    .center-picture {
+        top: 10%;
+        height: 70%;
+        width: 80%;
+        position: absolute;
+        background-color: white;
+    }
+    .center-content {
+        top: 82%;
+        position: absolute;
+        a{
+            width:100px;
+            height: 100%;
+            border: 3px solid black;
+        }
+        a:hover{
+            color: green;
+            cursor: crosshair;
+        }
+    }
+}
+
+.right {
+    .right-picture {
+        height: 30%;
+        width: 100%;
+        top: 40%;
+        position: absolute;
+        background-color: white;
+    }
+}
+.asdf{
+    max-width:100%; height:auto;
+}
