@@ -1,5 +1,6 @@
 ---
 title: "Thanksgiving"
+type: work
 date: "2017-03-10"
 path: "thanksgiving"
 left: "../images/thanksgiving_left.jpg"

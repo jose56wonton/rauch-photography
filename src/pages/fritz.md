@@ -1,5 +1,6 @@
 ---
 title: "Fritz"
+type: work
 date: "2015-08-10"
 path: "fritz"
 left: "../images/fritz_left.jpg"

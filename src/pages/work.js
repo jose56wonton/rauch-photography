@@ -26,7 +26,9 @@ export default ({ data }) => {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      filter: { frontmatter: { type : {eq: "work" } } }
+    ) {
       totalCount
       edges {
         node {
