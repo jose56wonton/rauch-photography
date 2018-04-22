@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Header = ({ siteTitle }) => (
-  <nav className="navbar" role="navigation" aria-label="main navigation">
+  <nav className="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link className="navbar-item" to="/">
         Zach Rauch
