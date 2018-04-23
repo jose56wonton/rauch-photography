@@ -1,7 +1,7 @@
 ---
 title: "Zach Rauch"
-type: about
-path: "about"
+type: index
+path: "/"
 left: "../images/about/about-1.jpg"
 right: "../images/about/about-2.jpg"
 ---

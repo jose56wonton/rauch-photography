@@ -8,7 +8,7 @@ const Header = ({ siteTitle }) => (
     aria-label="main navigation"
   >
     <div className="navbar-brand">
-        <Link className="navbar-item" activeClassName="navbar-item-active" to="/about">
+        <Link className="navbar-item" activeClassName="navbar-item-active" to="/">
           <span className="underline" />Zach Rauch
         </Link>
 

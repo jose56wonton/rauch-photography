@@ -29,7 +29,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query aboutQuery {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "about" } } }) {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "index" } } }) {
       totalCount
       edges {
         node {
