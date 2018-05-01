@@ -36,7 +36,7 @@ export const query = graphql`
           frontmatter {
             title
             path
-
+            
             left {
               publicURL
             }
@@ -44,7 +44,6 @@ export const query = graphql`
               publicURL
             }
           }
-          html
         }
       }
     }

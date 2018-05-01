@@ -11,9 +11,9 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      message: "",
+      name: "Joshua Wootonn",
+      email: "jose56wonton@gmail.com",
+      message: "t is a long established fact that a reader will be di.",
       status: UNTOUCHED
     };
   }
@@ -21,14 +21,15 @@ class Contact extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {    
-    console.log(send(this.state.name,this.state.email,this.state.message))
+    console.log(this.state.name,this.state.email,this.state.message)
     const {name,email,message} = this.state;
     api.send({
       to: "jose56wonton@gmail.com",
       from: "Notify@ZachRauch.com",
       subject: `New Contact - ${name}`,
-      message: `Name: ${name}
-      Email: ${email}
+      message: `
+      Name: ${name}
+      Email: ${email} 
       Message: ${message}
       `
     })
@@ -39,7 +40,6 @@ class Contact extends Component {
       console.log(error);
     });
 
-    this.state.event.preventDefault();
   };
   render() {
     return (
