@@ -11,6 +11,6 @@ Data has 4 fields
 -message
 */
 export const send = (data) => {
-  return axios.post('localhost:3000/mail', data);
+  return axios.post(`localhost:3000/mail`, data);
 }
 

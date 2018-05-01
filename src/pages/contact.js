@@ -21,16 +21,13 @@ class Contact extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {    
-    console.log(send(this.state.name,this.state.email,this.state.message))
+    console.log(this.state.name,this.state.email,this.state.message)
     const {name,email,message} = this.state;
     api.send({
       to: "jose56wonton@gmail.com",
       from: "Notify@ZachRauch.com",
       subject: `New Contact - ${name}`,
-      message: `Name: ${name}
-      Email: ${email}
-      Message: ${message}
-      `
+      message: `Name: ${name} - Email: ${email} - Message: ${message}`
     })
     .then((response) => {
       console.log(response);
@@ -39,7 +36,6 @@ class Contact extends Component {
       console.log(error);
     });
 
-    this.state.event.preventDefault();
   };
   render() {
     return (
