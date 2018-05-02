@@ -16,20 +16,18 @@ class Contact extends Component {
       email: "jose56wonton@gmail.com",
       emailError: "",
       message: "Is a long established fact that a reader will be di.",
-      status: UNTOUCHED
+      responseMessage: ""
     };
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {
-    ;
     const { name, email, message } = this.state;
 
     const err = this.validate();
-
+    const here = this;
     if (!err) {
-
       api
         .send({
           to: "jose56wonton@gmail.com",
@@ -42,35 +40,32 @@ class Contact extends Component {
       `
         })
         .then(response => {
-          console.log(response);
+          here.setState({
+            name: "",
+            email: "",
+            message: "",
+            nameError: "",
+            emailError: ""
+          });
         })
         .catch(error => {
           console.log(error);
         });
-      this.setState=({
-        name:"",
-        email:"",
-        message:"",
-        nameError:"",
-        emailError:"",
-        messageError:"",
-      })
+      
     }
   };
   validate = () => {
     let isError = false;
     const errors = {
       nameError: "",
-      emailError: "",
-      messageError: ""
+      emailError: ""
     };
-    const messageReg = new RegExp("^[a-zA-Z.,!? ]*$");
-    const nameReg = new RegExp("^[a-zA-Z ,.'-]+$")
+    const nameReg = new RegExp("^[a-zA-Z ,.'-]+$");
     const emailReg = new RegExp(
       "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-    )
+    );
     // Name validation
-    if (this.state.email.indexOf(" ") === -1 || this.state.name.length < 6) {
+    if (this.state.name.indexOf(" ") === -1 || this.state.name.length < 6) {
       isError = true;
       errors.nameError = "Enter both a first and last name";
     }
@@ -79,19 +74,16 @@ class Contact extends Component {
       errors.nameError = "Invalid characters";
     }
     // Email validation
-    if(!emailReg.exec(this.state.email)){
+    if (!emailReg.exec(this.state.email)) {
       isError = true;
       errors.emailError = "Invalid Email";
-    }    
-    console.log(errors);
-    isError = true;
+    }
     this.setState({
       ...this.state,
       ...errors
     });
-    console.log(this.state)
     return isError;
-  }
+  };
   render() {
     return (
       <div className="container">
@@ -99,7 +91,7 @@ class Contact extends Component {
           <label className="label">Name</label>
           <div className="control">
             <input
-              className="input"
+              className={`input ${this.state.nameError ? "is-danger" : ""}`}
               type="text"
               placeholder="e.g Alex Smith"
               name="name"
@@ -108,13 +100,13 @@ class Contact extends Component {
               onChange={this.handleChange}
             />
           </div>
-          {this.state.nameError ? <p className="help is-danger">{this.state.emailError}</p> : null}
+          <p className="help is-danger"> {this.state.nameError} </p>
         </div>
         <div className="field">
           <label className="label">Email</label>
           <div className="control">
             <input
-              className="input"
+            className={`input ${this.state.emailError ? "is-danger" : ""}`}
               type="email"
               placeholder="e.g. alexsmith@gmail.com"
               name="email"
@@ -123,6 +115,7 @@ class Contact extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <p className="help is-danger"> {this.state.emailError} </p>
         </div>
         <div className="field">
           <label className="label">Message</label>
@@ -133,7 +126,6 @@ class Contact extends Component {
               placeholder="What kinda project are you..."
               name="message"
               value={this.state.message}
-              errorText={this.state.messageError}
               onChange={this.handleChange}
             />
           </div>
