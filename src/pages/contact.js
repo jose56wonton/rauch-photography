@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-const UNTOUCHED = "untouched";
+const INITIAL = "initial";
 const LOADING = "loading";
-const FAILED = "failed";
+const FAILURE = "failure";
 const SUCCESS = "success";
 
 import * as api from "../api";
@@ -11,12 +11,12 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Joshua Wootonn",
+      name: "",
       nameError: "",
-      email: "jose56wonton@gmail.com",
+      email: "",
       emailError: "",
-      message: "Is a long established fact that a reader will be di.",
-      responseMessage: ""
+      message: "",
+      status: INITIAL
     };
   }
   handleChange = event => {
@@ -31,7 +31,7 @@ class Contact extends Component {
       api
         .send({
           to: "jose56wonton@gmail.com",
-          from: "Notify@ZachRauch.com",
+          from: "ZachRauch@ZachRauch.com",
           subject: `New Contact - ${name}`,
           message: `
       Name: ${name}
@@ -45,14 +45,23 @@ class Contact extends Component {
             email: "",
             message: "",
             nameError: "",
-            emailError: ""
+            emailError: "",
+            status: SUCCESS
           });
+          console.log(response);
         })
         .catch(error => {
+          here.setState({
+            status: FAILURE
+          });
           console.log(error);
         });
-      
     }
+  };
+  close = () => {
+    this.setState({
+      status: INITIAL
+    });
   };
   validate = () => {
     let isError = false;
@@ -71,7 +80,7 @@ class Contact extends Component {
     }
     if (!nameReg.exec(this.state.name)) {
       isError = true;
-      errors.nameError = "Invalid characters";
+      errors.nameError = "Invalid Name";
     }
     // Email validation
     if (!emailReg.exec(this.state.email)) {
@@ -106,7 +115,7 @@ class Contact extends Component {
           <label className="label">Email</label>
           <div className="control">
             <input
-            className={`input ${this.state.emailError ? "is-danger" : ""}`}
+              className={`input ${this.state.emailError ? "is-danger" : ""}`}
               type="email"
               placeholder="e.g. alexsmith@gmail.com"
               name="email"
@@ -131,9 +140,63 @@ class Contact extends Component {
           </div>
         </div>
         <div className="control">
-          <button onClick={this.handleSubmit} className="button is-primary">
-            Submit
-          </button>
+          {this.state.status === LOADING ? (
+            <button
+              onClick={this.handleSubmit}
+              className="button is-primary"
+              disabled
+            >
+              Sending...
+            </button>
+          ) : (
+            <button onClick={this.handleSubmit} className="button is-primary">
+              Submit
+            </button>
+          )}
+        </div>
+        <div
+          className={`modal ${
+            this.state.status === SUCCESS ? "is-active" : ""
+          }`}
+        >
+          <div className="modal-background" />
+          <div className="modal-content">
+            <div className="card">
+              <header className="card-header">
+                <p className="card-header-title">Success</p>
+              </header>
+              <div className="card-content">
+                Zach has been emailed and will be in touch with you shortly!
+              </div>
+            </div>
+          </div>
+          <button
+            className="modal-close is-large"
+            aria-label="close"
+            onClick={this.close}
+          />
+        </div>
+        <div
+          className={`modal ${
+            this.state.status === FAILURE ? "is-active" : ""
+          }`}
+        >
+          <div className="modal-background" />
+          <div className="modal-content">
+            <div className="card">
+              <header className="card-header">
+                <p className="card-header-title">Failure</p>
+              </header>
+              <div className="card-content">
+                We couldn't connect to the server. Please try again soon!
+              </div>
+            </div>
+          </div>
+          <button
+            className="modal-close is-large"
+            aria-label="close"
+            onClick={this.close}
+          />
         </div>
       </div>
     );
