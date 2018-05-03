@@ -6469,22 +6469,14 @@ body {
 
 .fade-in-wrapper {
   transition: ease .4s;
-  background-color: transparent; }
+  background-color: transparent !important; }
 
-.fade-out-wrapper {
-  transition: ease .4s;
-  background-color: #CDF7F6; }
-
-.fade-out-img {
-  opacity: 0 !important;
-  transition: ease .4s; }
-
-.fade-in-img {
+.fade-in-photo {
   opacity: 1 !important;
   transition: ease .4s; }
 
 .work-item-photo-wrapper {
-  background-color: #CDF7F6;
+  background-color: #ada8b6;
   height: 65vh;
   transition: ease .4s; }
 

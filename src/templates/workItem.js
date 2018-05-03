@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import * as ScrollMagic from "scrollmagic";
-import {TweenMax} from 'gsap'
+import React, { Component } from 'react'
+import * as ScrollMagic from 'scrollmagic'
+import { TweenMax } from 'gsap'
 export default ({ data }) => {
-  return <WorkItem data={data} />;
-};
+  return <WorkItem data={data} />
+}
 
 export const query = graphql`
   query findMarkdown($name: String!) {
@@ -16,63 +16,68 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 class WorkItem extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      controller: new ScrollMagic.Controller()
-    };
+      
+      active: 0,
+    }
   }
   componentDidMount() {
-    this.props.data.markdownRemark.frontmatter.attachments.forEach((ele, i) => {
-
-      
-      
-
-      var ourScene = new ScrollMagic.Scene({
-        triggerElement: `#work-item-${i}`,
-        triggerHook: ".5",
-        reverse:true
-      })
-      .setClassToggle(`#work-item-${i}`, "fade-in-wrapper")
-      .setClassToggle(`#work-item-${i} img`, "fade-in-img")
-      .addTo(this.state.controller);
-
-      var ourScene = new ScrollMagic.Scene({
-        triggerElement: `#work-item-${i}`,
-        triggerHook: "onLeave",
-        reverse:true
-      })
-      .setClassToggle(`#work-item-${i}`, "fade-out-wrapper")
-      .setClassToggle(`#work-item-${i} img`, "fade-out-img")
-      .addTo(this.state.controller);
-      // var ourScene = new ScrollMagic.Scene({
-      //   triggerElement: `#work-item-${i - 1}`,
-      // })
-      // .setTween(fadeout_tween).addTo(this.state.controller);
-     
-        
-    });
+    const { attachments } = this.props.data.markdownRemark.frontmatter
+    const controller = new  ScrollMagic.Controller();
+    let scenes = []
+    attachments.forEach((ele, i) => {
+      scenes.push(
+        new ScrollMagic.Scene({
+          triggerElement: `#work-item-${i}`,
+          triggerHook: '.5',
+          // reverse: true,
+        })
+          .duration(10)
+          .on('start', event => {
+            if (event.scrollDirection === 'REVERSE') {
+              this.setState({
+                active: i - 1,
+              })
+            } else {
+              this.setState({
+                active: i,
+              })
+            }
+          })
+          .addTo(controller)
+      )
+    })
+    // .removeClassToggle(`#work-item-${i+1}`, "")
+    // .setClassToggle(`#work-item-${i+1} img`, "")
+    // .setClassToggle(`#work-item-${i-1}`, "")
+    // .setClassToggle(`#work-item-${i-1} img`, "")
   }
   render() {
-    console.log(this.props.data);
-
     const asdf = this.props.data.markdownRemark.frontmatter.attachments.map(
       (ele, i) => {
         return (
           <div key={i} className="work-item-box">
-            <div className="work-item-photo-wrapper" id={`work-item-${i}`} >
+            <div
+              className={`work-item-photo-wrapper ${
+                this.state.active === i ? 'fade-in-wrapper' : ''
+              }`}
+              id={`work-item-${i}`}
+            >
               <img
-                className="work-item-photo"
-                
+                className={`work-item-photo ${
+                  this.state.active === i ? 'fade-in-photo' : ''
+                }`}
                 src={ele.publicURL}
               />
             </div>
           </div>
-        );
+        )
       }
-    );
-    return <div className="container">{asdf}</div>;
+    )
+    return <div className="container">{asdf}</div>
   }
 }
