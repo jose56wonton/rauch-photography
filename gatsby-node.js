@@ -14,6 +14,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           node {
             frontmatter {
               path
+              type
             }
           }
         }
@@ -26,6 +27,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       // Individual work pages
+      console.log(node)
       if (node.frontmatter.type === "workItem") {
         createPage({
           path: `/${node.frontmatter.path}/`,

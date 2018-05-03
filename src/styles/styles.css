@@ -6461,9 +6461,38 @@ body {
 .work-item-column {
   position: relative; }
 
-.asdf {
+.work-item-box {
+  margin: 10vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.fade-in-wrapper {
+  transition: ease .4s;
+  background-color: transparent; }
+
+.fade-out-wrapper {
+  transition: ease .4s;
+  background-color: #CDF7F6; }
+
+.fade-out-img {
+  opacity: 0 !important;
+  transition: ease .4s; }
+
+.fade-in-img {
+  opacity: 1 !important;
+  transition: ease .4s; }
+
+.work-item-photo-wrapper {
+  background-color: #CDF7F6;
+  height: 65vh;
+  transition: ease .4s; }
+
+.work-item-photo {
   max-width: 100%;
-  height: auto; }
+  height: 65vh;
+  opacity: 0;
+  transition: ease .4s; }
 
 .left .left-picture {
   height: 50%;
