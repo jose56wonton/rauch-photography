@@ -6399,6 +6399,54 @@ body {
   100% {
     top: 55%;
     height: 0%; } }
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0px !important; }
+
+.about-text {
+  font-size: 1.4rem;
+  line-height: 2rem; }
+
+.vertical-spacer {
+  padding: 7rem 0; }
+
+.relative {
+  position: relative; }
+
+.height1 {
+  height: 70vh; }
+
+.height2 {
+  height: 84vh; }
+
+.about-image-wrapper-1 {
+  position: absolute;
+  height: 100%;
+  width: 100vw; }
+
+.about-image-wrapper-2 {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 80vw; }
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.text-wrapper {
+  padding: 0 40px; }
+
 .work-item {
   height: 100vh; }
 
