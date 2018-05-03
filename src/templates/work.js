@@ -1,20 +1,57 @@
-import React from "react";
+import React, { Component } from "react";
+import ShootSnippet from "../components/shoot-snippet";
+import Link from "gatsby-link";
+
 
 export default ({ data }) => {
-  console.log(data);
-  const asdf = data.markdownRemark.frontmatter.attachments.map((ele)=>{
-    return <img className="asdf" src={ele.publicURL} />
-  })
-  return <div className="container">{asdf}</div>;
+
+  
+  const asdf = data.allMarkdownRemark.edges.map(({ node }) => {
+    return (
+      <div key={node.id} >
+        <ShootSnippet
+          left={node.frontmatter.left.publicURL}
+          center={node.frontmatter.center.publicURL}
+          right={node.frontmatter.right.publicURL}
+          title={node.frontmatter.title}
+          date={node.frontmatter.date}
+          path={node.frontmatter.path}
+        />
+      </div>
+    );
+  });
+  return (
+    <div className="container grid-xl">      
+      {asdf}
+    </div>
+  );
 };
 
 export const query = graphql`
-  query findMarkdown($name: String!) {
-    markdownRemark(frontmatter: { path: { eq: $name } }) {
-      frontmatter {
-        title        
-        attachments{
-          publicURL
+  query IndexQuery {
+    allMarkdownRemark(
+      filter: { frontmatter: { type : {eq: "workItem" } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+            path
+            attachments {
+              publicURL
+            }
+            left {
+              publicURL
+            }
+            right {
+              publicURL
+            }
+            center {
+              publicURL
+            }
+          }
         }
       }
     }

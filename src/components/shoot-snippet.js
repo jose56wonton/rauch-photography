@@ -1,31 +1,9 @@
 import { navigateTo } from "gatsby-link"
-import ScrollReveal from 'scrollreveal';
 import React, { Component } from 'react';
 
 class ShootSnippet extends Component {
   constructor(props){
     super(props);
-  }
-  componentDidMount(){
-    const config = {      
-      duration: 1000,
-      delay: 150,
-      distance: '30px',
-      scale: 1,
-      easing: 'ease',
-    }
-    const rightConfig = { 
-      ...config , origin: 'right'
-    }
-    const centerConfig = { 
-      ...config , origin: 'bottom'
-    }
-    const leftConfig = { 
-      ...config , origin: 'left'
-    }
-    console.log(this.refs)
-    ScrollReveal().reveal(this.refs.right, rightConfig).reveal(this.refs.center, centerConfig).reveal(this.refs.left, leftConfig)
-    
   }
   link = () => {
     navigateTo('/'+this.props.path)

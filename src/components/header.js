@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => (
   >
     <div className="navbar-brand">
         <Link className="navbar-item" activeClassName="navbar-item-active" to="/">
-          <span className="underline" />Zach Rauch
+          <span className="underline" />zach rauch
         </Link>
 
       <a
@@ -27,10 +27,10 @@ const Header = ({ siteTitle }) => (
       <div className="navbar-end">
           
           <Link className="navbar-item" activeClassName="navbar-item-active" to="/work">
-            <span className="underline"></span>Work
+            <span className="underline"></span>work
           </Link>
           <Link className="navbar-item" activeClassName="navbar-item-active" to="/contact">
-            <span className="underline"></span>Contact
+            <span className="underline"></span>contact
           </Link>
       </div>
     </div>

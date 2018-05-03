@@ -17,9 +17,7 @@
     "gatsby-transformer-remark": "^1.7.40",
     "gatsby-transformer-sharp": "^1.6.22",
     "react-form": "^3.5.3",
-    "react-helmet": "^5.2.0",
-    "scrollreveal": "^3.4.0",
-    "sendgrid": "^5.2.3"
+    "react-helmet": "^5.2.0"
   },
   "keywords": [
     "gatsby"

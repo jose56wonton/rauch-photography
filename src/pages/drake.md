@@ -1,6 +1,6 @@
 ---
 title: "Frake"
-type: work
+type: workItem
 date: "2017-08-10"
 path: "frake"
 left: "../images/drake_left.jpg"
