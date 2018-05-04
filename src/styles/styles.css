@@ -6329,9 +6329,6 @@ body {
   font-family: 'Muli', Helvetica,arial;
   color: #1e152a; }
 
-.content {
-  margin-top: 9rem; }
-
 .navbar {
   padding: 3rem 4.6rem;
   background-color: transparent; }
@@ -6407,6 +6404,9 @@ body {
   line-height: 3rem;
   font-size: 2rem; }
 
+.about-spacer {
+  height: 11vh; }
+
 .about-title {
   font-size: 3rem;
   font-weight: bold;
@@ -6455,11 +6455,8 @@ body {
 .text-wrapper {
   padding: 0 40px; }
 
-.work-item {
-  height: 100vh; }
-
-.work-item-column {
-  position: relative; }
+.work-spacer {
+  height: 4rem; }
 
 .work-item-box {
   margin: 10vh 0;
@@ -6486,41 +6483,62 @@ body {
   opacity: 0;
   transition: ease .4s; }
 
-.left .left-picture {
-  height: 50%;
-  width: 80%;
+.work {
+  padding: 10vh 0;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.work-pictures {
+  height: 70vh; }
+
+.left-picture {
+  height: 40vh;
+  width: auto;
   position: absolute;
   top: 25%;
-  background-color: white; }
+  background-color: white;
+  object-fit: cover; }
 
-.center {
-  display: flex;
-  justify-content: center; }
-  .center .center-picture {
-    top: 10%;
-    height: 70%;
-    width: 80%;
-    position: absolute;
-    background-color: white; }
-  .center .center-content {
-    top: 82%;
-    position: absolute; }
-    .center .center-content a {
-      width: 100px;
-      height: 100%;
-      border: 3px solid black; }
-    .center .center-content a:hover {
-      color: green;
-      cursor: crosshair; }
-
-.right .right-picture {
-  height: 30%;
-  width: 100%;
-  top: 40%;
+.center-picture {
+  top: 10%;
+  left: 40%;
+  z-index: -1;
+  height: 70vh;
+  width: auto;
   position: absolute;
-  background-color: white; }
+  background-color: white;
+  object-fit: cover; }
+
+.right-picture {
+  height: 30vh;
+  width: auto;
+  top: 40%;
+  left: 70%;
+  position: absolute;
+  background-color: white;
+  object-fit: cover; }
+
+.work-content {
+  height: 10vh; }
+
+.center-content {
+  top: 82%;
+  position: absolute; }
+  .center-content a {
+    width: 100px;
+    height: 100%;
+    border: 3px solid black; }
+  .center-content a:hover {
+    color: green;
+    cursor: crosshair; }
 
 .contact-height {
-  height: 60vh; }
+  height: 75vh; }
+
+.contact-spacer {
+  height: 15vh; }
 
 /*# sourceMappingURL=styles.css.map */

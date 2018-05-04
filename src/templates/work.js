@@ -21,7 +21,8 @@ export default ({ data }) => {
     );
   });
   return (
-    <div className="container grid-xl">      
+    <div className="container">   
+    <div className="work-spacer" />   
       {asdf}
     </div>
   );

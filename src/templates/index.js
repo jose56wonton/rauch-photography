@@ -7,7 +7,8 @@ export default ({ data }) => {
   const aboutData = data.allMarkdownRemark.edges[0].node;
   console.log(aboutData);
   return (
-    <div className="container ">
+    <div className="container">
+      <div className="about-spacer"></div>
       <div className="columns vertical-spacer">
         <div className="column is-4 text-right text-center">
           <div className="text-wrapper">

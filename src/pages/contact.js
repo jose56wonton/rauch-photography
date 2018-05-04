@@ -96,6 +96,7 @@ class Contact extends Component {
   render() {
     return (
       <div className="container contact-height">
+      <div className="contact-spacer"></div>
         <div className="field">
           <label className="label">Name</label>
           <div className="control">
