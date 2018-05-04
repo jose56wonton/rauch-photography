@@ -6,6 +6,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const workItemTemplate = path.resolve(`src/templates/workItem.js`);
   const indexTemplate = path.resolve("src/templates/index.js");
   const workTemplate = path.resolve("src/templates/work.js");
+  const contactTemplate = path.resolve("src/templates/contact.js");
   // create work pages
   graphql(`
     {
@@ -54,6 +55,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           component: workTemplate,
           context: {
             name: "work"
+          }
+        });
+      }
+      if (node.frontmatter.type === "contact") {
+        createPage({
+          path: `/contact`,
+          component: contactTemplate,
+          context: {
+            name: "contact"
           }
         });
       }
