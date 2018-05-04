@@ -4,8 +4,7 @@ import React from 'react'
 export const Modal = (props) => {
   return(
     <div
-          className={`modal ${
-            prop.formStatus === props.modalType ? "is-active" : ""
+          className={`modal ${props.formStatus === props.modalType ? "is-active" : ""
           }`}
         >
           <div className="modal-background" />

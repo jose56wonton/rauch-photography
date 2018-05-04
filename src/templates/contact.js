@@ -1,13 +1,14 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Link from "gatsby-link";
-
+import Modal from "../components/modal";
+import Input from "../components/input";
+import TextArea from "../components/textArea";
 const INITIAL = "initial";
 const LOADING = "loading";
 const FAILURE = "failure";
 const SUCCESS = "success";
 
 import * as api from "../api";
-
 
 class Contact extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Contact extends Component {
       message: "",
       status: INITIAL
     };
+    console.log(props.data.allMarkdownRemark.edges[0].node.frontmatter);
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -60,7 +62,7 @@ class Contact extends Component {
         });
     }
   };
-  close = () => {
+  closeModal = () => {
     this.setState({
       status: INITIAL
     });
@@ -96,52 +98,49 @@ class Contact extends Component {
     return isError;
   };
   render() {
+    const {
+      nameLabel,
+      namePlaceholder,
+      emailLabel,
+      emailPlaceholder,
+      messageLabel,
+      messagePlaceholder,
+      buttonLabel
+    } = this.props.data.allMarkdownRemark.edges[0].node.frontmatter;
     return (
       <div className="container contact-height">
-      <div className="contact-spacer"></div>
-        <div className="field">
-          <label className="label">Name</label>
-          <div className="control">
-            <input
-              className={`input ${this.state.nameError ? "is-danger" : ""}`}
-              type="text"
-              placeholder="e.g Alex Smith"
-              name="name"
-              value={this.state.name}
-              errorText={this.state.nameError}
-              onChange={this.handleChange}
-            />
-          </div>
-          <p className="help is-danger"> {this.state.nameError} </p>
-        </div>
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
-            <input
-              className={`input ${this.state.emailError ? "is-danger" : ""}`}
-              type="email"
-              placeholder="e.g. alexsmith@gmail.com"
-              name="email"
-              value={this.state.email}
-              errorText={this.state.emailError}
-              onChange={this.handleChange}
-            />
-          </div>
-          <p className="help is-danger"> {this.state.emailError} </p>
-        </div>
-        <div className="field">
-          <label className="label">Message</label>
-          <div className="control">
-            <textarea
-              className="textarea"
-              type="textarea"
-              placeholder="What kinda project are you..."
-              name="message"
-              value={this.state.message}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
+        <div className="contact-spacer" />
+        <Input
+          label={nameLabel}
+          placeholder={namePlaceholder}
+          className="input"
+          error={this.state.nameError}
+          value={this.state.name}
+          name="name"
+          handleChange={this.handleChange}
+          type="text"
+        />
+        <Input
+          label={emailLabel}
+          placeholder={emailPlaceholder}
+          className="input"
+          error={this.state.emailError}
+          value={this.state.email}
+          name="email"
+          handleChange={this.handleChange}
+          type="text"
+        />
+        <TextArea
+          label={messageLabel}
+          placeholder={messagePlaceholder}
+          className="textarea"
+          error={""}
+          value={this.state.message}
+          name="message"
+          handleChange={this.handleChange}
+          type="textarea"
+        />
+
         <div className="control">
           {this.state.status === LOADING ? (
             <button
@@ -153,54 +152,24 @@ class Contact extends Component {
             </button>
           ) : (
             <button onClick={this.handleSubmit} className="button is-primary">
-              Submit
+              {buttonLabel}
             </button>
           )}
         </div>
-        <div
-          className={`modal ${
-            this.state.status === SUCCESS ? "is-active" : ""
-          }`}
-        >
-          <div className="modal-background" />
-          <div className="modal-content">
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">Success</p>
-              </header>
-              <div className="card-content">
-                Zach has been emailed and will be in touch with you shortly!
-              </div>
-            </div>
-          </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={this.close}
-          />
-        </div>
-        <div
-          className={`modal ${
-            this.state.status === FAILURE ? "is-active" : ""
-          }`}
-        >
-          <div className="modal-background" />
-          <div className="modal-content">
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">Failure</p>
-              </header>
-              <div className="card-content">
-                We couldn't connect to the server. Please try again soon!
-              </div>
-            </div>
-          </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={this.close}
-          />
-        </div>
+        <Modal
+          formStatus={this.state.status}
+          modalType={SUCCESS}
+          title="Success"
+          message="Zach has been emailed and will be in touch with you shortly!"
+          close={this.closeModal}
+        />
+        <Modal
+          formStatus={this.state.status}
+          modalType={FAILURE}
+          title="Failure"
+          message="We couldn't connect to the server. Please try again soon!"
+          close={this.closeModal}
+        />
       </div>
     );
   }
