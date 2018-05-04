@@ -2,76 +2,68 @@ import React, { Component } from "react";
 import * as ScrollMagic from "scrollmagic";
 import * as Vibrant from "node-vibrant";
 
-export const query = graphql`
-  query findMarkdown($name: String!) {
-    markdownRemark(frontmatter: { path: { eq: $name } }) {
-      frontmatter {
-        title
-        attachments {
-          publicURL
-        }
-      }
-    }
-  }
-`;
 
 class WorkItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       active: 0,
+      controller: new ScrollMagic.Controller(),
       styles: []
     };
   }
   componentDidMount() {
     const { attachments } = this.props.data.markdownRemark.frontmatter;
-    const controller = new ScrollMagic.Controller();
+    this.initialScrollScenes(attachments);
+    this.initializePhotoBackgrounds(attachments);
+        
+  }
+  initialScrollScenes = (attachments) => {
     let scenes = [];
-    attachments.forEach((ele, i) => {
+    attachments.forEach((attachments, i) => {
       scenes.push(
         new ScrollMagic.Scene({
           triggerElement: `#work-item-${i}`,
           triggerHook: ".5"
-          // reverse: true,
         })
           .duration(10)
           .on("start", event => {
             if (event.scrollDirection === "REVERSE") {
-              this.setState({
-                active: i - 1
-              });
+              if(i !== 0){
+                this.setState({ active: i - 1 });
+              }
+              
             } else {
               this.setState({
                 active: i
               });
             }
           })
-          .addTo(controller)
+          .addTo(this.state.controller)
       );
     });
 
-    this.props.data.markdownRemark.frontmatter.attachments.forEach((ele,i) => {
-      Vibrant.from(ele.publicURL).getPalette((err, palette) => {    
+  }
+
+  initializePhotoBackgrounds = (photos) => {
+    photos.forEach((photo,i) => {
+      Vibrant.from(photo.publicURL).getPalette((err, palette) => {    
         console.log(palette)    
         let rgb
         if(palette.Muted)
           rgb = palette.Muted._rgb;
         else if (palette.LightMuted)
-          rgb = palette.LightMuted._rgb;
-        
+          rgb = palette.LightMuted._rgb;        
         this.state.styles.push({
           backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
-        }) 
-        
+        })         
       });
     });
-
   }
  
   render() {
     const asdf = this.props.data.markdownRemark.frontmatter.attachments.map(
-      (ele, i) => {
-        
+      (ele, i) => {       
        
         return (
           <div key={i} className="work-item-box">
@@ -102,3 +94,19 @@ class WorkItem extends Component {
   }
 }
 export default WorkItem;
+
+
+
+
+export const query = graphql`
+  query findMarkdown($name: String!) {
+    markdownRemark(frontmatter: { path: { eq: $name } }) {
+      frontmatter {
+        title
+        attachments {
+          publicURL
+        }
+      }
+    }
+  }
+`;
