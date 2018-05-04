@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as ScrollMagic from "scrollmagic";
-import { TweenMax } from "gsap";
 export default ({ data }) => {
   return <WorkItem data={data} />;
 };
@@ -54,6 +53,7 @@ class WorkItem extends Component {
   render() {
     const asdf = this.props.data.markdownRemark.frontmatter.attachments.map(
       (ele, i) => {
+
         return (
           <div key={i} className="work-item-box">
             <div

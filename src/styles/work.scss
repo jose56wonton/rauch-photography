@@ -10,26 +10,26 @@
 }
 
 .fade-in-wrapper {
-    transition: ease .4s;
+    transition: ease .7s;
     background-color: transparent !important;
 }
 
 .fade-in-photo {
     opacity: 1 !important;
-    transition: ease .4s;
+    transition: ease .7s;
 }
 
 .work-item-photo-wrapper {
     background-color: $color-1;
     height: 65vh;
-    transition: ease .4s;
+    transition: ease .7s;
 }
 
 .work-item-photo {
     max-width: 100%;
     height: 65vh;
     opacity: 0;
-    transition: ease .4s;
+    transition: ease .7s;
 }
 
 // Work
