@@ -2,7 +2,7 @@
 title: "Graduation"
 type: category
 path: "graduation"
-left: "../../images/party_left.jpg"
-center: "../../images/party_center.jpg"
-right: "../../images/party_right.jpg"
+left: "../../images/drake/left.jpg"
+center: "../../images/drake/center.jpg"
+right: "../../images/drake/right.jpg"
 ---

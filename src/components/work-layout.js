@@ -22,15 +22,15 @@ class WorkLayout extends Component {
     return (
       <div className="work">
         <div className="work-pictures">
-          <img className="left-picture" src={this.props.left} />         
+          <img className="work-left-picture" src={this.props.left} />         
           <img
-            className="center-picture"
+            className="work-center-picture"
             src={this.props.center}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
             onMouseLeave={this.hoverOnText}
           />
-          <img className="right-picture" src={this.props.right} />
+          <img className="work-right-picture" src={this.props.right} />
         </div>
         <div className="work-content" onClick={this.link}>
           <h3 className={`strike ${this.state.textHover ? "" : "strike-hover" }`}>            

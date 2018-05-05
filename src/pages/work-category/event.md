@@ -2,7 +2,7 @@
 title: "Event"
 type: category
 path: "event"
-left: "../../images/party_left.jpg"
-center: "../../images/party_center.jpg"
-right: "../../images/party_right.jpg"
+left: "../../images/thanksgiving/left.jpg"
+center: "../../images/thanksgiving/center.jpg"
+right: "../../images/thanksgiving/4.jpg"
 ---
