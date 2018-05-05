@@ -6474,28 +6474,28 @@ a {
   height: 70vh; }
 
 .work-category-left-picture {
-  height: 40vh;
-  width: auto;
+  height: 33vw;
+  width: 33vw;
   position: absolute;
   top: 25%;
-  z-index: 50;
+  z-index: 51;
   background-color: white;
   object-fit: cover; }
 
 .work-category-center-picture {
   cursor: pointer;
   top: 10%;
-  left: 40%;
+  left: 30%;
   z-index: 40;
-  height: 70vh;
-  width: auto;
+  height: 40vw;
+  width: 40vw;
   position: absolute;
   background-color: white;
   object-fit: cover; }
 
 .work-category-right-picture {
-  height: 30vh;
-  width: auto;
+  height: 30vw;
+  width: 30vw;
   top: 40%;
   left: 70%;
   z-index: 50;

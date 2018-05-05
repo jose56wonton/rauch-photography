@@ -7,6 +7,9 @@ path: "stadium"
 left: "../../images/stadium/left.jpg"
 center: "../../images/stadium/center.jpg"
 right: "../../images/stadium/right.jpg"
+leftOrientation: portrait
+centerOrientation: landscape
+rightOrientation: landscape
 attachments: 
   - "../../images/stadium/left.jpg"
   - "../../images/stadium/center.jpg"

@@ -7,6 +7,9 @@ path: "thanksgiving"
 left: "../../images/thanksgiving/left.jpg"
 center: "../../images/thanksgiving/center.jpg"
 right: "../../images/thanksgiving/right.jpg"
+leftOrientation: landscape
+centerOrientation: portrait
+rightOrientation: landscape
 attachments: 
   - "../../images/thanksgiving/left.jpg"
   - "../../images/thanksgiving/center.jpg"

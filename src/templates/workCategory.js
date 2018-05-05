@@ -13,6 +13,9 @@ export default ({ data }) => {
             left={node.frontmatter.left.publicURL}
             center={node.frontmatter.center.publicURL}
             right={node.frontmatter.right.publicURL}
+            leftOrientation={node.frontmatter.leftOrientation}
+            centerOrientation={node.frontmatter.centerOrientation}
+            rightOrientation={node.frontmatter.rightOrientation}
             title={node.frontmatter.title}
             date={node.frontmatter.date}
             path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
@@ -56,6 +59,9 @@ query findShit($name: String!){
              center {
                publicURL
              }
+             leftOrientation
+             rightOrientation
+             centerOrientation
            }
          }
        }

@@ -7,6 +7,9 @@ path: "pedros"
 left: "../../images/pedros/left.jpg"
 center: "../../images/pedros/center.jpg"
 right: "../../images/pedros/right.jpg"
+leftOrientation: landscape
+centerOrientation: landscape
+rightOrientation: landscape
 attachments: 
   - "../../images/pedros/left.jpg"
   - "../../images/pedros/center.jpg"
