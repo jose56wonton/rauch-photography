@@ -20,6 +20,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             frontmatter {
               path
               type
+              category
             }
           }
         }
@@ -35,7 +36,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       console.log(node)
       if (node.frontmatter.type === "category"){
         createPage({
-          path: `/${node.frontmatter.path}/`,
+          path: `/work/${node.frontmatter.path}/`,
           component: workCategoryTemplate,
           context: {
             name: node.frontmatter.path
@@ -44,7 +45,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
       if (node.frontmatter.type === "workItem") {
         createPage({
-          path: `/${node.frontmatter.path}/`,
+          path: `/work/${node.frontmatter.category}/${node.frontmatter.path}/`,
           component: workItemTemplate,
           context: {
             name: node.frontmatter.path

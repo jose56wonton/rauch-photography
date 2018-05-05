@@ -14,7 +14,7 @@ export default ({ data }) => {
           center={node.frontmatter.center.publicURL}
           right={node.frontmatter.right.publicURL}
           title={node.frontmatter.title}
-          path={node.frontmatter.path}
+          path={`work/${node.frontmatter.path}`}
         />
       </div>
     );
