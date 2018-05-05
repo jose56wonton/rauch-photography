@@ -5,41 +5,73 @@
 
 
  To specify thickness:
- 
+
       .strike:before,.strike:after{
         height: .2rem;
       }   
 */
-.strike {
+.strike span {
   position: relative;
-  display: block;
+  display: inline-block;
+  margin: 0 4px;
   cursor: pointer;
 }
-.strike:before, .strike:after {
+.strike span:before , .strike span:after {
   content: '';
   position: absolute;
   width: 0%;
   height: 2px;
   top: 53%;
-  margin-top: -0.5px;
   background: $color-3;
 }
-.strike:before {
+.strike span:before {
   left: -2.5px;
 }
-.strike:after {
+.strike span:after {
   right: 2.5px;
   background: $color-3;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-
-.strike:hover:before {
+.strike  span:hover:before {
   background: $color-3;
   width: 100%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+.strike span:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}
 
-.strike:hover:after {
+
+.underline span {
+  position: relative;
+  display: inline-block;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.underline span:before , .underline span:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 100%;
+  background: $color-3;
+}
+.underline span:before {
+  left: -2.5px;
+}
+.underline span:after {
+  right: 2.5px;
+  background: $color-3;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.underline  span:hover:before {
+  background: $color-3;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.underline span:hover:after {
   background: transparent;
   width: 100%;
   transition: 0s;

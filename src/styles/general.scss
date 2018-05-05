@@ -4,11 +4,14 @@
   .navbar-element {
     font-size: 2rem;
     text-decoration: none;
-    .strike:before,.strike:after{
+    padding: 0 .4rem;
+    span:before,span:after{
       height: .2rem;
     }      
   }
 }
+
+
 
 
 a{
@@ -27,6 +30,9 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    span:before, span:after{
+      height: 1px;
+    }
 }
 
 .footer-title {
