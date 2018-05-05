@@ -4,10 +4,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
   const workItemTemplate = path.resolve(`src/templates/workItem.js`);
+  const workCategoryTemplate = path.resolve(`src/templates/workCategory.js`);
   const indexTemplate = path.resolve("src/templates/index.js");
   const workTemplate = path.resolve("src/templates/work.js");
   const contactTemplate = path.resolve("src/templates/contact.js");
   // create work pages
+
+ 
+
   graphql(`
     {
       allMarkdownRemark {
@@ -29,6 +33,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       // Individual work pages
       console.log(node)
+      if (node.frontmatter.type === "category"){
+        createPage({
+          path: `/${node.frontmatter.path}/`,
+          component: workCategoryTemplate,
+          context: {
+            name: node.frontmatter.path
+          }
+        });
+      }
       if (node.frontmatter.type === "workItem") {
         createPage({
           path: `/${node.frontmatter.path}/`,

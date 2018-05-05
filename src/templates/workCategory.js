@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import ShootSnippet from "../components/shoot-snippet";
 import Link from "gatsby-link";
-
+import Blank from "../components/blank";
 
 export default ({ data }) => {
-
-  
-  const asdf = data.allMarkdownRemark.edges.map(({ node }) => {
+  let content;
+  if( data.allMarkdownRemark ){
+  content = data.allMarkdownRemark.edges.map(({ node }) => {
     return (
       <div key={node.id} >
         <ShootSnippet
@@ -19,42 +19,46 @@ export default ({ data }) => {
         />
       </div>
     );
-  });
+  });}
+  else{
+    content = <Blank />
+  }
   return (
     <div className="container">   
     <div className="work-spacer" />   
-      {asdf}
+      {content}
     </div>
   );
 };
 
 export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex:"/work-item/.*\\.md$/"},frontmatter: { category : {eq: "event" } }}
-    ) {
-      totalCount
-      edges {
-        node {
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            path
-            attachments {
-              publicURL
-            }
-            left {
-              publicURL
-            }
-            right {
-              publicURL
-            }
-            center {
-              publicURL
-            }
-          }
-        }
-      }
-    }
-  }
+query findShit($name: String!){
+  allMarkdownRemark(   
+   filter: {fileAbsolutePath: {regex:"/work-item/.*\\.md$/"},frontmatter: { category : {eq: $name } }}
+  ) {
+       totalCount
+       edges {
+         node {
+           frontmatter {
+             title
+             date(formatString: "DD MMMM, YYYY")
+             path
+             category
+             attachments {
+               publicURL
+             }
+             left {
+               publicURL
+             }
+             right {
+               publicURL
+             }
+             center {
+               publicURL
+             }
+           }
+         }
+       }
+     }
+ }
 `;

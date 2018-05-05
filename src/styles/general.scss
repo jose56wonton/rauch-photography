@@ -110,3 +110,23 @@
         line-height: 3rem;
         font-size: 2rem;
     }
+
+
+
+
+
+
+
+
+
+.hero-cover{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .hero-content{
+        .hero-title{
+            font-size: 5rem;
+        }
+    }
+}
