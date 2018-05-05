@@ -1,0 +1,46 @@
+
+/*
+ Strike is for text wrapped in span.strike
+ and strikes through on hover
+
+
+ To specify thickness:
+ 
+      .strike:before,.strike:after{
+        height: .2rem;
+      }   
+*/
+.strike {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.strike:before, .strike:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 53%;
+  margin-top: -0.5px;
+  background: $color-3;
+}
+.strike:before {
+  left: -2.5px;
+}
+.strike:after {
+  right: 2.5px;
+  background: $color-3;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.strike:hover:before {
+  background: $color-3;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.strike:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}

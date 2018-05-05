@@ -6332,70 +6332,16 @@ body {
 .navbar {
   padding: 3rem 4.6rem;
   background-color: transparent; }
-  .navbar .navbar-item {
+  .navbar .navbar-element {
     font-size: 2rem;
-    position: relative; }
-    .navbar .navbar-item .underline {
-      position: absolute;
-      z-index: -100;
-      top: 55%;
-      left: 20px;
-      height: 0%;
-      right: 20px;
-      animation: hover-out 0.3s ease;
-      background-color: #94fbab; }
-  .navbar .navbar-item:hover {
-    color: #1e152a; }
-    .navbar .navbar-item:hover .underline {
-      animation: hover-in 0.3s ease;
-      top: 0%;
-      height: 100%; }
-  .navbar .navbar-item-active {
-    font-size: 2rem;
-    position: relative; }
-    .navbar .navbar-item-active .underline {
-      position: absolute;
-      z-index: -100;
-      top: 55%;
-      left: 20px;
-      height: 20%;
-      right: 20px;
-      animation: hover-out-active 0.3s ease; }
-  .navbar .navbar-item-active:hover {
-    color: #1e152a; }
-    .navbar .navbar-item-active:hover .underline {
-      animation: hover-in-active 0.3s ease;
-      top: 0%;
-      height: 100%; }
+    text-decoration: none; }
+    .navbar .navbar-element .strike:before, .navbar .navbar-element .strike:after {
+      height: .2rem; }
 
-@keyframes hover-in-active {
-  0% {
-    top: 55%;
-    height: 20%; }
-  100% {
-    top: 0%;
-    height: 100%; } }
-@keyframes hover-out-active {
-  0% {
-    top: 0%;
-    height: 100%; }
-  100% {
-    top: 55%;
-    height: 20%; } }
-@keyframes hover-in {
-  0% {
-    top: 55%;
-    height: 0%; }
-  100% {
-    top: 0%;
-    height: 100%; } }
-@keyframes hover-out {
-  0% {
-    top: 0%;
-    height: 100%; }
-  100% {
-    top: 55%;
-    height: 0%; } }
+a {
+  text-decoration: none;
+  color: #1e152a; }
+
 .min-size {
   min-height: 100vh; }
 
@@ -6553,5 +6499,48 @@ body {
 
 .contact-spacer {
   height: 15vh; }
+
+/*
+ Strike is for text wrapped in span.strike
+ and strikes through on hover
+
+
+ To specify thickness:
+ 
+      .strike:before,.strike:after{
+        height: .2rem;
+      }   
+*/
+.strike {
+  position: relative;
+  display: block;
+  cursor: pointer; }
+
+.strike:before, .strike:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 53%;
+  margin-top: -0.5px;
+  background: #1e152a; }
+
+.strike:before {
+  left: -2.5px; }
+
+.strike:after {
+  right: 2.5px;
+  background: #1e152a;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+.strike:hover:before {
+  background: #1e152a;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+.strike:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s; }
 
 /*# sourceMappingURL=styles.css.map */

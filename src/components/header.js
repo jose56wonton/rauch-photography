@@ -8,8 +8,8 @@ const Header = ({ siteTitle }) => (
     aria-label="main navigation"
   >
     <div className="navbar-brand">
-        <Link className="navbar-item" activeClassName="navbar-item-active" to="/">
-          <span className="underline" />zach rauch
+        <Link className="navbar-element link" activeClassName="link-active" to="/">
+          <span className="strike">zach rauch</span>
         </Link>
 
       <a
@@ -26,11 +26,11 @@ const Header = ({ siteTitle }) => (
     <div className="navbar-menu">
       <div className="navbar-end">
           
-          <Link className="navbar-item" activeClassName="navbar-item-active" to="/work">
-            <span className="underline"></span>work
+          <Link className="navbar-element link" activeClassName="link-active" to="/work">
+            <span className="strike">work</span>
           </Link>
-          <Link className="navbar-item" activeClassName="navbar-item-active" to="/contact">
-            <span className="underline"></span>contact
+          <Link className="navbar-element link" activeClassName="link-active" to="/contact">
+            <span className="strike">contact</span>
           </Link>
       </div>
     </div>

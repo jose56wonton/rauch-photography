@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
+import Link from "gatsby-link";
 
 const Footer = ({ siteTitle }) => (
   <div className="footer">
@@ -8,13 +8,20 @@ const Footer = ({ siteTitle }) => (
     </div>
     <div>
       <p>
-        Folow me on <a>facebook</a> and <a>instagram</a>
+        Folow me on{" "}
+        <a className="link" href="https://www.facebook.com/zach.rauch27">
+          <span className="strike" />facebook
+        </a>{" "}
+        and{" "}
+        <a className="link" href="https://www.instagram.com/zacharydakery/">
+          <span className="strike" />instagram
+        </a>
       </p>
     </div>
   </div>
-)
+);
 
-export default Footer
+export default Footer;
 
 /*
 
