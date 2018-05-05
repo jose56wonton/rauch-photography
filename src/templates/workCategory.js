@@ -14,6 +14,7 @@ export default ({ data }) => {
           center={node.frontmatter.center.publicURL}
           right={node.frontmatter.right.publicURL}
           title={node.frontmatter.title}
+          date={node.frontmatter.date}
           path={node.frontmatter.path}
         />
       </div>
@@ -28,15 +29,20 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query workQuery {
-    allMarkdownRemark(filter: {fileAbsolutePath: {regex:"/work-category/.*\\.md$/"}}) {
+  query IndexQuery {
+    allMarkdownRemark(
+      filter: {fileAbsolutePath: {regex:"/work-item/.*\\.md$/"},frontmatter: { category : {eq: "event" } }}
+    ) {
       totalCount
       edges {
         node {
           frontmatter {
             title
-            type
+            date(formatString: "DD MMMM, YYYY")
             path
+            attachments {
+              publicURL
+            }
             left {
               publicURL
             }
