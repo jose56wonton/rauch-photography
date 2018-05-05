@@ -26,10 +26,10 @@ const Header = ({ siteTitle }) => (
     <div className="navbar-menu">
       <div className="navbar-end">
           
-          <Link className="navbar-element strike" activeClassName="active" to="/work">
+          <Link className="navbar-element strike" activeClassName="strike-active" to="/work">
             <span >work</span>
           </Link>
-          <Link className="navbar-element strike" activeClassName="active" to="/contact">
+          <Link className="navbar-element strike" activeClassName="strike-active" to="/contact">
             <span >contact</span>
           </Link>
       </div>

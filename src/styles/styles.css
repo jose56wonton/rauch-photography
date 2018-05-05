@@ -6528,6 +6528,9 @@ a {
   top: 53%;
   background: #1e152a; }
 
+.strike-active span:before, .strike-active span:after {
+  width: 100%; }
+
 .strike span:before {
   left: -2.5px; }
 
@@ -6559,6 +6562,9 @@ a {
   height: 2px;
   top: 100%;
   background: #1e152a; }
+
+.underline-active span:before, .underline-active span:after {
+  width: 100%; }
 
 .underline span:before {
   left: -2.5px; }
