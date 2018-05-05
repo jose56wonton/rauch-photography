@@ -6396,9 +6396,15 @@ body {
   100% {
     top: 55%;
     height: 0%; } }
+.min-size {
+  min-height: 100vh; }
+
 .footer {
   background-color: white;
-  padding: 50px; }
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
 
 .footer-title {
   line-height: 3rem;
@@ -6535,7 +6541,7 @@ body {
     cursor: crosshair; }
 
 .contact-height {
-  height: 75vh; }
+  height: 86vh; }
 
 .contact-spacer {
   height: 15vh; }

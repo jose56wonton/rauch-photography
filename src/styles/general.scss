@@ -92,14 +92,19 @@
   }
 }
 
+.min-size{
+    min-height: 100vh;
+}
 
 
 
 .footer{
     background-color: white;
     padding: 50px;
-    
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+   
 }
 .footer-title{
         line-height: 3rem;

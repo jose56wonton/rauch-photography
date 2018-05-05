@@ -62,6 +62,7 @@ class WorkItem extends Component {
   }
  
   render() {
+    console.log(this.props.data.markdownRemark);
     const asdf = this.props.data.markdownRemark.frontmatter.attachments.map(
       (ele, i) => {       
        

@@ -1,8 +1,8 @@
 ---
-title: "Frake"
+title: "Drake"
 type: workItem
 date: "2017-08-10"
-path: "frake"
+path: "Drake"
 left: "../images/drake_left.jpg"
 center: "../images/drake_center.jpg"
 right: "../images/drake_right.jpg"

@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 const Layout = ({ children, data }) => {
   
   return (
-    <div>
+    <div className="min-size">
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[
