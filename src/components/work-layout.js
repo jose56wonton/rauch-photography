@@ -1,28 +1,40 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 
-class ShootSnippet extends Component {
+class WorkLayout extends Component {
   constructor(props) {
     super(props);
+    this.state= { 
+      textHover: false
+    }
   }
   link = () => {
     navigateTo("/" + this.props.path);
   };
+  hoverOffText = () => {
+    this.setState({textHover: false})
+  }
+  hoverOnText = () => {
+    this.setState({textHover: true})
+  }
   render() {
+    console.log(this.state.textHover)
     return (
       <div className="work">
         <div className="work-pictures">
-          <img className="left-picture" src={this.props.left} />
+          <img className="left-picture" src={this.props.left} />         
           <img
             className="center-picture"
             src={this.props.center}
             onClick={this.link}
+            onMouseEnter={this.hoverOffText}
+            onMouseLeave={this.hoverOnText}
           />
           <img className="right-picture" src={this.props.right} />
         </div>
         <div className="work-content" onClick={this.link}>
-          <h3>
-            {this.props.title} <span>— {this.props.date}</span>
+          <h3 className={`strike ${this.state.textHover ? "" : "strike-hover" }`}>            
+            <span>{this.props.title} </span>
           </h3>
         </div>
       </div>
@@ -30,4 +42,4 @@ class ShootSnippet extends Component {
   }
 }
 
-export default ShootSnippet;
+export default WorkLayout;

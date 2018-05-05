@@ -10,11 +10,11 @@ const Footer = ({ siteTitle }) => (
       <p>
         Folow me on
         <a className="underline" href="https://www.facebook.com/zach.rauch27">
-          <span>facebook </span>
+          <span>facebook</span>
         </a> 
         and
          <a className="underline" href="https://www.instagram.com/zacharydakery/">
-          <span>instagram </span>
+          <span>instagram</span>
         </a>
       </p>
     </div>

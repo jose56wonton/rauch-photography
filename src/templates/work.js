@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ShootSnippet from "../components/shoot-snippet";
+import WorkLayout from "../components/work-layout";
 import Link from "gatsby-link";
 
 
@@ -9,7 +9,7 @@ export default ({ data }) => {
   const asdf = data.allMarkdownRemark.edges.map(({ node }) => {
     return (
       <div key={node.id} >
-        <ShootSnippet
+        <WorkLayout
           left={node.frontmatter.left.publicURL}
           center={node.frontmatter.center.publicURL}
           right={node.frontmatter.right.publicURL}

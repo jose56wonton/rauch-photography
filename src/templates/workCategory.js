@@ -1,31 +1,31 @@
 import React, { Component } from "react";
-import ShootSnippet from "../components/shoot-snippet";
+import WorkCategoryLayout from "../components/work-category-layout";
 import Link from "gatsby-link";
 import Blank from "../components/blank";
 
 export default ({ data }) => {
   let content;
-  if( data.allMarkdownRemark ){
-  content = data.allMarkdownRemark.edges.map(({ node }) => {
-    return (
-      <div key={node.id} >
-        <ShootSnippet
-          left={node.frontmatter.left.publicURL}
-          center={node.frontmatter.center.publicURL}
-          right={node.frontmatter.right.publicURL}
-          title={node.frontmatter.title}
-          date={node.frontmatter.date}
-          path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
-        />
-      </div>
-    );
-  });}
-  else{
-    content = <Blank />
+  if (data.allMarkdownRemark) {
+    content = data.allMarkdownRemark.edges.map(({ node }) => {
+      return (
+        <div key={node.id}>
+          <WorkCategoryLayout
+            left={node.frontmatter.left.publicURL}
+            center={node.frontmatter.center.publicURL}
+            right={node.frontmatter.right.publicURL}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
+          />
+        </div>
+      );
+    });
+  } else {
+    content = <Blank />;
   }
   return (
-    <div className="container">   
-    <div className="work-spacer" />   
+    <div className="container">
+      <div className="work-spacer" />
       {content}
     </div>
   );

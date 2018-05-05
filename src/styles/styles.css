@@ -6337,7 +6337,7 @@ body {
     text-decoration: none;
     padding: 0 .4rem; }
     .navbar .navbar-element span:before, .navbar .navbar-element span:after {
-      height: .2rem; }
+      height: .15rem; }
 
 a {
   text-decoration: none;
@@ -6353,7 +6353,7 @@ a {
   flex-direction: row;
   justify-content: space-between; }
   .footer span:before, .footer span:after {
-    height: 1px; }
+    height: 1.3px; }
 
 .footer-title {
   line-height: 3rem;
@@ -6418,6 +6418,94 @@ a {
 .text-wrapper {
   padding: 0 40px; }
 
+.work {
+  padding: 10vh 0;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.work-pictures {
+  height: 70vh; }
+
+.left-picture {
+  height: 40vh;
+  width: auto;
+  position: absolute;
+  top: 25%;
+  z-index: 3;
+  background-color: white;
+  object-fit: cover; }
+
+.center-picture {
+  cursor: pointer;
+  top: 10%;
+  left: 40%;
+  z-index: 1;
+  height: 70vh;
+  width: auto;
+  position: absolute;
+  background-color: white;
+  object-fit: cover; }
+
+.right-picture {
+  height: 30vh;
+  width: auto;
+  top: 40%;
+  left: 70%;
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  object-fit: cover; }
+
+.work-content {
+  height: 10vh; }
+
+.work-category {
+  padding: 10vh 0;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.work-category-pictures {
+  height: 70vh; }
+
+.work-category-left-picture {
+  height: 40vh;
+  width: auto;
+  position: absolute;
+  top: 25%;
+  z-index: 3;
+  background-color: white;
+  object-fit: cover; }
+
+.work-category-center-picture {
+  cursor: pointer;
+  top: 10%;
+  left: 40%;
+  z-index: 1;
+  height: 70vh;
+  width: auto;
+  position: absolute;
+  background-color: white;
+  object-fit: cover; }
+
+.work-category-right-picture {
+  height: 30vh;
+  width: auto;
+  top: 40%;
+  left: 70%;
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  object-fit: cover; }
+
+.work-category-content {
+  height: 10vh; }
+
 .work-spacer {
   height: 4rem; }
 
@@ -6445,58 +6533,6 @@ a {
   opacity: 0;
   transition: ease .7s; }
 
-.work {
-  padding: 10vh 0;
-  height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column; }
-
-.work-pictures {
-  height: 70vh; }
-
-.left-picture {
-  height: 40vh;
-  width: auto;
-  position: absolute;
-  top: 25%;
-  background-color: white;
-  object-fit: cover; }
-
-.center-picture {
-  top: 10%;
-  left: 40%;
-  z-index: -1;
-  height: 70vh;
-  width: auto;
-  position: absolute;
-  background-color: white;
-  object-fit: cover; }
-
-.right-picture {
-  height: 30vh;
-  width: auto;
-  top: 40%;
-  left: 70%;
-  position: absolute;
-  background-color: white;
-  object-fit: cover; }
-
-.work-content {
-  height: 10vh; }
-
-.center-content {
-  top: 82%;
-  position: absolute; }
-  .center-content a {
-    width: 100px;
-    height: 100%;
-    border: 3px solid black; }
-  .center-content a:hover {
-    color: green;
-    cursor: crosshair; }
-
 .contact-height {
   height: 86vh; }
 
@@ -6510,7 +6546,7 @@ a {
 
  To specify thickness:
 
-      .strike:before,.strike:after{
+      .strike span:before,.strike span:after{
         height: .2rem;
       }   
 */
@@ -6525,7 +6561,7 @@ a {
   position: absolute;
   width: 0%;
   height: 2px;
-  top: 53%;
+  top: 50%;
   background: #1e152a; }
 
 .strike-active span:before, .strike-active span:after {
@@ -6539,6 +6575,16 @@ a {
   background: #1e152a;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); }
 
+.strike-hover span:before {
+  background: #1e152a;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+.strike-hover span:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s; }
+
 .strike span:hover:before {
   background: #1e152a;
   width: 100%;
@@ -6549,6 +6595,17 @@ a {
   width: 100%;
   transition: 0s; }
 
+/*
+ Strike is for text wrapped in span.strike
+ and strikes through on hover
+
+
+ To specify thickness:
+
+      .underline span:before,.underline span:after{
+        height: .2rem;
+      }   
+*/
 .underline span {
   position: relative;
   display: inline-block;
