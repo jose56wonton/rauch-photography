@@ -51,21 +51,23 @@
 
 // Work Category
 .work-category {
-    padding: 10vh 0;
     height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
+    
     flex-direction: column;
     text-align: center;
-    padding:0 1rem;
+    padding: 0 1rem;
 }
 
 .work-category-pictures {
     position: relative;
     height: 70vh;
-    display: flex;
-    justify-content: center;
+    @include desktop {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .work-category-left-picture {
@@ -75,59 +77,66 @@
     z-index: 51;
     background-color: white;
     object-fit: cover;
-    &.version-0 {
-        &.portrait {
-            left: 10%;
-        }
-        &.landscape {
-            left: 0%;
-        }
+    &.portrait {
+        left: 10%;
     }
-    &.version-1 {
-        &.portrait {
-            left: 10%;
-        }
-        &.landscape {
-            top: 35%;
-            left: 4%;
-        }
+    &.landscape {
+        left: 0%;
     }
 }
 
 .work-category-center-picture {
     cursor: pointer;
-    top: 0;
+    top: 0%;
     z-index: 40;
     min-height: 1px;
     max-height: 100%;
     position: relative;
     background-color: white;
     object-fit: cover;
+    @include tablet {
+        &.portrait {
+          top: 10%;
+        }
+        &.landscape {
+          top: 20%;
+        }
+        position: absolute;
+        &.version-0 {
+            left: 0;
+        }
+        &.version-1 {
+            right: 0;
+            top: 14%;
+        }
+    }
 }
 
 .work-category-right-picture {
     min-height: 1px;
     z-index: 50;
-    left: 70%;
+    
     position: absolute;
     background-color: white;
     object-fit: cover;
-    &.version-0 {
+    @include desktop {
         &.portrait {
             top: 20%;
+            left: 70%;
         }
         &.landscape {
             top: 40%;
             left: 69%;
         }
     }
-    &.version-1 {
-        &.portrait {
-            top: 15%;
+    @include tablet {
+        &.version-0 {
+          top: 45%;
+          right: 0%;
         }
-        &.landscape {
-            top: 35%;
-            left: 67%;
+        &.version-1 {
+          top: 40%;
+          left: 0;
         }
     }
 }
