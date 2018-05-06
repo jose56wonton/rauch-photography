@@ -37,12 +37,13 @@ root {
     font-size: 10px;
     overflow-y: auto;
 }
+@import './hover.scss';
 @import './hamburger-settings.scss';
 @import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
 @import'./general.scss';
 @import'./about.scss';
 @import'./work.scss';
 @import'./contact.scss';
-@import './hover.scss';
+
 
 

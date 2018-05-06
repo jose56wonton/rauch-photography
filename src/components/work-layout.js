@@ -4,58 +4,63 @@ import React, { Component } from "react";
 class WorkLayout extends Component {
   constructor(props) {
     super(props);
-    this.state= { 
-      textHover: false
-    }
+    this.state = {
+      textHover: true
+    };
   }
   link = () => {
     navigateTo("/" + this.props.path);
   };
   hoverOffText = () => {
-    this.setState({textHover: false})
-  }
+    this.setState({ textHover: false });
+  };
   hoverOnText = () => {
-    this.setState({textHover: true})
-  }
-  getClassesFromProps = () => {
-    const {leftOrientation,centerOrientation,rightOrientation,version} = this.props;
-    const classes = []
-    if(leftOrientation === "portrait"){
-      classes[0] = `${leftOrientation} version-${version} is-3-tablet is-hidden-touch`
-    }else if(leftOrientation === "landscape"){
-      classes[0] =`${leftOrientation} version-${version} is-4-tablet is-hidden-touch`
-    }
-    if(centerOrientation === "portrait"){
-      classes[1] =`${centerOrientation} version-${version} is-6-mobile is-5-tablet`
-    }else if(centerOrientation === "landscape"){
-      classes[1] =`${centerOrientation} version-${version} is-9-mobile is-7-tablet`
-    }
-    if(rightOrientation === "portrait"){
-      classes[2] =`${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop`
-    }else if(rightOrientation === "landscape"){
-      classes[2] =`${rightOrientation} version-${version} is-7-mobile is-7-tablet is-4-desktop`
-    } 
-    return classes;
-  }
+    this.setState({ textHover: true });
+  };
+
   render() {
-    const classes = this.getClassesFromProps();    
     return (
       <div className="work">
-        <div className="work-pictures">
-          <img className={`work-left-picture column  ${classes[0]}`} src={this.props.left} />         
-          <img
-            className={`work-center-picture column  ${classes[1]}`}
-            src={this.props.center}
-            onClick={this.link}
-            onMouseEnter={this.hoverOffText}
-            onMouseLeave={this.hoverOnText}
-          />
-          <img className={`work-right-picture column  ${classes[2]}`} src={this.props.right} />
-        </div>
-        <div className="work-content" onClick={this.link}>
-          <h3 className={`strike ${this.state.textHover ? "" : "strike-hover" }`}>            
-            <span>{this.props.title} </span>
-          </h3>
+        <div className={`work-pictures version-${this.props.version}`}>
+          <div className="col-1">
+            <div className="work-image-sizing-wrapper">
+              <img
+                className={`work-center-picture version-${this.props.version}`}
+                src={this.props.center}
+                onClick={this.link}
+                onMouseEnter={this.hoverOffText}
+                onMouseLeave={this.hoverOnText}
+              />
+            </div>
+          </div>
+          <div className="col-2">
+            <div className="asdf">
+              <div className="work-image-sizing-wrapper">
+                <img
+                  className={`work-left-picture  version-${this.props.version}`}
+                  src={this.props.left}
+                />
+              </div>
+            </div>
+            <div className={`work-content  version-${this.props.version}`} onClick={this.link}>
+              <h3
+                className={`strike ${
+                  this.state.textHover ? "" : "strike-hover"
+                }`}
+              >
+                <span>{this.props.title} </span>
+              </h3>
+            </div>
+
+            <div className="asdf">
+              <div className="work-image-sizing-wrapper">
+                <img
+                  className={`work-right-picture version-${this.props.version} `}
+                  src={this.props.right}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

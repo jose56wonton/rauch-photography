@@ -1,29 +1,36 @@
 import React, { Component } from "react";
 import WorkLayout from "../components/work-layout";
 import Link from "gatsby-link";
-
+import Blank from '../components/blank'
 
 export default ({ data }) => {  
-  const asdf = data.allMarkdownRemark.edges.map(({ node }) => {
-    return (
-      <div key={node.id} >
-        <WorkLayout
-          left={node.frontmatter.left.publicURL}
-          center={node.frontmatter.center.publicURL}
-          right={node.frontmatter.right.publicURL}
-          leftOrientation={node.frontmatter.leftOrientation}
-          centerOrientation={node.frontmatter.centerOrientation}
-          rightOrientation={node.frontmatter.rightOrientation}
-          title={node.frontmatter.title}
-          path={`work/${node.frontmatter.path}`}
-        />
-      </div>
-    );
-  });
+  let content;
+  if(data.allMarkdownRemark){
+    content = data.allMarkdownRemark.edges.map(({ node },i) => {
+      const version = i%2;
+      return (
+        <div key={node.id} >
+          <WorkLayout
+            left={node.frontmatter.left.publicURL}
+            center={node.frontmatter.center.publicURL}
+            right={node.frontmatter.right.publicURL}
+            leftOrientation={node.frontmatter.leftOrientation}
+            centerOrientation={node.frontmatter.centerOrientation}
+            rightOrientation={node.frontmatter.rightOrientation}
+            title={node.frontmatter.title}
+            version={version}
+            path={`work/${node.frontmatter.path}`}
+          />
+        </div>
+      );
+    });
+  } else{
+    content = <Blank />
+  }
   return (
     <div className="container">   
     <div className="work-spacer" />   
-      {asdf}
+      {content}
     </div>
   );
 };

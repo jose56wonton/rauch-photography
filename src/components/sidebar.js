@@ -21,7 +21,7 @@ class SideBar extends Component {
             exact 
             to="/"
           >
-            <span >zach rauch</span>
+            <span >zach</span>
           </Link>
           <Link
             className="hamburger-element strike"
