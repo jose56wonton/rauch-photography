@@ -6345,7 +6345,8 @@ root {
     @media (min-width: 1024px) {
       .navbar .navbar-element {
         font-size: 2rem; } }
-    .navbar .navbar-element span:before, .navbar .navbar-element span:after {
+    .navbar .navbar-element span:before,
+    .navbar .navbar-element span:after {
       height: .15rem; }
 
 .container {
@@ -6367,14 +6368,20 @@ a {
     .footer {
       font-size: .9rem;
       flex-direction: column; }
-      .footer span:before, .footer span:after {
-        height: .7px; } }
+      .footer span:before,
+      .footer span:after {
+        height: .7px; }
+      .footer span {
+        padding: 0 .3rem; } }
   @media (min-width: 1024px) {
     .footer {
-      font-size: 1rem;
+      font-size: 1.2rem;
       flex-direction: row; }
-      .footer span:before, .footer span:after {
-        height: 1.3px; } }
+      .footer span:before,
+      .footer span:after {
+        height: 1.3px; }
+      .footer span {
+        padding: 0 .5rem; } }
 
 .footer-title {
   line-height: 3rem;

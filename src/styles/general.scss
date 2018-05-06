@@ -1,43 +1,34 @@
 .navbar {
-  padding: 3rem 4.6rem;
-  background-color: transparent;
- 
-      
+    padding: 3rem 4.6rem;
+    background-color: transparent;
     .navbar-element {
-       
-
-        @include tablet{
+        @include tablet {
             font-size: 1.2rem;
             line-height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        @include desktop{
+        @include desktop {
             font-size: 2rem;
         }
-        
-        
         text-decoration: none;
         padding: 0 .4rem;
-        span:before,span:after{
-          height: .15rem;
-        }      
-      }
-
-  
+        span:before,
+        span:after {
+            height: .15rem;
+        }
+    }
 }
 
-
-.container{
+.container {
     padding: 0 1rem;
 }
 
-a{
-  text-decoration: none;
-  color:$color-3;
+a {
+    text-decoration: none;
+    color: $color-3;
 }
-
 
 .min-size {
     min-height: 100vh;
@@ -48,20 +39,28 @@ a{
     padding: 50px;
     display: flex;
     justify-content: space-between;
-    @include tablet{
-        span:before, span:after{
+    font-size: .9rem;
+    @include tablet {
+        span:before,
+        span:after {
             height: .7px;
-          }
-          font-size: .9rem;
-          flex-direction: column;
+        }
+        
+        span {
+            padding: 0 .3rem;
+        }
+        flex-direction: column;
     }
-    @include desktop{
-        span:before, span:after{
+    @include desktop {
+        span:before,
+        span:after {
             height: 1.3px;
-          }
-          font-size: 1rem;
-          flex-direction: row;
-    }    
+        }
+        span {
+            padding: 0 .5rem;
+        }
+        flex-direction: row;
+    }
 }
 
 .footer-title {
@@ -81,7 +80,6 @@ a{
     }
 }
 
-
-.column{
-    padding:0;
+.column {
+    padding: 0;
 }

@@ -102,10 +102,10 @@
         }
         position: absolute;
         &.version-0 {
-            left: 0;
+            left: 4%;
         }
         &.version-1 {
-            right: 0;
+            right: 3%;
             top: 14%;
         }
     }
@@ -130,18 +130,18 @@
     }
     @include tablet {
         &.version-0 {
-          top: 45%;
+          top: 25%;
           right: 0%;
         }
         &.version-1 {
-          top: 40%;
+          top: 20%;
           left: 0;
         }
     }
 }
 
 .work-category-content {
-    height: 10vh;
+    height: 10vh; 
     text-align: center;
 }
 

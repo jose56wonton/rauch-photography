@@ -26,14 +26,14 @@ class WorkCategoryLayout extends Component {
       classes[0] =`${leftOrientation} version-${version} is-4-tablet is-hidden-touch`
     }
     if(centerOrientation === "portrait"){
-      classes[1] =`${centerOrientation} version-${version} is-9-mobile is-5-tablet`
+      classes[1] =`${centerOrientation} version-${version} is-6-mobile is-5-tablet`
     }else if(centerOrientation === "landscape"){
       classes[1] =`${centerOrientation} version-${version} is-9-mobile is-7-tablet`
     }
     if(rightOrientation === "portrait"){
-      classes[2] =`${rightOrientation} version-${version} is-6-mobile is-3-tablet`
+      classes[2] =`${rightOrientation} version-${version} is-6-mobile is-4-tablet`
     }else if(rightOrientation === "landscape"){
-      classes[2] =`${rightOrientation} version-${version} is-9-mobile is-5-tablet is-4-desktop`
+      classes[2] =`${rightOrientation} version-${version} is-7-mobile is-7-tablet is-4-desktop`
     } 
     return classes;
   }
