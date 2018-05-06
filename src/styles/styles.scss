@@ -31,7 +31,7 @@ body {
     font-family: 'Muli', Helvetica,arial;
     color:$color-3;
 }
-
+@import './breakpoints.scss';
 @import'./general.scss';
 @import'./about.scss';
 @import'./work.scss';

@@ -16,40 +16,31 @@ class WorkCategoryLayout extends Component {
   }
   hoverOnText = () => {
     this.setState({textHover: true})
-  }
-  determineOrientation = () => {
-
-  }
+  } 
   getClassesFromProps = () => {
-    const {leftOrientation,centerOrientation,rightOrientation} = this.props;
+    const {leftOrientation,centerOrientation,rightOrientation,version} = this.props;
     const classes = []
     if(leftOrientation === "portrait"){
-      classes[0] = `${leftOrientation} is-3-tablet is-hidden-touch`
+      classes[0] = `${leftOrientation} version-${version} is-3-tablet is-hidden-touch`
     }else if(leftOrientation === "landscape"){
-      classes[0] =`${leftOrientation} is-4-tablet is-hidden-touch`
+      classes[0] =`${leftOrientation} version-${version} is-4-tablet is-hidden-touch`
     }
     if(centerOrientation === "portrait"){
-      classes[1] =`${centerOrientation} is-9-mobile is-5-tablet`
+      classes[1] =`${centerOrientation} version-${version} is-9-mobile is-5-tablet`
     }else if(centerOrientation === "landscape"){
-      classes[1] =`${centerOrientation} is-9-mobile is-6-tablet`
+      classes[1] =`${centerOrientation} version-${version} is-9-mobile is-7-tablet`
     }
     if(rightOrientation === "portrait"){
-      classes[2] =`${rightOrientation} is-6-mobile is-3-tablet`
+      classes[2] =`${rightOrientation} version-${version} is-6-mobile is-3-tablet`
     }else if(rightOrientation === "landscape"){
-      classes[2] =`${rightOrientation} is-9-mobile is-5-tablet is-4-desktop`
+      classes[2] =`${rightOrientation} version-${version} is-9-mobile is-5-tablet is-4-desktop`
     } 
     return classes;
   }
 
 
-  render() {
-    
-    const classes = this.getClassesFromProps();
-    
-
-    
-
-
+  render() {    
+    const classes = this.getClassesFromProps();     
     return (
       <div className="work-category">
         <div className="work-category-pictures columns is-gapless ">

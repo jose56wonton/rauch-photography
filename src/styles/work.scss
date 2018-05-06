@@ -1,7 +1,4 @@
-
-
 // Work
-
 .work {
     padding: 10vh 0;
     height: 100vh;
@@ -9,10 +6,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
 }
-.work-pictures{
-  height: 70vh;
+
+.work-pictures {
+    height: 70vh;
 }
 
 .work-left-picture {
@@ -38,24 +35,21 @@
 }
 
 .work-right-picture {
-    height: 30vh;
-    width: auto;
     top: 40%;
     left: 70%;
+    height: 30vh;
+    width: auto;
     z-index: 2;
     position: absolute;
     background-color: white;
     object-fit: cover;
 }
 
-
-.work-content{
-  height:10vh;
+.work-content {
+    height: 10vh;
 }
 
-
 // Work Category
-
 .work-category {
     padding: 10vh 0;
     height: 100vh;
@@ -64,27 +58,45 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    
+    padding:0 1rem;
 }
-.work-category-pictures{
-  height: 70vh;
+
+.work-category-pictures {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
 }
 
 .work-category-left-picture {
-
-    
     min-height: 1px;
     position: absolute;
     top: 25%;
     z-index: 51;
     background-color: white;
     object-fit: cover;
+    &.version-0 {
+        &.portrait {
+            left: 10%;
+        }
+        &.landscape {
+            left: 0%;
+        }
+    }
+    &.version-1 {
+        &.portrait {
+            left: 10%;
+        }
+        &.landscape {
+            top: 35%;
+            left: 4%;
+        }
+    }
 }
 
 .work-category-center-picture {
     cursor: pointer;
     top: 0;
-    left: 30%;
     z-index: 40;
     min-height: 1px;
     max-height: 100%;
@@ -95,27 +107,41 @@
 
 .work-category-right-picture {
     min-height: 1px;
-    top: 40%;
-    left: 70%;
     z-index: 50;
+    left: 70%;
     position: absolute;
     background-color: white;
     object-fit: cover;
+    &.version-0 {
+        &.portrait {
+            top: 20%;
+        }
+        &.landscape {
+            top: 40%;
+            left: 69%;
+        }
+    }
+    &.version-1 {
+        &.portrait {
+            top: 15%;
+        }
+        &.landscape {
+            top: 35%;
+            left: 67%;
+        }
+    }
 }
 
-.work-category-content{
-  height:10vh;
-  text-align: center;
+.work-category-content {
+    height: 10vh;
+    text-align: center;
 }
-
-
-
-
 
 // Work Item
-.work-spacer{
-    height:4rem;
+.work-spacer {
+    height: 4rem;
 }
+
 .work-item-box {
     margin: 10vh 0;
     display: flex;

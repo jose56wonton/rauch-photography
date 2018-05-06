@@ -6453,10 +6453,10 @@ a {
   object-fit: cover; }
 
 .work-right-picture {
-  height: 30vh;
-  width: auto;
   top: 40%;
   left: 70%;
+  height: 30vh;
+  width: auto;
   z-index: 2;
   position: absolute;
   background-color: white;
@@ -6472,10 +6472,14 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  text-align: center; }
+  text-align: center;
+  padding: 0 1rem; }
 
 .work-category-pictures {
-  height: 70vh; }
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center; }
 
 .work-category-left-picture {
   min-height: 1px;
@@ -6484,11 +6488,19 @@ a {
   z-index: 51;
   background-color: white;
   object-fit: cover; }
+  .work-category-left-picture.version-0.portrait {
+    left: 10%; }
+  .work-category-left-picture.version-0.landscape {
+    left: 0%; }
+  .work-category-left-picture.version-1.portrait {
+    left: 10%; }
+  .work-category-left-picture.version-1.landscape {
+    top: 35%;
+    left: 4%; }
 
 .work-category-center-picture {
   cursor: pointer;
   top: 0;
-  left: 30%;
   z-index: 40;
   min-height: 1px;
   max-height: 100%;
@@ -6498,12 +6510,21 @@ a {
 
 .work-category-right-picture {
   min-height: 1px;
-  top: 40%;
-  left: 70%;
   z-index: 50;
+  left: 70%;
   position: absolute;
   background-color: white;
   object-fit: cover; }
+  .work-category-right-picture.version-0.portrait {
+    top: 20%; }
+  .work-category-right-picture.version-0.landscape {
+    top: 40%;
+    left: 69%; }
+  .work-category-right-picture.version-1.portrait {
+    top: 15%; }
+  .work-category-right-picture.version-1.landscape {
+    top: 35%;
+    left: 67%; }
 
 .work-category-content {
   height: 10vh;

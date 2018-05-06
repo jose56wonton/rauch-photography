@@ -33,7 +33,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       // Individual work pages
-      console.log(node)
+     
       if (node.frontmatter.type === "category"){
         createPage({
           path: `/work/${node.frontmatter.path}/`,

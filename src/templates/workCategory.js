@@ -6,7 +6,8 @@ import Blank from "../components/blank";
 export default ({ data }) => {
   let content;
   if (data.allMarkdownRemark) {
-    content = data.allMarkdownRemark.edges.map(({ node }) => {
+    content = data.allMarkdownRemark.edges.map(({ node }, i ) => {
+      const version = i%2;
       return (
         <div key={node.id}>
           <WorkCategoryLayout
@@ -18,6 +19,7 @@ export default ({ data }) => {
             rightOrientation={node.frontmatter.rightOrientation}
             title={node.frontmatter.title}
             date={node.frontmatter.date}
+            version={version}
             path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
           />
         </div>
