@@ -105,57 +105,89 @@ class Contact extends Component {
       emailPlaceholder,
       messageLabel,
       messagePlaceholder,
-      buttonLabel
+      buttonLabel,
+      row11Image,
+      row21Image,
+      row22Image,
+      email,
+      phone,
+      location
     } = this.props.data.allMarkdownRemark.edges[0].node.frontmatter;
     return (
-      <div className="container contact-height">
-        <div className="contact-spacer" />
-        <Input
-          label={nameLabel}
-          placeholder={namePlaceholder}
-          className="input"
-          error={this.state.nameError}
-          value={this.state.name}
-          name="name"
-          handleChange={this.handleChange}
-          type="text"
-        />
-        <Input
-          label={emailLabel}
-          placeholder={emailPlaceholder}
-          className="input"
-          error={this.state.emailError}
-          value={this.state.email}
-          name="email"
-          handleChange={this.handleChange}
-          type="text"
-        />
-        <TextArea
-          label={messageLabel}
-          placeholder={messagePlaceholder}
-          className="textarea"
-          error={""}
-          value={this.state.message}
-          name="message"
-          handleChange={this.handleChange}
-          type="textarea"
-        />
-
-        <div className="control">
-          {this.state.status === LOADING ? (
-            <button
-              onClick={this.handleSubmit}
-              className="button is-primary"
-              disabled
-            >
-              Sending...
-            </button>
-          ) : (
-            <button onClick={this.handleSubmit} className="button is-primary">
-              {buttonLabel}
-            </button>
-          )}
+      <div className="contact">
+        <div className="columns contact-row-1">
+          <div className="column is-4 contact-image-wrapper-1">
+            <img src={row11Image.publicURL} className="contact-image" />
+          </div>
+          <div className="contact-text-wrapper-1 column is-5">
+            <div>
+              <p className="contact-title">Contact</p>
+              <p className="contact-text"># {phone}</p>
+              <p className="contact-text">@ {email}</p>
+            </div>
+          </div>
+          <div className="column is-3 contact-image-wrapper-2">
+            <img src={row11Image.publicURL} className="contact-image" />
+          </div>
         </div>
+        <div className="columns contact-row-2">
+          <div className="column is-6 contact-image-text-2">
+            <Input
+              label={nameLabel}
+              placeholder={namePlaceholder}
+              className="input"
+              error={this.state.nameError}
+              value={this.state.name}
+              name="name"
+              handleChange={this.handleChange}
+              type="text"
+            />
+            <Input
+              label={emailLabel}
+              placeholder={emailPlaceholder}
+              className="input"
+              error={this.state.emailError}
+              value={this.state.email}
+              name="email"
+              handleChange={this.handleChange}
+              type="text"
+            />
+            <TextArea
+              label={messageLabel}
+              placeholder={messagePlaceholder}
+              className="textarea"
+              error={""}
+              value={this.state.message}
+              name="message"
+              handleChange={this.handleChange}
+              type="textarea"
+            />
+
+            <div className="control">
+              {this.state.status === LOADING ? (
+                <button
+                  onClick={this.handleSubmit}
+                  className="button is-primary"
+                  disabled
+                >
+                  Sending...
+                </button>
+              ) : (
+                <button
+                  onClick={this.handleSubmit}
+                  className="button is-primary"
+                >
+                  {buttonLabel}
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="column contact-image-wrapper-3">
+            <img src={row11Image.publicURL} className="contact-image" />
+          </div>
+        </div>
+
         <Modal
           formStatus={this.state.status}
           modalType={SUCCESS}
@@ -192,6 +224,18 @@ export const query = graphql`
             messageLabel
             messagePlaceholder
             buttonLabel
+            email
+            phone
+            location
+            row11Image {
+              publicURL
+            }
+            row21Image {
+              publicURL
+            }
+            row22Image {
+              publicURL
+            }
           }
         }
       }

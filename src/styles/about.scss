@@ -3,7 +3,12 @@
   height:11vh;
 }
 .about-title{
-  font-size: 3rem;
+  @include tablet{
+    font-size: 3.5rem;       
+  }
+  @include desktop{
+    font-size: 5rem;   
+  }
   font-weight: bold;
   margin-bottom:  0px !important;
 }

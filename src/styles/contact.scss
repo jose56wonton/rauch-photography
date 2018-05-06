@@ -4,3 +4,82 @@
 .contact-spacer{
   height: 15vh;
 }
+
+.contact{
+  padding: 10vh 0;
+}
+.contact-title{
+  @include tablet{
+    font-size: 3.5rem;       
+  }  
+  @include desktop{
+    font-size: 5rem;   
+  }
+  font-weight: bold;
+  margin-bottom:  0px !important;
+}
+.contact-text{
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding-left:1.8rem;
+}
+
+.contact-row-1{
+  height: 80vh;
+}
+.contact-row-2{
+  height: 80vh;
+  padding:0 3.6rem;
+}
+
+.contact-image-wrapper-1{
+  position: relative;
+  height: 100%;
+  .contact-image{
+    top:10%;
+    height: 70%;
+    position: absolute;
+    object-fit: cover;
+  }
+}
+
+.contact-image-wrapper-2{
+  position: relative;
+  height: 100%;
+  .contact-image{
+    top:50%;
+    height: 40%;
+    position: absolute;
+    object-fit: cover;
+  }
+}
+.contact-image-wrapper-3{
+  position: relative;
+  height: 100%;
+  
+  .contact-image{
+    top:10%;
+    height: 80%;
+    position: absolute;
+    object-fit: cover;
+  }
+}
+
+.contact-text-wrapper-1{
+  height: 100%;
+  position: relative;
+  div{
+    position: absolute;
+    top:30%;
+    padding: 1.8rem;
+  }
+  
+}
+.contact-image-text-2{
+  padding:3.6rem;
+}
+
+
+.contact-row-2{
+  height: 80vh;
+}
