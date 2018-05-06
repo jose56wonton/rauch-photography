@@ -7,9 +7,9 @@ path: "pences"
 left: "../../images/pences/left.jpg"
 center: "../../images/pences/center.jpg"
 right: "../../images/pences/right.jpg"
-leftOrientation: landscape
+leftOrientation: portrait
 centerOrientation: portrait
-rightOrientation: portrait
+rightOrientation: landscape
 attachments: 
   - "../../images/pences/left.jpg"
   - "../../images/pences/center.jpg"

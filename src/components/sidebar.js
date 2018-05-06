@@ -26,8 +26,7 @@ class SideBar extends Component {
           <Link
             className="hamburger-element strike"
             activeClassName="strike-active"
-            onClick={this.link}
-            exact 
+            onClick={this.link}             
             to="/work"
           >
             <span>work</span>
@@ -36,7 +35,7 @@ class SideBar extends Component {
             className="hamburger-element strike"
             activeClassName="strike-active"
             onClick={this.link}  
-            exact   
+               
             to="/contact"        
           >
             <span>contact</span>

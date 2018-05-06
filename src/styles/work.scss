@@ -186,8 +186,16 @@
 
 .work-category-pictures {
     position: relative;
-    height: 70vh;
+    @include tablet{
+      height: 55vh;
+    }
+    @include mobile{
+      height: 45vh;
+    }
+
+   
     @include desktop {
+      height: 70vh;
         display: flex;
         justify-content: center;
     }
@@ -219,7 +227,7 @@
     object-fit: cover;
     @include tablet {
         &.portrait {
-          top: 10%;
+          top: 5%;
         }
         &.landscape {
           top: 20%;
@@ -230,7 +238,7 @@
         }
         &.version-1 {
             right: 3%;
-            top: 14%;
+            top: 4%;
         }
     }
 }
@@ -267,6 +275,19 @@
 .work-category-content {
     height: 10vh; 
     text-align: center;
+    @include tablet{
+      font-size: 3.5rem;
+      span:before, span:after{
+        height: .35rem;
+      }      
+    }
+    
+    @include desktop{
+      font-size: 5rem;
+      span:before, span:after{
+        height: .5rem;
+      }
+    }
 }
 
 // Work Item

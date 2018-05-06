@@ -56,7 +56,7 @@ class WorkCategoryLayout extends Component {
         </div>
         <div className="work-category-content" onClick={this.link}>
           <h3 className={`strike ${this.state.textHover ? "" : "strike-hover"}`}>            
-            <span>{this.props.title} — {this.props.date}</span>
+            <span>{this.props.title}</span>
           </h3>
         </div>
       </div>
