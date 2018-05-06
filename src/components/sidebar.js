@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import Link,{navigateTo} from "gatsby-link";
 
 class SideBar extends Component {
-  link = (path) => {
-    
-    navigateTo(path);
+  link = () => {   
+  
     this.props.toggleBurger();
   };
   render() {
-    console.log(this.props.active);
+    console.log(this.props);
     return (
       <div
         className={`hamburger-menu ${
@@ -16,28 +15,33 @@ class SideBar extends Component {
         }`}
       >
         <div className="hamburger-content">
-          <div
+          <Link
             className="hamburger-element strike"
             activeClassName="strike-active"
-            onClick={() => this.link("/")}
+            onClick={this.link}
+            exact 
+            to="/"
           >
             <span >zach rauch</span>
-          </div>
-          <div
+          </Link>
+          <Link
             className="hamburger-element strike"
             activeClassName="strike-active"
-            onClick={() => this.link("/work")}
-           
+            onClick={this.link}
+            exact 
+            to="/work"
           >
-            <span >work</span>
-          </div>
-          <div
+            <span>work</span>
+          </Link>
+          <Link
             className="hamburger-element strike"
             activeClassName="strike-active"
-            onClick={() => this.link("/contact")}            
+            onClick={this.link}  
+            exact   
+            to="/contact"        
           >
             <span>contact</span>
-          </div>
+          </Link>
           <button
           className={`hamburger  hamburger--slider ${
             this.props.burgerActive ? "is-active" : "is-invisible"

@@ -19,6 +19,7 @@ class Layout extends Component {
   };
 
   render() {
+    console.log(this.props.data)
     return (
       <div className="min-size">
       <Helmet

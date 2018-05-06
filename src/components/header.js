@@ -13,7 +13,8 @@ class Header extends Component {
         <div className="navbar-brand">
           <Link
             className="navbar-element strike"
-            activeClassName="active"
+            activeClassName="strike-active"
+            exact 
             to="/"
           >
             <span>Zach Rauch</span>
