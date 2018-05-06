@@ -6319,23 +6319,32 @@ label.panel-block {
 @font-face {
   font-family: 'SofiaProRegular';
   src: URL("Sofia Pro Regular.ttf"); }
-root {
-  font-size: 10px;
-  overflow-y: auto; }
-
 body {
   margin: 0;
   padding: 0;
   font-family: 'Muli', Helvetica,arial;
   color: #1e152a; }
 
+root {
+  font-size: 10px;
+  overflow-y: auto; }
+
 .navbar {
   padding: 3rem 4.6rem;
   background-color: transparent; }
   .navbar .navbar-element {
-    font-size: 2rem;
     text-decoration: none;
     padding: 0 .4rem; }
+    @media (max-width: 1023px) {
+      .navbar .navbar-element {
+        font-size: 1.2rem;
+        line-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; } }
+    @media (min-width: 1024px) {
+      .navbar .navbar-element {
+        font-size: 2rem; } }
     .navbar .navbar-element span:before, .navbar .navbar-element span:after {
       height: .15rem; }
 
@@ -6353,10 +6362,19 @@ a {
   background-color: white;
   padding: 50px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between; }
-  .footer span:before, .footer span:after {
-    height: 1.3px; }
+  @media (max-width: 1023px) {
+    .footer {
+      font-size: .9rem;
+      flex-direction: column; }
+      .footer span:before, .footer span:after {
+        height: .7px; } }
+  @media (min-width: 1024px) {
+    .footer {
+      font-size: 1rem;
+      flex-direction: row; }
+      .footer span:before, .footer span:after {
+        height: 1.3px; } }
 
 .footer-title {
   line-height: 3rem;

@@ -1,14 +1,31 @@
 .navbar {
   padding: 3rem 4.6rem;
   background-color: transparent;
-  .navbar-element {
-    font-size: 2rem;
-    text-decoration: none;
-    padding: 0 .4rem;
-    span:before,span:after{
-      height: .15rem;
-    }      
-  }
+ 
+      
+    .navbar-element {
+       
+
+        @include tablet{
+            font-size: 1.2rem;
+            line-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @include desktop{
+            font-size: 2rem;
+        }
+        
+        
+        text-decoration: none;
+        padding: 0 .4rem;
+        span:before,span:after{
+          height: .15rem;
+        }      
+      }
+
+  
 }
 
 
@@ -30,11 +47,21 @@ a{
     background-color: white;
     padding: 50px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    span:before, span:after{
-      height: 1.3px;
+    @include tablet{
+        span:before, span:after{
+            height: .7px;
+          }
+          font-size: .9rem;
+          flex-direction: column;
     }
+    @include desktop{
+        span:before, span:after{
+            height: 1.3px;
+          }
+          font-size: 1rem;
+          flex-direction: row;
+    }    
 }
 
 .footer-title {

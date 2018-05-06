@@ -48,7 +48,7 @@ class WorkItem extends Component {
   initializePhotoBackgrounds = (photos) => {
     photos.forEach((photo,i) => {
       Vibrant.from(photo.publicURL).getPalette((err, palette) => {    
-        console.log(palette)    
+        
         let rgb
         if(palette.Muted)
           rgb = palette.Muted._rgb;
@@ -62,7 +62,6 @@ class WorkItem extends Component {
   }
  
   render() {
-    console.log(this.props.data.markdownRemark);
     const asdf = this.props.data.markdownRemark.frontmatter.attachments.map(
       (ele, i) => {      
        
