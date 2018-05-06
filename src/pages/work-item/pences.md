@@ -9,7 +9,7 @@ center: "../../images/pences/center.jpg"
 right: "../../images/pences/right.jpg"
 leftOrientation: landscape
 centerOrientation: portrait
-rightOrientation: portait
+rightOrientation: portrait
 attachments: 
   - "../../images/pences/left.jpg"
   - "../../images/pences/center.jpg"

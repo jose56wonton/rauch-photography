@@ -63,6 +63,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
     
 }
 .work-category-pictures{
@@ -72,8 +73,7 @@
 .work-category-left-picture {
 
     
-    height: 33vw;
-    width: 33vw;
+    min-height: 1px;
     position: absolute;
     top: 25%;
     z-index: 51;
@@ -83,19 +83,18 @@
 
 .work-category-center-picture {
     cursor: pointer;
-    top: 10%;
+    top: 0;
     left: 30%;
     z-index: 40;
-    height: 40vw;
-    width: 40vw;
-    position: absolute;
+    min-height: 1px;
+    max-height: 100%;
+    position: relative;
     background-color: white;
     object-fit: cover;
 }
 
 .work-category-right-picture {
-    height: 30vw;
-    width: 30vw;
+    min-height: 1px;
     top: 40%;
     left: 70%;
     z-index: 50;
@@ -106,6 +105,7 @@
 
 .work-category-content{
   height:10vh;
+  text-align: center;
 }
 
 
