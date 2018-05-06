@@ -13,7 +13,10 @@
 }
 
 .vertical-spacer{
-  padding: 6rem 0 ;
+  padding-top: 6rem;
+  @include mobile{
+    padding-top: 0;
+  }
 }
 .relative{
   position: relative;
@@ -21,19 +24,25 @@
 .height1{
   height: 70vh;
 }
-.height2{
+.image-container-2{
   height: 84vh;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
 }
 .about-image-wrapper-1{
   position: absolute;
   height: 100%;
-  width: 100vw;
+  width: 100%;
 }
 .about-image-wrapper-2{
-  position: absolute;
-  right:0;
   height: 100%;
-  width: 80vw;
+  width: 48%;
+}
+.about-image-wrapper-3{
+ 
+  height: 100%;
+  width: 48%;
 }
 .about-image{
   width: 100%;
@@ -50,5 +59,8 @@
 }
 
 .text-wrapper{
-  padding: 0 40px;
+  padding: 2rem 40px;
+  @include tablet{
+    text-align:right;
+  }
 }

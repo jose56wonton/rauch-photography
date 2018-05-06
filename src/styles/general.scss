@@ -11,16 +11,14 @@
         }
     }
     .navbar-element {
+        font-size: 1.2rem;
         @include tablet {
-            font-size: 1.6rem;
             line-height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        @include desktop {
-            font-size: 2rem;
-        }
+        
         text-decoration: none;
         padding: 0 .4rem;
         span:before,

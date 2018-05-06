@@ -21,7 +21,7 @@ class SideBar extends Component {
             exact 
             to="/"
           >
-            <span >zach</span>
+            <span >Zach</span>
           </Link>
           <Link
             className="hamburger-element strike"
@@ -29,7 +29,7 @@ class SideBar extends Component {
             onClick={this.link}             
             to="/work"
           >
-            <span>work</span>
+            <span>Work</span>
           </Link>
           <Link
             className="hamburger-element strike"
@@ -38,7 +38,7 @@ class SideBar extends Component {
                
             to="/contact"        
           >
-            <span>contact</span>
+            <span>Contact</span>
           </Link>
           <button
           className={`hamburger  hamburger--slider ${

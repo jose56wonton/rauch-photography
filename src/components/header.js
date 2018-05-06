@@ -44,14 +44,14 @@ class Header extends Component {
               activeClassName="strike-active"
               to="/work"
             >
-              <span>work</span>
+              <span>Work</span>
             </Link>
             <Link
               className="navbar-element strike"
               activeClassName="strike-active"
               to="/contact"
             >
-              <span>contact</span>
+              <span>Contact</span>
             </Link>
           </div>
         </div>
