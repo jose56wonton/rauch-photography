@@ -58,7 +58,6 @@
     
     flex-direction: column;
     text-align: center;
-    padding: 0 1rem;
 }
 
 .work-category-pictures {
@@ -156,6 +155,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .fade-in-wrapper {
@@ -169,14 +169,14 @@
 }
 
 .work-item-photo-wrapper {
-    //background-color: $color-1;
-    height: 65vh;
+    //background-color: $color-1;    
     transition: ease .7s;
 }
 
 .work-item-photo {
-    max-width: 100%;
-    height: 65vh;
+    max-width: 100%;   
+    max-height: 80vh;
     opacity: 0;
     transition: ease .7s;
+    object-fit: cover;
 }
