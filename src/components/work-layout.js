@@ -18,7 +18,6 @@ class WorkLayout extends Component {
     this.setState({textHover: true})
   }
   render() {
-    console.log(this.state.textHover)
     return (
       <div className="work">
         <div className="work-pictures">

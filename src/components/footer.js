@@ -10,14 +10,15 @@ const Footer = ({ siteTitle }) => (
       <p>
         Folow me on
         <a className="underline-inverse" href="https://www.facebook.com/zach.rauch27">
-          <span>facebook</span>
+          <span/>facebook
         </a> 
         and
          <a className="underline-inverse" href="https://www.instagram.com/zacharydakery/">
-          <span>instagram</span>
+          <span/>instagram
         </a>
       </p>
     </div>
+    
   </div>
 );
 

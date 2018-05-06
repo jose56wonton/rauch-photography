@@ -20,8 +20,8 @@
   content: '';
   position: absolute;
   width: 0%;
-  height: 2px;
-  top: 50%;
+  height: 1px;
+  top: 55%;
   background: $color-3;
 }
 .strike-active span:before , .strike-active span:after {
@@ -104,4 +104,39 @@
   transition: 0s;
 }
 
+.underline-inverse{
+  position: relative;
+}
 
+.underline-inverse span{
+  position:absolute;
+ 
+  background: $color-3;
+  top: 100%;
+  left:0;
+  right:0;
+  animation: ui-out .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.underline-inverse:hover span{
+  
+  left:100%;
+  right:0;
+  animation: ui-in .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes ui-in{
+  0%{
+    left:0;
+  }
+  100%{
+    left:100%;
+  }
+}
+@keyframes ui-out{
+  0%{
+    right:100%;
+  }
+  100%{
+    right:0%;
+  }
+}
