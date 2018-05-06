@@ -7,7 +7,6 @@ class SideBar extends Component {
     this.props.toggleBurger();
   };
   render() {
-    console.log(this.props);
     return (
       <div
         className={`hamburger-menu ${

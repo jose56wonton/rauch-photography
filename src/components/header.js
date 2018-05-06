@@ -20,21 +20,21 @@ class Header extends Component {
             <span>Zach Rauch</span>
           </Link>
          
-              <button
-                className={`hamburger  hamburger--slider ${
-                  this.props.burgerActive ? "is-invisible" : null
-                }`}
-                type="button"
-                aria-label="Menu"
-                aria-controls="navigation"
-                aria-expanded="true"
-                onClick={this.props.toggleBurger}
-              >
-                <span className="hamburger-box">
-                  <span className="hamburger-inner" />
-                </span>
-              </button>
-            </div>
+          <button
+            className={`hamburger  hamburger--slider ${
+              this.props.burgerActive ? "is-invisible" : null
+            }`}
+            type="button"
+            aria-label="Menu"
+            aria-controls="navigation"
+            aria-expanded="true"
+            onClick={this.props.toggleBurger}
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-inner" />
+            </span>
+          </button>
+        </div>
        
 
         <div className="navbar-menu">

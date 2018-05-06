@@ -31,7 +31,7 @@ class WorkCategoryLayout extends Component {
       classes[1] =`${centerOrientation} version-${version} is-9-mobile is-7-tablet`
     }
     if(rightOrientation === "portrait"){
-      classes[2] =`${rightOrientation} version-${version} is-6-mobile is-4-tablet`
+      classes[2] =`${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop`
     }else if(rightOrientation === "landscape"){
       classes[2] =`${rightOrientation} version-${version} is-7-mobile is-7-tablet is-4-desktop`
     } 
