@@ -27,17 +27,22 @@
 
 .hamburger-menu {
     background: white;
-    z-index: 10000;
+    display: block;
+    position: fixed;
     top: 0;
-    bottom: 0;
     left: 100%;
-    position: absolute;
+    right:0;
+    height: 100%;
+    z-index: 9999;
     
-    right: 0;
+    
     transition: all .5s cubic-bezier(0.22, 0.61, 0.36, 1);
     &.is-active {
-        left: 0%;
+        left:0;
     }
+    overflow-y: hidden;
+    /* Optional but highly reccomended: enables momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
     .hamburger-content{
         display: flex;
         flex-direction: column;
