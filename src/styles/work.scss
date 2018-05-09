@@ -110,7 +110,7 @@
       }
       &.version-1{
         right:1rem;
-        top: 5.5rem;
+        top: 3rem;
       }
       width: 46%;
       height: 46%;
@@ -137,30 +137,19 @@
 .work-content {
     position: absolute;
     top: 50%;
-    z-index: 50;
-    
+    z-index: 50;    
     @include tablet{
       font-size: 3.5rem;
       span:before, span:after{
         height: .35rem;
       }
-      top: 50%;
-      &.version-1{
+      &.version-1{       
         right:3rem;
       }
       &.version-0{
         left:3rem;
       }
 
-    }
-    @include mobile{
-      &.version-1{
-        top:56%;
-      }
-      &.version-0{
-        top:50%;
-      }
-     
     }
     @include desktop{
       font-size: 5rem;

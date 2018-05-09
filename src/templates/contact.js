@@ -115,23 +115,25 @@ class Contact extends Component {
     } = this.props.data.allMarkdownRemark.edges[0].node.frontmatter;
     return (
       <div className="contact">
+        <div className="contact-spacer"></div>
         <div className="columns contact-row-1">
-          <div className="column is-4 contact-image-wrapper-1">
+          <div className="column is-12-mobile is-5-tablet is-4-desktop  contact-image-wrapper-1">
             <img src={row11Image.publicURL} className="contact-image" />
           </div>
-          <div className="contact-text-wrapper-1 column is-5">
+          <div className="contact-text-wrapper-1 column is-12-mobile is-7-tablet is-5-desktop ">
             <div>
               <p className="contact-title">Contact</p>
               <p className="contact-text"># {phone}</p>
               <p className="contact-text">@ {email}</p>
             </div>
           </div>
-          <div className="column is-3 contact-image-wrapper-2">
+          <div className="column is-hidden-touch is-3-desktop  contact-image-wrapper-2">
             <img src={row11Image.publicURL} className="contact-image" />
           </div>
         </div>
         <div className="columns contact-row-2">
-          <div className="column is-6 contact-image-text-2">
+          <div className="column is-12-mobile is-8-tablet is-5-desktop is-offset-1-desktop  contact-text-wrapper-2">
+            <div>
             <Input
               label={nameLabel}
               placeholder={namePlaceholder}
@@ -167,7 +169,7 @@ class Contact extends Component {
               {this.state.status === LOADING ? (
                 <button
                   onClick={this.handleSubmit}
-                  className="button is-primary"
+                  className="button is-primary right"
                   disabled
                 >
                   Sending...
@@ -175,15 +177,16 @@ class Contact extends Component {
               ) : (
                 <button
                   onClick={this.handleSubmit}
-                  className="button is-primary"
+                  className="button is-primary right"
                 >
                   {buttonLabel}
                 </button>
               )}
             </div>
+            </div>
           </div>
 
-          <div className="column contact-image-wrapper-3">
+          <div className="column is-hidden-mobile is-5-tablet is-6-desktop contact-image-wrapper-3">
             <img src={row11Image.publicURL} className="contact-image" />
           </div>
         </div>

@@ -2,12 +2,10 @@
   height: 86vh;
 }
 .contact-spacer{
-  height: 15vh;
+  height: 12vh;
 }
 
-.contact{
-  padding: 10vh 0;
-}
+
 .contact-title{
   @include tablet{
     font-size: 3.5rem;       
@@ -20,25 +18,37 @@
 }
 .contact-text{
   font-size: 1.4rem;
-  line-height: 2rem;
-  padding-left:1.8rem;
+  line-height: 2rem;  
 }
+
 
 .contact-row-1{
   height: 80vh;
+  @include mobile{
+    height: auto; 
+    flex-direction: column-reverse;
+    height: auto;
+  }
 }
 .contact-row-2{
   height: 80vh;
+  @include mobile{
+    height: auto;
+  }
+  @include tablet{
+    height: auto;
+  }
   padding:0 3.6rem;
 }
 
 .contact-image-wrapper-1{
   position: relative;
+  display:flex;
+  align-items: center;
   height: 100%;
-  .contact-image{
-    top:10%;
-    height: 70%;
-    position: absolute;
+  .contact-image{    
+    height: 80%;
+    max-height: 80vh;
     object-fit: cover;
   }
 }
@@ -56,30 +66,36 @@
 .contact-image-wrapper-3{
   position: relative;
   height: 100%;
-  
-  .contact-image{
-    top:10%;
+  display: flex;
+  align-items: center;
+  .contact-image{  
     height: 80%;
-    position: absolute;
+    max-height: 80vh;
     object-fit: cover;
   }
 }
 
 .contact-text-wrapper-1{
   height: 100%;
-  position: relative;
-  div{
-    position: absolute;
-    top:30%;
-    padding: 1.8rem;
+  position:relative;
+  display:flex;
+  align-items:center;
+  div{    
+    padding: 3.6rem;
   }
   
 }
-.contact-image-text-2{
+.contact-text-wrapper-2{
+  display: flex;
+  align-items: center;
+  div{
+    width: 100%;
+  }
   padding:3.6rem;
+  @include mobile{
+    padding: 0;
+  }
 }
 
 
-.contact-row-2{
-  height: 80vh;
-}
+
