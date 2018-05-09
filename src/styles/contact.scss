@@ -42,13 +42,14 @@
 }
 
 .contact-image-wrapper-1{
-  position: relative;
-  display:flex;
-  align-items: center;
+  position: relative;  
   height: 100%;
   .contact-image{    
     height: 80%;
     max-height: 80vh;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     object-fit: cover;
   }
 }
@@ -66,11 +67,13 @@
 .contact-image-wrapper-3{
   position: relative;
   height: 100%;
-  display: flex;
-  align-items: center;
+ 
   .contact-image{  
     height: 80%;
     max-height: 80vh;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
     object-fit: cover;
   }
 }

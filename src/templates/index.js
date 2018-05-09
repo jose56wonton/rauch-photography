@@ -1,12 +1,9 @@
 import Link from "gatsby-link";
 import React, { Component } from "react";
-
+import Img from "gatsby-image";
 class Index extends Component {
   render() {
-    console.log(this.props.data);
-
     const aboutData = this.props.data.allMarkdownRemark.edges[0].node;
-    console.log(aboutData);
     return (
       <div className="">
         <div className="about-spacer" />
@@ -19,8 +16,8 @@ class Index extends Component {
           </div>
           <div className="column relative height1 is-offset-3-mobile is-9-mobile">
             <div className="about-image-wrapper-1">
-              <img
-                src={aboutData.frontmatter.row1Image.publicURL}
+              <Img
+                sizes={aboutData.frontmatter.row1Image.childImageSharp.sizes}
                 className="about-image"
               />
             </div>
@@ -29,18 +26,11 @@ class Index extends Component {
         <div className="columns vertical-spacer">
           <div className="column is-7 relative image-container-2 is-hidden-touch">
             <div className="about-image-wrapper-2">
-            <img
-                src={aboutData.frontmatter.row21Image.publicURL}
+              <Img
+                sizes={aboutData.frontmatter.row2Image.childImageSharp.sizes}
                 className="about-image"
               />
-              
-            </div>
-            <div className="about-image-wrapper-3">                  
-            <img
-                src={aboutData.frontmatter.row22Image.publicURL}
-                className="about-image"
-              />
-            </div>
+            </div>           
           </div>
           <div className="column is-offset-4-sm  relative text-center">
             <div className="text-wrapper">
@@ -68,16 +58,20 @@ export const query = graphql`
             row2Title
             row2Text
             path
-
             row1Image {
-              publicURL
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
             }
-            row21Image {
-              publicURL
-            }
-            row22Image {
-              publicURL
-            }
+            row2Image {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }  
           }
         }
       }

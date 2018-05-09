@@ -7,7 +7,7 @@ const INITIAL = "initial";
 const LOADING = "loading";
 const FAILURE = "failure";
 const SUCCESS = "success";
-
+import Img from "gatsby-image";
 import * as api from "../api";
 
 class Contact extends Component {
@@ -21,7 +21,6 @@ class Contact extends Component {
       message: "",
       status: INITIAL
     };
-    console.log(props.data.allMarkdownRemark.edges[0].node.frontmatter);
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -52,7 +51,6 @@ class Contact extends Component {
             emailError: "",
             status: SUCCESS
           });
-          console.log(response);
         })
         .catch(error => {
           here.setState({
@@ -106,19 +104,20 @@ class Contact extends Component {
       messageLabel,
       messagePlaceholder,
       buttonLabel,
-      row11Image,
-      row21Image,
-      row22Image,
+      image1,
+      image2,
+      image3,
       email,
       phone,
       location
     } = this.props.data.allMarkdownRemark.edges[0].node.frontmatter;
+    
     return (
       <div className="contact">
         <div className="contact-spacer"></div>
         <div className="columns contact-row-1">
-          <div className="column is-12-mobile is-5-tablet is-4-desktop  contact-image-wrapper-1">
-            <img src={row11Image.publicURL} className="contact-image" />
+          <div className="column is-hidden-mobile is-12-mobile is-5-tablet is-4-desktop  contact-image-wrapper-1">
+            <Img sizes={image1.childImageSharp.sizes} className="contact-image" />
           </div>
           <div className="contact-text-wrapper-1 column is-12-mobile is-7-tablet is-5-desktop ">
             <div>
@@ -128,7 +127,7 @@ class Contact extends Component {
             </div>
           </div>
           <div className="column is-hidden-touch is-3-desktop  contact-image-wrapper-2">
-            <img src={row11Image.publicURL} className="contact-image" />
+            <Img sizes={image2.childImageSharp.sizes} className="contact-image" />
           </div>
         </div>
         <div className="columns contact-row-2">
@@ -158,7 +157,7 @@ class Contact extends Component {
               label={messageLabel}
               placeholder={messagePlaceholder}
               className="textarea"
-              error={""}
+           
               value={this.state.message}
               name="message"
               handleChange={this.handleChange}
@@ -187,7 +186,7 @@ class Contact extends Component {
           </div>
 
           <div className="column is-hidden-mobile is-5-tablet is-6-desktop contact-image-wrapper-3">
-            <img src={row11Image.publicURL} className="contact-image" />
+            <Img sizes={image3.childImageSharp.sizes} className="contact-image" />
           </div>
         </div>
 
@@ -230,18 +229,41 @@ export const query = graphql`
             email
             phone
             location
-            row11Image {
-              publicURL
+            image1 {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                } 
+              }
             }
-            row21Image {
-              publicURL
+            image2 {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                } 
+              }
             }
-            row22Image {
-              publicURL
+            image3 {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                } 
+              }
             }
           }
         }
       }
     }
+   
   }
 `;
+
+
+// logo: imageSharp(id: { regex: "/drake/center/" }) {
+//   sizes(maxWidth: 1240 ) {
+//     ...GatsbyImageSharpSizes
+//   }
+//   resolutions {
+//     ...GatsbyImageSharpResolutions
+//   }
+// }
