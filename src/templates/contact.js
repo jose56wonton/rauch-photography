@@ -144,7 +144,7 @@ class Contact extends Component {
             />
             <Input
               label={emailLabel}
-              placeholder={emailPlaceholder}
+              placeholder={emailPlaceholder}gat
               className="input"
               error={this.state.emailError}
               value={this.state.email}

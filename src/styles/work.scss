@@ -2,6 +2,7 @@
 .work {
     padding: 10vh 0;
     height: 100vh;
+    overflow: hidden;
     position: relative;
     display: flex;
     justify-content: center;
@@ -46,6 +47,7 @@
 }
 .asdf{
   height: 50%;
+  position:relative;
 }
 
 .work-left-picture {
