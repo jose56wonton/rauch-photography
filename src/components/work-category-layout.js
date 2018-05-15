@@ -1,11 +1,17 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
+import * as ScrollMagic from "scrollmagic";
 class WorkCategoryLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textHover: false
+      textHover: false,
+      controller: new ScrollMagic.Controller(),
+      shift: 0,
+      progress: 0,
+      cssForLeftImage: {},
+      cssForRightImage: {}
     };
   }
   link = () => {
@@ -17,6 +23,17 @@ class WorkCategoryLayout extends Component {
   hoverOnText = () => {
     this.setState({ textHover: true });
   };
+  componentDidMount() {
+    this.setState({
+      controller: new ScrollMagic.Controller(),
+    }) 
+    this.initializeScene();
+  }
+  componentWillUnmount = () => {
+    this.setState({
+      controller: null
+    }) 
+  }
   getClassesFromProps = () => {
     const {
       leftOrientation,
@@ -42,16 +59,70 @@ class WorkCategoryLayout extends Component {
     }
     return classes;
   };
-
+  initializeScene = () => {
+    
+    let scene = new ScrollMagic.Scene({
+      triggerElement: `#work-category-${this.props.index}`,
+      triggerHook: ".5"
+    })
+      .duration(1000)
+      .on("progress", event => {
+        this.setState({
+          progress: event.progress,
+          shift: Math.floor(event.progress * 50)
+        });
+        if (this.props.version) {
+          this.setState({
+            cssForLeftImage: {
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 50) +
+                "px, " +
+                Math.floor(event.progress * 25) +
+                "px)"
+            },
+            cssForRightImage: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
+            }
+          });
+        } else {
+          this.setState({
+            cssForLeftImage: {
+              transform:
+                "translate(" +
+                +Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
+            },
+            cssForRightImage: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                Math.floor(event.progress * 25) +
+                "px)"
+            }
+          });
+        }
+      })
+      .addTo(this.state.controller);
+  };
   render() {
     console.log(this.props);
     const classes = this.getClassesFromProps();
     return (
-      <div className="work-category">
+      <div className="work-category"  id={`work-category-${this.props.index}`}>
 
         <div className="work-category-pictures columns is-gapless ">
          
-          <div className={`column  ${classes[0]}`}>
+          <div className={`column  ${classes[0]}`} key={this.state.progress*40}
+          style={this.state.cssForLeftImage}>
             <Img
               className={`work-category-left-picture`}
               sizes={this.props.left}
@@ -68,7 +139,8 @@ class WorkCategoryLayout extends Component {
               sizes={this.props.center}
             />
           </div>
-          <div className={`column  ${classes[2]}`}>
+          <div className={`column  ${classes[2]}`} key={this.state.progress*30}
+          style={this.state.cssForRightImage}>
             <Img
               className={`work-category-right-picture`}
               sizes={this.props.right}
