@@ -45,7 +45,7 @@
   display: flex;
   flex-direction: column;
 }
-.work-left-picture {
+.work-small-picture {
    
     position: absolute;     
     object-fit: cover;
@@ -68,17 +68,18 @@
     @include desktop{
       &.version-0{
         right:.7rem;
-        top: 1rem;
+        top: 3rem;
       }
       &.version-1{
-        left:.5rem;      
+        left:.5rem;   
+        top:2rem;   
       }
-      width: 50%;
-      height: 50%;
+      width: 80%;
+      height: 80%;
     }
 }
 
-.work-center-picture {
+.work-large-picture {
     cursor: pointer; 
     width: 100%;
     height: 100%;
@@ -92,46 +93,21 @@
 }
 
 
-.work-right-picture {
-    
-    position: absolute;     
-    object-fit: cover;
-
-    @include tablet{
-      &.version-0{
-        left:1rem;
-        top:3rem;
-      }
-      &.version-1{
-        right:1rem;
-        top: 3rem;
-      }
-      width: 46%;
-      height: 46%;
-    }
-    @include mobile{
-      width: 56%;
-      height: 56%;
-    }
-    @include desktop{
-      &.version-0{
-        left:1rem;
-        top:3rem;
-      }
-      &.version-1{
-        right:1rem;
-        top: 4.5rem;
-      }
-      width: 50%;
-      height: 50%;
-    }
-   
-}
-
 .work-content {
     position: absolute;
     top: 50%;
-    z-index: 50;    
+    z-index: 50;
+    width:100%;
+
+      &.version-0{
+        text-align: right;
+        right:2rem;
+      }
+      &.version-1{
+        text-align: left; 
+        left:2rem;
+      }
+   
     @include tablet{
       font-size: 3.5rem;
       span:before, span:after{

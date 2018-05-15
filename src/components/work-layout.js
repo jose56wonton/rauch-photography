@@ -24,7 +24,7 @@ class WorkLayout extends Component {
     this.setState({ textHover: true });
   };
   componentDidMount() {
-    this.initializeScene();   
+    this.initializeScene();
   }
   initializeScene = () => {
     let scene = new ScrollMagic.Scene({
@@ -35,33 +35,42 @@ class WorkLayout extends Component {
       .on("progress", event => {
         this.setState({
           progress: event.progress,
-          shift: Math.floor(event.progress * 50),
-          
-        })
-        if(this.props.version){
+          shift: Math.floor(event.progress * 50)
+        });
+        if (this.props.version) {
           this.setState({
-            cssForMainImage: {transform: "translateX(" + Math.floor(event.progress * 50) + "px)"},
-            cssForSmallerImages: {transform: "translateX(" + -Math.floor(event.progress * 50) + "px)"}
-          })
-        }else{
+            cssForMainImage: {
+              transform: "translateX(" + Math.floor(event.progress * 50) + "px)"
+            },
+            cssForSmallerImages: {
+              transform:
+                "translateX(" + -Math.floor(event.progress * 50) + "px)"
+            }
+          });
+        } else {
           this.setState({
-            cssForMainImage: {transform: "translateX(" + -Math.floor(event.progress * 50) + "px)"},
-            cssForSmallerImages: {transform: "translateX(" + Math.floor(event.progress * 50) + "px)"}
-          })
+            cssForMainImage: {
+              transform:
+                "translateX(" + -Math.floor(event.progress * 50) + "px)"
+            },
+            cssForSmallerImages: {
+              transform: "translateX(" + Math.floor(event.progress * 50) + "px)"
+            }
+          });
         }
       })
       .addTo(this.state.controller);
   };
   render() {
     console.log(this.state.css);
-    
+
     return (
-      <div  className="work" id={`work-${this.props.index}`}>
+      <div className="work" id={`work-${this.props.index}`}>
         <div className={`work-pictures version-${this.props.version}`}>
-          <div className="col-1" >
-            <div key={this.state.progress}style={this.state.cssForMainImage}>
+          <div className="col-1">
+            <div key={this.state.progress} style={this.state.cssForMainImage}>
               <Img
-                className={`work-center-picture version-${this.props.version}`}
+                className={`work-large-picture version-${this.props.version}`}
                 sizes={this.props.center}
                 onClick={this.link}
                 onMouseEnter={this.hoverOffText}
@@ -70,33 +79,28 @@ class WorkLayout extends Component {
             </div>
           </div>
           <div className="col-2">
-              <div key={this.state.progress} className="work-image-wrapper" style={this.state.cssForSmallerImages}>
-                <Img
-                  className={`work-left-picture  version-${this.props.version}`}
-                  sizes={this.props.left}
-                />
-              </div>
+            <div
+              key={this.state.progress}
+              className="work-image-wrapper"
+              style={this.state.cssForSmallerImages}
+            >
+              <Img
+                className={`work-small-picture  version-${this.props.version}`}
+                sizes={this.props.left}
+              />
+            </div>
+            <div className="work-image-wrapper">
             <div
               className={`work-content  version-${this.props.version}`}
               onClick={this.link}
             >
-              <h3
-                className={`strike ${
-                  this.state.textHover ? "" : "strike-hover"
-                }`}
-              >
+              <h3 className={`strike ${this.state.textHover ? "" : "strike-hover"}`}>
                 <span>{this.props.title} </span>
               </h3>
             </div>
-
-              <div key={this.state.progress} className="work-image-wrapper" style={this.state.cssForSmallerImages}>
-                <Img
-                  className={`work-right-picture version-${
-                    this.props.version
-                  } `}
-                  sizes={this.props.right}
-                />
             </div>
+            
+            
           </div>
         </div>
       </div>
