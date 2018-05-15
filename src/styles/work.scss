@@ -45,11 +45,6 @@
   display: flex;
   flex-direction: column;
 }
-.asdf{
-  height: 50%;
-  position:relative;
-}
-
 .work-left-picture {
    
     position: absolute;     
@@ -91,10 +86,9 @@
     object-fit: cover;
      
 }
-.work-image-sizing-wrapper{
+.work-image-wrapper{
+  height: 50%;
   position:relative;
-  overflow:hidden;
-  padding-bottom:100%; 
 }
 
 

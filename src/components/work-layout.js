@@ -10,7 +10,8 @@ class WorkLayout extends Component {
       controller: new ScrollMagic.Controller(),
       shift: 0,
       progress: 0,
-      css: {}
+      cssForMainImage: {},
+      cssForSmallerImages: {}
     };
   }
   link = () => {
@@ -35,8 +36,19 @@ class WorkLayout extends Component {
         this.setState({
           progress: event.progress,
           shift: Math.floor(event.progress * 50),
-          css: {transform: "translateX(" + Math.floor(event.progress * 50) + "px)"}
+          
         })
+        if(this.props.version){
+          this.setState({
+            cssForMainImage: {transform: "translateX(" + Math.floor(event.progress * 50) + "px)"},
+            cssForSmallerImages: {transform: "translateX(" + -Math.floor(event.progress * 50) + "px)"}
+          })
+        }else{
+          this.setState({
+            cssForMainImage: {transform: "translateX(" + -Math.floor(event.progress * 50) + "px)"},
+            cssForSmallerImages: {transform: "translateX(" + Math.floor(event.progress * 50) + "px)"}
+          })
+        }
       })
       .addTo(this.state.controller);
   };
@@ -47,7 +59,7 @@ class WorkLayout extends Component {
       <div  className="work" id={`work-${this.props.index}`}>
         <div className={`work-pictures version-${this.props.version}`}>
           <div className="col-1" >
-            <div key={this.state.progress} className="work-image-sizing-wrapper" style={this.state.css}>
+            <div key={this.state.progress}style={this.state.cssForMainImage}>
               <Img
                 className={`work-center-picture version-${this.props.version}`}
                 sizes={this.props.center}
@@ -58,14 +70,12 @@ class WorkLayout extends Component {
             </div>
           </div>
           <div className="col-2">
-            <div className="asdf">
-              <div key={this.state.progress} className="work-image-sizing-wrapper" style={this.state.css}>
+              <div key={this.state.progress} className="work-image-wrapper" style={this.state.cssForSmallerImages}>
                 <Img
                   className={`work-left-picture  version-${this.props.version}`}
                   sizes={this.props.left}
                 />
               </div>
-            </div>
             <div
               className={`work-content  version-${this.props.version}`}
               onClick={this.link}
@@ -79,15 +89,13 @@ class WorkLayout extends Component {
               </h3>
             </div>
 
-            <div className="asdf">
-              <div key={this.state.progress} className="work-image-sizing-wrapper" style={this.state.css}>
+              <div key={this.state.progress} className="work-image-wrapper" style={this.state.cssForSmallerImages}>
                 <Img
                   className={`work-right-picture version-${
                     this.props.version
                   } `}
                   sizes={this.props.right}
                 />
-              </div>
             </div>
           </div>
         </div>
