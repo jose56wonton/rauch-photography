@@ -9,7 +9,8 @@ class WorkLayout extends Component {
       textHover: true,
       controller: new ScrollMagic.Controller(),
       shift: 0,
-      progress: 0
+      progress: 0,
+      css: {}
     };
   }
   link = () => {
@@ -33,21 +34,20 @@ class WorkLayout extends Component {
       .on("progress", event => {
         this.setState({
           progress: event.progress,
-          shift: Math.floor(event.progress * 50)
+          shift: Math.floor(event.progress * 50),
+          css: {transform: "translateX(" + Math.floor(event.progress * 50) + "px)"}
         })
       })
       .addTo(this.state.controller);
   };
   render() {
-    console.log(this.state.shift);
-    let css = {
-      transform: "translateX(" + this.props.shift + ")"
-    };
+    console.log(this.state.css);
+    
     return (
-      <div className="work" id={`work-${this.props.index}`}>
+      <div  className="work" id={`work-${this.props.index}`}>
         <div className={`work-pictures version-${this.props.version}`}>
-          <div className="col-1" style={css}>
-            <div className="work-image-sizing-wrapper">
+          <div className="col-1" >
+            <div key={this.state.progress} className="work-image-sizing-wrapper" style={this.state.css}>
               <Img
                 className={`work-center-picture version-${this.props.version}`}
                 sizes={this.props.center}
@@ -59,7 +59,7 @@ class WorkLayout extends Component {
           </div>
           <div className="col-2">
             <div className="asdf">
-              <div className="work-image-sizing-wrapper">
+              <div key={this.state.progress} className="work-image-sizing-wrapper" style={this.state.css}>
                 <Img
                   className={`work-left-picture  version-${this.props.version}`}
                   sizes={this.props.left}
@@ -80,7 +80,7 @@ class WorkLayout extends Component {
             </div>
 
             <div className="asdf">
-              <div className="work-image-sizing-wrapper">
+              <div key={this.state.progress} className="work-image-sizing-wrapper" style={this.state.css}>
                 <Img
                   className={`work-right-picture version-${
                     this.props.version
