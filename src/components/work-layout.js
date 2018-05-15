@@ -21,13 +21,22 @@ class WorkLayout extends Component {
     this.setState({ textHover: false });
   };
   hoverOnText = () => {
-    this.setState({ textHover: true });
-    console.log("asdf");
+    this.setState({ textHover: true });    
   };
   componentDidMount() {
+    this.setState({
+      controller: new ScrollMagic.Controller(),
+    }) 
     this.initializeScene();
   }
+  componentWillUnmount = () => {
+    this.setState({
+      controller: null
+    }) 
+  }
+  
   initializeScene = () => {
+    
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-${this.props.index}`,
       triggerHook: ".5"
@@ -86,7 +95,7 @@ class WorkLayout extends Component {
         <div className={`work-pictures version-${this.props.version}`}>
           <div className="col-1">
             <div
-              key={this.state.progress}
+              key={this.state.progress*10}
               style={this.state.cssForMainImage}
               onClick={this.link}
               onMouseEnter={this.hoverOffText}
@@ -100,7 +109,7 @@ class WorkLayout extends Component {
           </div>
           <div className="col-2">
             <div
-              key={this.state.progress}
+              key={this.state.progress*20}
               className="work-image-wrapper"
               style={this.state.cssForSmallerImages}
               onClick={this.link}

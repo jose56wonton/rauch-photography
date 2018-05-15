@@ -14,11 +14,11 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "joshua wootonn",
+      name: "",
       nameError: "",
-      email: "jose56wonton@gmail.com ",
+      email: "",
       emailError: "",
-      message: "asdfasdfasdfa",
+      message: "",
       status: INITIAL
     };
   }

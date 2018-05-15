@@ -9,7 +9,7 @@ export default ({ data }) => {
     content = data.allMarkdownRemark.edges.map(({ node }, i ) => {
       const version = i%2;
       return (
-        <div key={node.id}>
+        <div key={i*10}>
           <WorkCategoryLayout
             left={node.frontmatter.left.childImageSharp.sizes}
             center={node.frontmatter.center.childImageSharp.sizes}

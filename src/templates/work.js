@@ -17,7 +17,7 @@ class Work extends Component {
       content = this.props.data.allMarkdownRemark.edges.map(({ node },i) => {
         const version = i%2;
         return (
-          <div key={node.id}  >
+          <div key={i*11}  >
             <WorkLayout
               left={node.frontmatter.left.childImageSharp.sizes}
               center={node.frontmatter.center.childImageSharp.sizes}
