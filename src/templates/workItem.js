@@ -26,7 +26,7 @@ class WorkItem extends Component {
           triggerElement: `#work-item-${i}`,
           triggerHook: ".5"
         })
-          .duration(10)
+          .duration(1000)
           .on("start", event => {
             if (event.scrollDirection === "REVERSE") {
               if(i !== 0){
@@ -38,6 +38,7 @@ class WorkItem extends Component {
               });
             }
           })
+         
           .addTo(this.state.controller)
       );
       if(i === attachments.length -1 ){
