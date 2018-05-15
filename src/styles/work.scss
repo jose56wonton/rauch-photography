@@ -49,7 +49,7 @@
    
     position: absolute;     
     object-fit: cover;
-   
+    cursor: pointer; 
     @include tablet{
       &.version-0{
         right:.7rem;
@@ -58,12 +58,12 @@
       &.version-1{
         left:.5rem;      
       }
-      width: 44%;
-      height: 44%;
+      width: 100%;
+      height: auto;
     }
     @include mobile{
-      width: 60%;
-      height: 60%;
+      width: 100%;
+      height: auto;
     }
     @include desktop{
       &.version-0{
@@ -91,14 +91,31 @@
   height: 50%;
   position:relative;
 }
+.work-content-wrapper{
+
+  position:relative;
+  @include tablet{
+    height: 15%;
+  }
+  @include desktop{
+    height: 50%;
+  }
+}
 
 
 .work-content {
     position: absolute;
-    top: 50%;
     z-index: 50;
-    width:100%;
-
+    width:100%;     
+   
+    @include tablet{
+      font-size: 3.5rem;
+      span:before, span:after{
+        height: .35rem;
+      }  
+    }
+    @include desktop{
+      top: 50%;
       &.version-0{
         text-align: right;
         right:2rem;
@@ -107,31 +124,13 @@
         text-align: left; 
         left:2rem;
       }
-   
-    @include tablet{
-      font-size: 3.5rem;
-      span:before, span:after{
-        height: .35rem;
-      }
-      &.version-1{       
-        right:3rem;
-      }
-      &.version-0{
-        left:3rem;
-      }
-
-    }
-    @include desktop{
       font-size: 5rem;
       span:before, span:after{
         height: .5rem;
       }
     }
    
-    h3{
-      transform: translateY(-50%);
-      
-    }
+    
 }
 
 // Work Category

@@ -22,6 +22,7 @@ class WorkLayout extends Component {
   };
   hoverOnText = () => {
     this.setState({ textHover: true });
+    console.log("asdf");
   };
   componentDidMount() {
     this.initializeScene();
@@ -40,21 +41,39 @@ class WorkLayout extends Component {
         if (this.props.version) {
           this.setState({
             cssForMainImage: {
-              transform: "translateX(" + Math.floor(event.progress * 50) + "px)"
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 50) +
+                "px, " +
+                Math.floor(event.progress * 25) +
+                "px)"
             },
             cssForSmallerImages: {
               transform:
-                "translateX(" + -Math.floor(event.progress * 50) + "px)"
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
             }
           });
         } else {
           this.setState({
             cssForMainImage: {
               transform:
-                "translateX(" + -Math.floor(event.progress * 50) + "px)"
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                Math.floor(event.progress * 25) +
+                "px)"
             },
             cssForSmallerImages: {
-              transform: "translateX(" + Math.floor(event.progress * 50) + "px)"
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
             }
           });
         }
@@ -62,19 +81,20 @@ class WorkLayout extends Component {
       .addTo(this.state.controller);
   };
   render() {
-    console.log(this.state.css);
-
     return (
       <div className="work" id={`work-${this.props.index}`}>
         <div className={`work-pictures version-${this.props.version}`}>
           <div className="col-1">
-            <div key={this.state.progress} style={this.state.cssForMainImage}>
+            <div
+              key={this.state.progress}
+              style={this.state.cssForMainImage}
+              onClick={this.link}
+              onMouseEnter={this.hoverOffText}
+              onMouseLeave={this.hoverOnText}
+            >
               <Img
                 className={`work-large-picture version-${this.props.version}`}
                 sizes={this.props.center}
-                onClick={this.link}
-                onMouseEnter={this.hoverOffText}
-                onMouseLeave={this.hoverOnText}
               />
             </div>
           </div>
@@ -83,24 +103,29 @@ class WorkLayout extends Component {
               key={this.state.progress}
               className="work-image-wrapper"
               style={this.state.cssForSmallerImages}
+              onClick={this.link}
+              onMouseEnter={this.hoverOffText}
+              onMouseLeave={this.hoverOnText}
             >
               <Img
                 className={`work-small-picture  version-${this.props.version}`}
                 sizes={this.props.left}
               />
             </div>
-            <div className="work-image-wrapper">
-            <div
-              className={`work-content  version-${this.props.version}`}
-              onClick={this.link}
-            >
-              <h3 className={`strike ${this.state.textHover ? "" : "strike-hover"}`}>
-                <span>{this.props.title} </span>
-              </h3>
+            <div className="work-content-wrapper">
+              <div
+                className={`work-content  version-${this.props.version}`}
+                onClick={this.link}
+              >
+                <h3
+                  className={`strike ${
+                    this.state.textHover ? "" : "strike-hover"
+                  }`}
+                >
+                  <span>{this.props.title} </span>
+                </h3>
+              </div>
             </div>
-            </div>
-            
-            
           </div>
         </div>
       </div>
