@@ -2,58 +2,22 @@ import React, { Component } from "react";
 import WorkLayout from "../components/work-layout";
 import Link from "gatsby-link";
 import Blank from '../components/blank'
-import * as ScrollMagic from "scrollmagic";
+
 
 class Work extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: 0,
-      controller: new ScrollMagic.Controller(),
-      styles: []
+      active: 0
     };
   }
-  componentDidMount() {
-    this.initialScrollScenes();    
-  }
-  initialScrollScenes = () => {
-    let scenes = [];
-    attachments.forEach((attachment, i) => {
-      scenes.push(
-        new ScrollMagic.Scene({
-          triggerElement: `#work-item-${i}`,
-          triggerHook: ".5"
-        })
-          .duration(1000)
-          .on("start", event => {
-            if (event.scrollDirection === "REVERSE") {
-              if(i !== 0){
-                this.setState({ active: i - 1 });
-              }                          
-            } else if (event.scrollDirection === "FORWARD") {
-              this.setState({
-                active: i
-              });
-            }
-          })
-         
-          .addTo(this.state.controller)
-      );
-      if(i === attachments.length -1 ){
-        this.setState({active: 0})
-        
-      }
-    });
-    
-  }
   render() {
-    console.log(this.props);
     let content;
     if(this.props.data.allMarkdownRemark){
       content = this.props.data.allMarkdownRemark.edges.map(({ node },i) => {
         const version = i%2;
         return (
-          <div key={node.id} >
+          <div key={node.id}  >
             <WorkLayout
               left={node.frontmatter.left.childImageSharp.sizes}
               center={node.frontmatter.center.childImageSharp.sizes}
@@ -61,6 +25,7 @@ class Work extends Component {
               leftOrientation={node.frontmatter.leftOrientation}
               centerOrientation={node.frontmatter.centerOrientation}
               rightOrientation={node.frontmatter.rightOrientation}
+              index={i}
               title={node.frontmatter.title}
               version={version}
               path={`work/${node.frontmatter.path}`}
@@ -80,13 +45,7 @@ class Work extends Component {
   }
 }
 
-
-
-
 export default Work;
-
-
-
 
 export const query = graphql`
   query workQuery {

@@ -1,11 +1,15 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
+import * as ScrollMagic from "scrollmagic";
 class WorkLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textHover: true
+      textHover: true,
+      controller: new ScrollMagic.Controller(),
+      shift: 0,
+      progress: 0
     };
   }
   link = () => {
@@ -17,13 +21,32 @@ class WorkLayout extends Component {
   hoverOnText = () => {
     this.setState({ textHover: true });
   };
-
+  componentDidMount() {
+    this.initializeScene();   
+  }
+  initializeScene = () => {
+    let scene = new ScrollMagic.Scene({
+      triggerElement: `#work-${this.props.index}`,
+      triggerHook: ".5"
+    })
+      .duration(1000)
+      .on("progress", event => {
+        this.setState({
+          progress: event.progress,
+          shift: Math.floor(event.progress * 50)
+        })
+      })
+      .addTo(this.state.controller);
+  };
   render() {
-    
+    console.log(this.state.shift);
+    let css = {
+      transform: "translateX(" + this.props.shift + ")"
+    };
     return (
-      <div className="work">
+      <div className="work" id={`work-${this.props.index}`}>
         <div className={`work-pictures version-${this.props.version}`}>
-          <div className="col-1">
+          <div className="col-1" style={css}>
             <div className="work-image-sizing-wrapper">
               <Img
                 className={`work-center-picture version-${this.props.version}`}
@@ -43,7 +66,10 @@ class WorkLayout extends Component {
                 />
               </div>
             </div>
-            <div className={`work-content  version-${this.props.version}`} onClick={this.link}>
+            <div
+              className={`work-content  version-${this.props.version}`}
+              onClick={this.link}
+            >
               <h3
                 className={`strike ${
                   this.state.textHover ? "" : "strike-hover"
@@ -56,7 +82,9 @@ class WorkLayout extends Component {
             <div className="asdf">
               <div className="work-image-sizing-wrapper">
                 <Img
-                  className={`work-right-picture version-${this.props.version} `}
+                  className={`work-right-picture version-${
+                    this.props.version
+                  } `}
                   sizes={this.props.right}
                 />
               </div>
