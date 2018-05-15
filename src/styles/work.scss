@@ -1,7 +1,8 @@
 // Work
 .work {
-    padding: 10vh 0;
-    height: 100vh;
+  @include desktop{
+    margin: 20vh 0;
+  }
     overflow: hidden;
     position: relative;
     display: flex;
@@ -10,7 +11,7 @@
 }
 
 .work-pictures {
-    height: 80vh;
+    height: 70vh;
     position: relative;
     display: flex;
     &.version-0{
@@ -58,12 +59,12 @@
       &.version-1{
         left:.5rem;      
       }
-      width: 100%;
-      height: auto;
+      width: auto;
+      height: 100%;
     }
     @include mobile{
-      width: 100%;
-      height: auto;
+      width: auto;
+      height: 100%;
     }
     @include desktop{
       &.version-0{
@@ -88,14 +89,19 @@
      
 }
 .work-image-wrapper{
-  height: 50%;
+  @include tablet{
+    height: 80%;
+  }
+  @include desktop{
+    height: 50%;
+  }
+  
   position:relative;
 }
 .work-content-wrapper{
-
   position:relative;
   @include tablet{
-    height: 15%;
+    height: 20%;
   }
   @include desktop{
     height: 50%;
