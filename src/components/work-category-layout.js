@@ -26,19 +26,19 @@ class WorkCategoryLayout extends Component {
     } = this.props;
     const classes = [];
     if (leftOrientation === "portrait") {
-      classes[0] = `${leftOrientation} version-${version} is-3-tablet is-hidden-touch`;
+      classes[0] = `${leftOrientation} version-${version} is-3-tablet is-offset-1 is-hidden-touch`;
     } else if (leftOrientation === "landscape") {
       classes[0] = `${leftOrientation} version-${version} is-4-tablet is-hidden-touch`;
     }
     if (centerOrientation === "portrait") {
-      classes[1] = `${centerOrientation} version-${version} is-6-mobile is-5-tablet`;
+      classes[1] = `${centerOrientation} version-${version} is-10-mobile is-offset-1-mobile is-5-tablet`;
     } else if (centerOrientation === "landscape") {
-      classes[1] = `${centerOrientation} version-${version} is-9-mobile is-7-tablet`;
+      classes[1] = `${centerOrientation} version-${version} is-12-mobile is-7-tablet `;
     }
     if (rightOrientation === "portrait") {
-      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop`;
+      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop is-hidden-mobile`;
     } else if (rightOrientation === "landscape") {
-      classes[2] = `${rightOrientation} version-${version} is-7-mobile is-7-tablet is-4-desktop`;
+      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-7-tablet is-4-desktop is-hidden-mobile`;
     }
     return classes;
   };
@@ -48,21 +48,24 @@ class WorkCategoryLayout extends Component {
     const classes = this.getClassesFromProps();
     return (
       <div className="work-category">
+
         <div className="work-category-pictures columns is-gapless ">
+         
           <div className={`column  ${classes[0]}`}>
             <Img
               className={`work-category-left-picture`}
               sizes={this.props.left}
             />
           </div>
-          <div className={`column  ${classes[1]}`}>
-          
+          <div
+            className={`column  ${classes[1]}`}
+            onClick={this.link}
+            onMouseEnter={this.hoverOffText}
+            onMouseLeave={this.hoverOnText}
+          >
             <Img
               className={`work-category-center-picture`}
               sizes={this.props.center}
-              onClick={this.link}
-              onMouseEnter={this.hoverOffText}
-              onMouseLeave={this.hoverOnText}
             />
           </div>
           <div className={`column  ${classes[2]}`}>
