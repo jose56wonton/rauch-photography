@@ -1,31 +1,33 @@
-import React from 'react'
+import React from "react";
 
-
-export const Modal = (props) => {
-  return(
+export const Modal = props => {
+  return (
     <div
-          className={`modal ${props.formStatus === props.modalType ? "is-active" : ""
+      className={`hamburger-menu ${
+        props.formStatus === props.modalType ? "is-active" : ""
+      }`}
+    >
+      <div className="hamburger-content">
+      <p className="modal-title">{props.title}</p>
+      <p className="modal-message">{props.message}</p>
+        
+        <button
+          className={`hamburger  hamburger--slider ${
+            props.formStatus === props.modalType ? "is-active" : "is-invisible"
           }`}
+          type="button"
+          aria-label="Menu"
+          aria-controls="navigation"
+          aria-expanded="true"
+          onClick={props.close}
         >
-          <div className="modal-background" />
-          <div className="modal-content">
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">{props.title}</p>
-              </header>
-              <div className="card-content">
-                {props.message}
-              </div>
-            </div>
-          </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={props.close}
-          />
-        </div>
-  )
-}
+          <span className="hamburger-box">
+            <span className="hamburger-inner" />
+          </span>
+        </button>
+      </div>
+    </div>
+  );
+};
 
-export default Modal
-
+export default Modal;

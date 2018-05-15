@@ -9,7 +9,7 @@ export const Input = (props) => {
         className={`input ${props.error ? "is-danger" : ""}`}
         type={props.type}
         placeholder={props.placeholder}
-        name="name"
+        name={props.name}
         value={props.value}
         onChange={props.handleChange}
       />

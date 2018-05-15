@@ -16,11 +16,11 @@ class WorkItem extends Component {
     const { attachments } = this.props.data.markdownRemark.frontmatter;
     this.initialScrollScenes(attachments);
     this.initializePhotoBackgrounds(attachments);
-        
+    
   }
   initialScrollScenes = (attachments) => {
     let scenes = [];
-    attachments.forEach((attachments, i) => {
+    attachments.forEach((attachment, i) => {
       scenes.push(
         new ScrollMagic.Scene({
           triggerElement: `#work-item-${i}`,
@@ -31,9 +31,8 @@ class WorkItem extends Component {
             if (event.scrollDirection === "REVERSE") {
               if(i !== 0){
                 this.setState({ active: i - 1 });
-              }
-              
-            } else {
+              }                          
+            } else if (event.scrollDirection === "FORWARD") {
               this.setState({
                 active: i
               });
@@ -41,8 +40,12 @@ class WorkItem extends Component {
           })
           .addTo(this.state.controller)
       );
+      if(i === attachments.length -1 ){
+        this.setState({active: 0})
+        
+      }
     });
-
+    
   }
 
   initializePhotoBackgrounds = (photos) => {
@@ -59,6 +62,7 @@ class WorkItem extends Component {
         })         
       });
     });
+    
   }
  
   render() {

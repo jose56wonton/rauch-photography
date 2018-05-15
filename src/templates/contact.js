@@ -14,15 +14,16 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      name: "joshua wootonn",
       nameError: "",
-      email: "",
+      email: "jose56wonton@gmail.com ",
       emailError: "",
-      message: "",
+      message: "asdfasdfasdfa",
       status: INITIAL
     };
   }
   handleChange = event => {
+    console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {
@@ -76,16 +77,19 @@ class Contact extends Component {
       "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
     );
     // Name validation
-    if (this.state.name.indexOf(" ") === -1 || this.state.name.length < 6) {
+    let {name,email} = this.state;
+    name = name.trim();
+    email = email.trim();
+    if (name.indexOf(" ") === -1 || name.length < 6) {
       isError = true;
       errors.nameError = "Enter both a first and last name";
     }
-    if (!nameReg.exec(this.state.name)) {
+    if (!nameReg.exec(name)) {
       isError = true;
       errors.nameError = "Invalid Name";
     }
     // Email validation
-    if (!emailReg.exec(this.state.email)) {
+    if (!emailReg.exec(email)) {
       isError = true;
       errors.emailError = "Invalid Email";
     }
@@ -111,13 +115,16 @@ class Contact extends Component {
       phone,
       location
     } = this.props.data.allMarkdownRemark.edges[0].node.frontmatter;
-    
+
     return (
       <div className="contact">
-        <div className="contact-spacer"></div>
+        <div className="contact-spacer" />
         <div className="columns contact-row-1">
           <div className="column is-hidden-mobile is-12-mobile is-5-tablet is-4-desktop  contact-image-wrapper-1">
-            <Img sizes={image1.childImageSharp.sizes} className="contact-image" />
+            <Img
+              sizes={image1.childImageSharp.sizes}
+              className="contact-image"
+            />
           </div>
           <div className="contact-text-wrapper-1 column is-12-mobile is-7-tablet is-5-desktop ">
             <div>
@@ -127,66 +134,61 @@ class Contact extends Component {
             </div>
           </div>
           <div className="column is-hidden-touch is-3-desktop  contact-image-wrapper-2">
-            <Img sizes={image2.childImageSharp.sizes} className="contact-image" />
+            <Img
+              sizes={image2.childImageSharp.sizes}
+              className="contact-image"
+            />
           </div>
         </div>
         <div className="columns contact-row-2">
           <div className="column is-12-mobile is-8-tablet is-5-desktop is-offset-1-desktop  contact-text-wrapper-2">
             <div>
-            <Input
-              label={nameLabel}
-              placeholder={namePlaceholder}
-              className="input"
-              error={this.state.nameError}
-              value={this.state.name}
-              name="name"
-              handleChange={this.handleChange}
-              type="text"
-            />
-            <Input
-              label={emailLabel}
-              placeholder={emailPlaceholder}gat
-              className="input"
-              error={this.state.emailError}
-              value={this.state.email}
-              name="email"
-              handleChange={this.handleChange}
-              type="text"
-            />
-            <TextArea
-              label={messageLabel}
-              placeholder={messagePlaceholder}
-              className="textarea"
-           
-              value={this.state.message}
-              name="message"
-              handleChange={this.handleChange}
-              type="textarea"
-            />
+              <Input
+                label={nameLabel}
+                placeholder={namePlaceholder}
+                className="input"
+                error={this.state.nameError}
+                value={this.state.name}
+                name="name"
+                handleChange={this.handleChange}
+                type="text"
+              />
+              <Input
+                label={emailLabel}
+                placeholder={emailPlaceholder}
+                gat
+                className="input"
+                error={this.state.emailError}
+                value={this.state.email}
+                name="email"
+                handleChange={this.handleChange}
+                type="text"
+              />
+              <TextArea
+                label={messageLabel}
+                placeholder={messagePlaceholder}
+                className="textarea"
+                value={this.state.message}
+                name="message"
+                handleChange={this.handleChange}
+                type="textarea"
+              />
 
-            <div className="control">
-              {this.state.status === LOADING ? (
-                <button
-                  onClick={this.handleSubmit}
-                  className="button is-primary right"
-                  disabled
-                >
-                  Sending...
-                </button>
-              ) : (
-                <button
-                  onClick={this.handleSubmit}
-                  className="button is-primary right"
-                >
-                  {buttonLabel}
-                </button>
-              )}
-            </div>
+              <a
+                onClick={this.handleSubmit}
+                className="underline-inverse"
+                name="submit"
+              >
+                <span /> Send
+              </a>
             </div>
           </div>
 
           <div className="column is-hidden-mobile is-5-tablet is-6-desktop contact-image-wrapper-3">
-            <Img sizes={image3.childImageSharp.sizes} className="contact-image" />
+            <Img
+              sizes={image3.childImageSharp.sizes}
+              className="contact-image"
+            />
           </div>
         </div>
 
@@ -233,31 +235,29 @@ export const query = graphql`
               childImageSharp {
                 sizes {
                   ...GatsbyImageSharpSizes
-                } 
+                }
               }
             }
             image2 {
               childImageSharp {
                 sizes {
                   ...GatsbyImageSharpSizes
-                } 
+                }
               }
             }
             image3 {
               childImageSharp {
                 sizes {
                   ...GatsbyImageSharpSizes
-                } 
+                }
               }
             }
           }
         }
       }
     }
-   
   }
 `;
-
 
 // logo: imageSharp(id: { regex: "/drake/center/" }) {
 //   sizes(maxWidth: 1240 ) {
