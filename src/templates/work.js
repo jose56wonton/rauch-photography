@@ -8,12 +8,13 @@ export default ({ data }) => {
   if(data.allMarkdownRemark){
     content = data.allMarkdownRemark.edges.map(({ node },i) => {
       const version = i%2;
+      //console.log(node.frontmatter)
       return (
         <div key={node.id} >
           <WorkLayout
-            left={node.frontmatter.left.publicURL}
-            center={node.frontmatter.center.publicURL}
-            right={node.frontmatter.right.publicURL}
+            left={node.frontmatter.left.childImageSharp.sizes}
+            center={node.frontmatter.center.childImageSharp.sizes}
+            right={node.frontmatter.right.childImageSharp.sizes}
             leftOrientation={node.frontmatter.leftOrientation}
             centerOrientation={node.frontmatter.centerOrientation}
             rightOrientation={node.frontmatter.rightOrientation}
@@ -46,13 +47,25 @@ export const query = graphql`
             type
             path
             left {
-              publicURL
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
             }
             right {
-              publicURL
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
             }
-            center {
-              publicURL
+            center{
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
             }
             leftOrientation
             rightOrientation

@@ -11,9 +11,9 @@ export default ({ data }) => {
       return (
         <div key={node.id}>
           <WorkCategoryLayout
-            left={node.frontmatter.left.publicURL}
-            center={node.frontmatter.center.publicURL}
-            right={node.frontmatter.right.publicURL}
+            left={node.frontmatter.left.childImageSharp.sizes}
+            center={node.frontmatter.center.childImageSharp.sizes}
+            right={node.frontmatter.right.childImageSharp.sizes}
             leftOrientation={node.frontmatter.leftOrientation}
             centerOrientation={node.frontmatter.centerOrientation}
             rightOrientation={node.frontmatter.rightOrientation}
@@ -50,16 +50,32 @@ query findShit($name: String!){
              path
              category
              attachments {
-               publicURL
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
              }
              left {
-               publicURL
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
              }
              right {
-               publicURL
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
              }
              center {
-               publicURL
+              childImageSharp{
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
              }
              leftOrientation
              rightOrientation
