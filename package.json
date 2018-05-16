@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "zach-rauch-photography",
   "description": "Gatsby default starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Joshua Wootonn <joshuawootonn@gmail.com>",
   "dependencies": {
     "animate.css": "^3.6.1",
     "axios": "^0.18.0",
@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^1.5.33",
     "gatsby-transformer-remark": "^1.7.40",
     "gatsby-transformer-sharp": "^1.6.22",
+    "gh-pages": "^1.1.0",
     "hamburgers": "^0.9.3",
     "node-vibrant": "^3.0.0",
     "react-form": "^3.5.3",
