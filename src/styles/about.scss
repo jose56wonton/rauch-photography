@@ -56,9 +56,15 @@
   align-items: center;
 }
 
-.text-wrapper{
+.text-wrapper-1{
   padding: 2rem 40px;
   @include tablet{
     text-align:right;
+  }
+}
+.text-wrapper-2{
+  padding: 2rem 40px;
+  @include tablet{
+    text-align:left;
   }
 }

@@ -29,7 +29,8 @@ class WorkCategoryLayout extends Component {
       this.setState(
         {
           controller: new ScrollMagic.Controller(),
-          classes: this.getClassesFromProps()
+          classes: this.getClassesFromProps(),
+          textHover:false
         },
         () => {
           this.initializeScene(ScrollMagic);

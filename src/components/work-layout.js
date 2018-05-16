@@ -6,7 +6,7 @@ class WorkLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textHover: true,
+      textHover: false,
       shift: 0,
       progress: 0,
       cssForMainImage: {},
@@ -20,29 +20,30 @@ class WorkLayout extends Component {
     this.setState({ textHover: false });
   };
   hoverOnText = () => {
-    this.setState({ textHover: true });    
+    this.setState({ textHover: true });
   };
   componentDidMount() {
     const isBrowser = typeof window !== "undefined";
     const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
-    if(ScrollMagic){
-      this.setState({
-      controller: new ScrollMagic.Controller(),
-    },()=>{
-      this.initializeScene(ScrollMagic);
-    }) 
-    
+    if (ScrollMagic) {
+      this.setState(
+        {
+          controller: new ScrollMagic.Controller(),
+          textHover:false
+        },
+        () => {
+          this.initializeScene(ScrollMagic);
+        }
+      );
     }
-    
   }
   componentWillUnmount = () => {
     this.setState({
       controller: null
-    }) 
-  }
-  
-  initializeScene = (ScrollMagic) => {
-    
+    });
+  };
+
+  initializeScene = ScrollMagic => {
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-${this.props.index}`,
       triggerHook: ".5"
@@ -55,39 +56,23 @@ class WorkLayout extends Component {
         });
         if (this.props.version) {
           this.setState({
-            cssForMainImage: {
-              transform:
-                "translate(" +
-                Math.floor(event.progress * 50) +
-                "px, " +
-                Math.floor(event.progress * 25) +
-                "px)"
-            },
             cssForSmallerImages: {
               transform:
                 "translate(" +
-                -Math.floor(event.progress * 50) +
+                -Math.floor(event.progress * 100) +
                 "px, " +
-                -Math.floor(event.progress * 25) +
+                -Math.floor(event.progress * 50) +
                 "px)"
             }
           });
         } else {
           this.setState({
-            cssForMainImage: {
-              transform:
-                "translate(" +
-                -Math.floor(event.progress * 50) +
-                "px, " +
-                Math.floor(event.progress * 25) +
-                "px)"
-            },
             cssForSmallerImages: {
               transform:
                 "translate(" +
-                Math.floor(event.progress * 50) +
+                Math.floor(event.progress * 100) +
                 "px, " +
-                -Math.floor(event.progress * 25) +
+                -Math.floor(event.progress * 50) +
                 "px)"
             }
           });
@@ -101,8 +86,7 @@ class WorkLayout extends Component {
         <div className={`work-pictures version-${this.props.version}`}>
           <div className="col-1">
             <div
-              key={this.state.progress*10}
-              style={this.state.cssForMainImage}
+              key={this.state.progress * 10}
               onClick={this.link}
               onMouseEnter={this.hoverOffText}
               onMouseLeave={this.hoverOnText}
@@ -115,7 +99,7 @@ class WorkLayout extends Component {
           </div>
           <div className="col-2">
             <div
-              key={this.state.progress*20}
+              key={this.state.progress * 20}
               className="work-image-wrapper"
               style={this.state.cssForSmallerImages}
               onClick={this.link}

@@ -141,7 +141,7 @@ class Contact extends Component {
           </div>
         </div>
         <div className="columns contact-row-2">
-          <div className="column is-12-mobile is-8-tablet is-5-desktop is-offset-1-desktop  contact-text-wrapper-2">
+          <div className="column is-12-mobile is-8-tablet is-5-desktop is-offset-1-desktop contact-text-wrapper-2">
             <div>
               <Input
                 label={nameLabel}

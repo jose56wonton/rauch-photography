@@ -1,10 +1,9 @@
 // Work
 .work {
-  @include desktop{
-    margin: 20vh 0;
-    height: 80vh;
-  }
-  
+    @include desktop {
+        margin: 20vh 0;
+        height: 80vh;
+    }
     overflow: hidden;
     position: relative;
     display: flex;
@@ -16,154 +15,162 @@
     height: 70vh;
     position: relative;
     display: flex;
-    &.version-0{
-      flex-direction: row-reverse;
+    &.version-0 {
+        flex-direction: row-reverse;
     }
-    &.version-1{
-      flex-direction: row;
+    &.version-1 {
+        flex-direction: row;
     }
 }
 
-.col-1{
-  position: relative;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  @include tablet{
-   visibility: hidden;
-   content: "";
-   width: 0;
-  }
-  padding: 1rem;
+.col-1 {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include tablet {
+        visibility: hidden;
+        content: "";
+        width: 0;
+    }
+    padding: 1rem;
 }
-.col-2{
-  height: 100%;
-  width: 50%;
-  @include tablet{
-    width: 100%;
-  }  
-  position: relative;
-  display: flex;
-  flex-direction: column;
+
+.col-2 {
+    height: 100%;
+    width: 50%;
+    @include tablet {
+        width: 100%;
+    }
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
-.work-small-picture {   
-    position: absolute;     
-    object-fit: cover;
-    cursor: pointer; 
-    @include tablet{
-      &.version-0{
-        right:.7rem;
+
+.version-0 {
+    .work-small-picture {
+        @include tablet {
+            left:0rem;
+            top: 0rem;
+        }
+        @include desktop {
+            left: 7rem;
+            top: 3rem;
+        }
+    }
+}
+
+.version-1 {
+  .work-small-picture {
+    @include tablet {
+        left: .5rem;
+    }
+    @include desktop {
+        left: 5rem;
         top: 2rem;
-      }
-      &.version-1{
-        left:.5rem;      
-      }
-      width: auto;
-      height: 100%;
     }
-    @include mobile{
-      width: auto;
-      height: 100%;
+}
+
+}
+
+.work-small-picture {
+    position: absolute;
+    object-fit: cover;
+    cursor: pointer;
+    left: 5rem;
+    @include tablet {
+        width: auto;
+        height: 100%;
     }
-    @include desktop{
-      &.version-0{
-        right:.7rem;
-        top: 3rem;
-      }
-      &.version-1{
-        left:.5rem;   
-        top:2rem;   
-      }
-      width: 80%;
-      height: 100%;
+    @include mobile {
+        width: auto;
+        height: 100%;
+    }
+    @include desktop {
+        width: 80%;
+        height: 100%;
     }
 }
 
 .work-large-picture {
-    cursor: pointer; 
+    cursor: pointer;
     width: 100%;
     height: 100%;
     position: absolute;
     object-fit: cover;
-     
-}
-.work-image-wrapper{
-  @include tablet{
-    height: 80%;
-  }
-  @include desktop{
-    height: 50%;
-  }
-  
-  position:relative;
-}
-.work-content-wrapper{
-  position:relative;
-  @include tablet{
-    height: 20%;
-  }
-  @include desktop{
-    height: 50%;
-  }
 }
 
+.work-image-wrapper {
+    @include tablet {
+        height: 80%;
+    }
+    @include desktop {
+        height: 50%;
+    }
+    position:relative;
+}
+
+.work-content-wrapper {
+    position: relative;
+    @include tablet {
+        height: 20%;
+    }
+    @include desktop {
+        height: 50%;
+    }
+}
 
 .work-content {
     position: absolute;
     z-index: 50;
-    width:100%;     
-   
-    @include tablet{
-      font-size: 3.5rem;
-      span:before, span:after{
-        height: .35rem;
-      }  
+    width: 100%;
+    @include tablet {
+        font-size: 3.5rem;
+        span:before,
+        span:after {
+            height: .35rem;
+        }
     }
-    @include desktop{
-      top: 50%;
-      &.version-0{
-        text-align: right;
-        right:2rem;
-      }
-      &.version-1{
-        text-align: left; 
-        left:2rem;
-      }
-      font-size: 5rem;
-      span:before, span:after{
-        height: .5rem;
-      }
+    @include desktop {
+        top: 50%;
+        &.version-0 {
+            text-align: right;
+            right: 2rem;
+        }
+        &.version-1 {
+            text-align: left;
+            left: 2rem;
+        }
+        font-size: 5rem;
+        span:before,
+        span:after {
+            height: .5rem;
+        }
     }
-   
-    
 }
 
 // Work Category
 .work-category {
-      height: 92vh;
-    
+    height: 92vh;
     position: relative;
     display: flex;
     justify-content: center;
-    
     flex-direction: column;
     text-align: center;
 }
 
 .work-category-pictures {
     position: relative;
-    @include tablet{
-      height: 55vh;
+    @include tablet {
+        height: 55vh;
     }
-    @include mobile{
-      height: 45vh;
+    @include mobile {
+        height: 45vh;
     }
-
-   
     @include desktop {
-      height: 70vh;
+        height: 70vh;
         display: flex;
         justify-content: center;
     }
@@ -172,7 +179,7 @@
 .work-category-left-picture {
     min-height: 1px;
     position: absolute;
-    top:10%;
+    top: 10%;
     z-index: 51;
     background-color: white;
     object-fit: cover;
@@ -185,27 +192,26 @@
         top: 20%;
     }
 }
-.work-category-center{
-  cursor: pointer;
+
+.work-category-center {
+    cursor: pointer;
 }
+
 .work-category-center-picture {
     cursor: pointer;
     top: 0%;
     z-index: -1;
     min-height: 1px;
     height: 100%;
-    
-
     position: relative;
     background-color: white;
     object-fit: cover;
-    
     @include tablet {
         &.portrait {
-          top: 5%;
+            top: 5%;
         }
         &.landscape {
-          top: 20%;
+            top: 20%;
         }
         position: absolute;
         &.version-0 {
@@ -216,61 +222,63 @@
             top: 4%;
         }
     }
-    @include mobile{
-      width: auto;
-      height: 50vh;
+    @include mobile {
+        width: auto;
+        height: 50vh;
     }
 }
-.is-offset-1{
-  margin-left: 8.33333% !important;
-}
-.is-offset-1-mobile{
-  @include mobile {
+
+.is-offset-1 {
     margin-left: 8.33333% !important;
-  }
-} 
+}
+
+.is-offset-1-mobile {
+    @include mobile {
+        margin-left: 8.33333% !important;
+    }
+}
+
 .work-category-right-picture {
     min-height: 1px;
     z-index: 50;
     position: absolute;
     background-color: white;
     object-fit: cover;
-     top: 25%;
-      
-    
+    top: 25%;
     @include tablet {
         .version-0 {
-          top: 20%;
-          right: 0%;
+            top: 20%;
+            right: 0%;
         }
         .version-1 {
-          top: 20%;
-          left: 0;
+            top: 20%;
+            left: 0;
         }
     }
 }
 
 .work-category-content {
-    height: 10vh; 
+    height: 10vh;
     text-align: center;
-    @include tablet{
-      font-size: 3.5rem;
-      span:before, span:after{
-        height: .35rem;
-      }      
+    @include tablet {
+        font-size: 3.5rem;
+        span:before,
+        span:after {
+            height: .35rem;
+        }
     }
-    
-    @include desktop{
-      font-size: 5rem;
-      span:before, span:after{
-        height: .5rem;
-      }
+    @include desktop {
+        font-size: 5rem;
+        span:before,
+        span:after {
+            height: .5rem;
+        }
     }
 }
 
 // Work Item
 .work-spacer {
-    height: 4rem;
+    height: 6rem;
 }
 
 .work-item-box {
@@ -278,7 +286,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .fade-in-wrapper {
@@ -297,7 +304,7 @@
 }
 
 .work-item-photo {
-    max-width: 100%;   
+    max-width: 100%;
     max-height: 80vh;
     opacity: 0;
     transition: ease .7s;
