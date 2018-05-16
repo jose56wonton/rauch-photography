@@ -1,0 +1,104 @@
+{
+  "assetsByChunkName": {
+    "path---work-action": [
+      "path---work-action-1391f066f6e420e812b3.js",
+      "path---work-action-1391f066f6e420e812b3.js.map"
+    ],
+    "path---work-event": [
+      "path---work-event-eebdb6cc8e0d43c4337d.js",
+      "path---work-event-eebdb6cc8e0d43c4337d.js.map"
+    ],
+    "path---work": [
+      "path---work-cd33bfa42a3a023e1bb0.js",
+      "path---work-cd33bfa42a3a023e1bb0.js.map"
+    ],
+    "path---work-wedding": [
+      "path---work-wedding-18f20ebac07b421fc274.js",
+      "path---work-wedding-18f20ebac07b421fc274.js.map"
+    ],
+    "path---": [
+      "path----7150f757c5dc1a202c11.js",
+      "path----7150f757c5dc1a202c11.js.map"
+    ],
+    "path---work-graduation": [
+      "path---work-graduation-9d3d3c665ccc67bb4cb8.js",
+      "path---work-graduation-9d3d3c665ccc67bb4cb8.js.map"
+    ],
+    "path---work-action-stadium": [
+      "path---work-action-stadium-0dfe47e0281a000a6b7f.js",
+      "path---work-action-stadium-0dfe47e0281a000a6b7f.js.map"
+    ],
+    "component---src-templates-index-js": [
+      "component---src-templates-index-js-c198ff097b9a5b96f0aa.js",
+      "component---src-templates-index-js-c198ff097b9a5b96f0aa.js.map"
+    ],
+    "component---src-templates-work-category-js": [
+      "component---src-templates-work-category-js-6ee6776e9a634e51a033.js",
+      "component---src-templates-work-category-js-6ee6776e9a634e51a033.js.map"
+    ],
+    "path---work-graduation-drake": [
+      "path---work-graduation-drake-71d0699dce5a58ca49ef.js",
+      "path---work-graduation-drake-71d0699dce5a58ca49ef.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-e93af71c30a012179912.js",
+      "component---src-layouts-index-js-e93af71c30a012179912.js.map"
+    ],
+    "component---src-templates-work-js": [
+      "component---src-templates-work-js-35eb084890a598c7f60e.js",
+      "component---src-templates-work-js-35eb084890a598c7f60e.js.map"
+    ],
+    "path---work-action-pedros": [
+      "path---work-action-pedros-0d20edae65d4c1d7a9e7.js",
+      "path---work-action-pedros-0d20edae65d4c1d7a9e7.js.map"
+    ],
+    "path---work-wedding-fritz": [
+      "path---work-wedding-fritz-71b823fd9f75f7de30bc.js",
+      "path---work-wedding-fritz-71b823fd9f75f7de30bc.js.map"
+    ],
+    "path---index": [
+      "path---index-38a9652b073dbf05f634.js",
+      "path---index-38a9652b073dbf05f634.js.map"
+    ],
+    "component---src-pages-404-js": [
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+    ],
+    "commons": [
+      "commons-5dd76e0bdfe730ddbe81.js",
+      "commons-5dd76e0bdfe730ddbe81.js.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---contact": [
+      "path---contact-6d6a0365e461022adf0d.js",
+      "path---contact-6d6a0365e461022adf0d.js.map"
+    ],
+    "component---src-templates-contact-js": [
+      "component---src-templates-contact-js-9e8f7a2219801a7398fc.js",
+      "component---src-templates-contact-js-9e8f7a2219801a7398fc.js.map"
+    ],
+    "path---work-wedding-pences": [
+      "path---work-wedding-pences-ddc5e4eaabcfddc71952.js",
+      "path---work-wedding-pences-ddc5e4eaabcfddc71952.js.map"
+    ],
+    "app": [
+      "app-c8b11bf831236f797446.js",
+      "app-c8b11bf831236f797446.js.map"
+    ],
+    "component---src-templates-work-item-js": [
+      "component---src-templates-work-item-js-f5ed127df4f9a2485521.js",
+      "component---src-templates-work-item-js-f5ed127df4f9a2485521.js.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---work-action-mitch": [
+      "path---work-action-mitch-39de8f3d1c4ab1513842.js",
+      "path---work-action-mitch-39de8f3d1c4ab1513842.js.map"
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+webpackJsonp([0x76a6789f4b53],{472:function(t,a){t.exports={data:{markdownRemark:{frontmatter:{title:"Pedros",attachments:[{publicURL:"/static/left-a01d185d2f3797c055710ba7033756ab.jpg"},{publicURL:"/static/center-fa90773e4df4c62682687dcc22cda2d7.jpg"},{publicURL:"/static/right-9b388a032540b256f08fe8f3532734af.jpg"}]}}},pathContext:{name:"pedros"}}}});
+//# sourceMappingURL=path---work-action-pedros-0d20edae65d4c1d7a9e7.js.map
