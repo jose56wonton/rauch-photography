@@ -9,7 +9,7 @@ class WorkLayout extends Component {
       textHover: false,
       shift: 0,
       progress: 0,
-      cssForMainImage: {},
+      cssForLargerImages: {},
       cssForSmallerImages: {}
     };
   }
@@ -63,6 +63,14 @@ class WorkLayout extends Component {
                 "px, " +
                 -Math.floor(event.progress * 50) +
                 "px)"
+            },
+            cssForLargerImages: {
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
             }
           });
         } else {
@@ -73,6 +81,14 @@ class WorkLayout extends Component {
                 Math.floor(event.progress * 100) +
                 "px, " +
                 -Math.floor(event.progress * 50) +
+                "px)"
+            },
+            cssForLargerImages: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
                 "px)"
             }
           });
@@ -88,6 +104,8 @@ class WorkLayout extends Component {
             <div
               key={this.state.progress * 10}
               onClick={this.link}
+              className="no-motion-touch"
+              style={this.state.cssForLargerImages}
               onMouseEnter={this.hoverOffText}
               onMouseLeave={this.hoverOnText}
             >
@@ -100,7 +118,7 @@ class WorkLayout extends Component {
           <div className="col-2">
             <div
               key={this.state.progress * 20}
-              className="work-image-wrapper"
+              className="work-image-wrapper no-motion-touch"
               style={this.state.cssForSmallerImages}
               onClick={this.link}
               onMouseEnter={this.hoverOffText}

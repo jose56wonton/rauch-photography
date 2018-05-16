@@ -74,7 +74,12 @@
 }
 
 }
-
+.no-motion-touch{
+    @include tablet{
+       transform: translate(0px,0px) !important; 
+    }
+    
+}
 .work-small-picture {
     position: absolute;
     object-fit: cover;
@@ -83,6 +88,7 @@
     @include tablet {
         width: auto;
         height: 100%;
+        
     }
     @include mobile {
         width: auto;
