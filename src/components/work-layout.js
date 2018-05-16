@@ -1,13 +1,12 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
-import * as ScrollMagic from "scrollmagic";
+
 class WorkLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
       textHover: true,
-      controller: new ScrollMagic.Controller(),
       shift: 0,
       progress: 0,
       cssForMainImage: {},
@@ -24,10 +23,17 @@ class WorkLayout extends Component {
     this.setState({ textHover: true });    
   };
   componentDidMount() {
-    this.setState({
+    const isBrowser = typeof window !== "undefined";
+    const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
+    if(ScrollMagic){
+      this.setState({
       controller: new ScrollMagic.Controller(),
+    },()=>{
+      this.initializeScene(ScrollMagic);
     }) 
-    this.initializeScene();
+    
+    }
+    
   }
   componentWillUnmount = () => {
     this.setState({
@@ -35,7 +41,7 @@ class WorkLayout extends Component {
     }) 
   }
   
-  initializeScene = () => {
+  initializeScene = (ScrollMagic) => {
     
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-${this.props.index}`,

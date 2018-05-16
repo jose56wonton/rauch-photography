@@ -8,17 +8,22 @@ class WorkItem extends Component {
     super(props);
     this.state = {
       active: 0,
-      controller: new ScrollMagic.Controller(),
       styles: []
     };
   }
   componentDidMount() {
     const { attachments } = this.props.data.markdownRemark.frontmatter;
-    this.initialScrollScenes(attachments);
-    this.initializePhotoBackgrounds(attachments);
-    
+
+    const isBrowser = typeof window !== 'undefined';
+    const ScrollMagic = isBrowser ? require('scrollmagic') : undefined;
+    if(ScrollMagic){
+      this.setState({controller: new ScrollMagic.Controller()}, ()=>{
+        this.initialScrollScenes(attachments,ScrollMagic);
+        this.initializePhotoBackgrounds(attachments);
+      });      
+    }   
   }
-  initialScrollScenes = (attachments) => {
+  initialScrollScenes = (attachments,ScrollMagic) => {
     let scenes = [];
     attachments.forEach((attachment, i) => {
       scenes.push(

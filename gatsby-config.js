@@ -1,4 +1,5 @@
 module.exports = {
+   //pathPrefix: '/rauch-photography',
   siteMetadata: {
     title: "Zach Rauch"
   },

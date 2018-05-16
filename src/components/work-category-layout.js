@@ -1,17 +1,16 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
-import * as ScrollMagic from "scrollmagic";
 class WorkCategoryLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
       textHover: false,
-      controller: new ScrollMagic.Controller(),
       shift: 0,
       progress: 0,
       cssForLeftImage: {},
-      cssForRightImage: {}
+      cssForRightImage: {},
+      classes: []
     };
   }
   link = () => {
@@ -24,16 +23,25 @@ class WorkCategoryLayout extends Component {
     this.setState({ textHover: true });
   };
   componentDidMount() {
-    this.setState({
-      controller: new ScrollMagic.Controller(),
-    }) 
-    this.initializeScene();
+    const isBrowser = typeof window !== "undefined";
+    const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
+    if (ScrollMagic) {
+      this.setState(
+        {
+          controller: new ScrollMagic.Controller(),
+          classes: this.getClassesFromProps()
+        },
+        () => {
+          this.initializeScene(ScrollMagic);
+        }
+      );
+    }
   }
   componentWillUnmount = () => {
     this.setState({
       controller: null
-    }) 
-  }
+    });
+  };
   getClassesFromProps = () => {
     const {
       leftOrientation,
@@ -59,8 +67,7 @@ class WorkCategoryLayout extends Component {
     }
     return classes;
   };
-  initializeScene = () => {
-    
+  initializeScene = (ScrollMagic) => {
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-category-${this.props.index}`,
       triggerHook: ".5"
@@ -114,22 +121,21 @@ class WorkCategoryLayout extends Component {
       .addTo(this.state.controller);
   };
   render() {
-    console.log(this.props);
-    const classes = this.getClassesFromProps();
     return (
-      <div className="work-category"  id={`work-category-${this.props.index}`}>
-
+      <div className="work-category" id={`work-category-${this.props.index}`}>
         <div className="work-category-pictures columns is-gapless ">
-         
-          <div className={`column  ${classes[0]}`} key={this.state.progress*40}
-          style={this.state.cssForLeftImage}>
+          <div
+            className={`column  ${this.state.classes[0]}`}
+            key={(this.state.progress + 1) * 400}
+            style={this.state.cssForLeftImage}
+          >
             <Img
               className={`work-category-left-picture`}
               sizes={this.props.left}
             />
           </div>
           <div
-            className={`column  ${classes[1]}`}
+            className={`column work-category-center ${this.state.classes[1]}`}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
             onMouseLeave={this.hoverOnText}
@@ -139,8 +145,11 @@ class WorkCategoryLayout extends Component {
               sizes={this.props.center}
             />
           </div>
-          <div className={`column  ${classes[2]}`} key={this.state.progress*30}
-          style={this.state.cssForRightImage}>
+          <div
+            className={`column  ${this.state.classes[2]}`}
+            key={(this.state.progress + 1) * 300}
+            style={this.state.cssForRightImage}
+          >
             <Img
               className={`work-category-right-picture`}
               sizes={this.props.right}
