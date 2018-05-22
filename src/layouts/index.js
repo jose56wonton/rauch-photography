@@ -7,6 +7,9 @@ import Footer from '../components/footer';
 import SideBar from '../components/sidebar';
 import React, { Component } from 'react';
 
+
+
+
 class Layout extends Component {
   constructor(props) {
     super(props);

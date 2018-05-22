@@ -86,19 +86,20 @@
   width: 100%;
 }
 .underline span:before {
-  left: -2.5px;
+  left: -.1px;
 }
 .underline span:after {
-  right: 2.5px;
+  right: .1px;
+  
   background: $color-3;
-  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: width .8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.underline  span:hover:before {
+.underline span:hover:before, .underline-active span:before {
   background: $color-3;
   width: 100%;
-  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.underline span:hover:after {
+.underline span:hover:after, .underline-active span:after {
   background: transparent;
   width: 100%;
   transition: 0s;
@@ -110,19 +111,25 @@
 
 .underline-inverse span{
   position:absolute;
- 
+  height: 2px;
   background: $color-3;
   top: 100%;
   left:0;
   right:0;
-  animation: ui-out .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation: ui-out .8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.underline-inverse:hover span{
-  
+.underline-inverse:hover span{  
   left:100%;
   right:0;
-  animation: ui-in .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation: ui-in .8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
+.underline-inverse-active span{
+  left:100%;
+  right:0;
+  animation: ui-in .8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
 
 @keyframes ui-in{
   0%{

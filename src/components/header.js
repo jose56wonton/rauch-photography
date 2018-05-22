@@ -12,8 +12,8 @@ class Header extends Component {
       >
         <div className="navbar-brand">
           <Link
-            className="navbar-element strike"
-            activeClassName="strike-active"
+            className="navbar-element underline"
+            activeClassName="underline-active"
             exact 
             to="/"
           >
@@ -40,15 +40,15 @@ class Header extends Component {
         <div className="navbar-menu">
           <div className="navbar-end">
             <Link
-              className="navbar-element strike"
-              activeClassName="strike-active"
+              className="navbar-element underline"
+              activeClassName="underline-active"
               to="/work"
             >
               <span>Work</span>
             </Link>
             <Link
-              className="navbar-element strike"
-              activeClassName="strike-active"
+              className="navbar-element underline"
+              activeClassName="underline-active"
               to="/contact"
             >
               <span>Contact</span>

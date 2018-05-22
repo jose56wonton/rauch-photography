@@ -179,7 +179,7 @@ class Contact extends Component {
                 className="underline-inverse"
                 name="submit"
               >
-                <span /> Send
+                <span/>Send
               </a>
             </div>
           </div>

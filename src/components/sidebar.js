@@ -15,8 +15,8 @@ class SideBar extends Component {
       >
         <div className="hamburger-content">
           <Link
-            className="hamburger-element strike"
-            activeClassName="strike-active"
+            className="hamburger-element underline"
+            activeClassName="underline-active"
             onClick={this.link}
             exact 
             to="/"
@@ -24,16 +24,16 @@ class SideBar extends Component {
             <span >Zach</span>
           </Link>
           <Link
-            className="hamburger-element strike"
-            activeClassName="strike-active"
+            className="hamburger-element underline"
+            activeClassName="underline-active"
             onClick={this.link}             
             to="/work"
           >
             <span>Work</span>
           </Link>
           <Link
-            className="hamburger-element strike"
-            activeClassName="strike-active"
+            className="hamburger-element underline"
+            activeClassName="underline-active"
             onClick={this.link}  
                
             to="/contact"        

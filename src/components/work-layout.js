@@ -135,8 +135,8 @@ class WorkLayout extends Component {
                 onClick={this.link}
               >
                 <h3
-                  className={`strike ${
-                    this.state.textHover ? "" : "strike-hover"
+                  className={`underline ${
+                    this.state.textHover ? "" : "underline-active"
                   }`}
                 >
                   <span>{this.props.title} </span>
