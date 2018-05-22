@@ -130,7 +130,7 @@ class WorkCategoryLayout extends Component {
       <div className="work-category" id={`work-category-${this.props.index}`}>
         <div className="work-category-pictures columns is-gapless ">
           <OnVisible
-            className={`column  ${this.state.classes[0]}`}
+            className={`column work-image-wrapper ${this.state.classes[0]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
           >
@@ -142,7 +142,7 @@ class WorkCategoryLayout extends Component {
             
           </OnVisible>
           <OnVisible
-            className={`column work-category-center ${this.state.classes[1]}`}
+            className={`column work-category-center work-image-wrapper ${this.state.classes[1]}`}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
             onMouseLeave={this.hoverOnText}
@@ -154,7 +154,7 @@ class WorkCategoryLayout extends Component {
             <div className="visible-cover"/>
           </OnVisible>
           <OnVisible
-            className={`column  ${this.state.classes[2]}`}
+            className={`column work-image-wrapper ${this.state.classes[2]}`}
             key={(this.state.progress + 1) * 300}
             style={this.state.cssForRightImage}
           >

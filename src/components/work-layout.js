@@ -104,7 +104,7 @@ class WorkLayout extends Component {
             <OnVisible
               key={this.state.progress * 10}
               onClick={this.link}
-              className="no-motion-touch"
+              className="no-motion-touch work-image-wrapper"
               style={this.state.cssForLargerImages}
               onMouseEnter={this.hoverOffText}
               onMouseLeave={this.hoverOnText}
@@ -119,7 +119,7 @@ class WorkLayout extends Component {
           <div className="col-2">
             <OnVisible
               key={this.state.progress * 20}
-              className="work-image-wrapper no-motion-touch"
+              className="work-layout-image-wrapper  no-motion-touch work-image-wrapper"
               style={this.state.cssForSmallerImages}
               onClick={this.link}
               onMouseEnter={this.hoverOffText}

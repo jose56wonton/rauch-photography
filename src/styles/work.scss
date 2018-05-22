@@ -12,6 +12,9 @@
 
     
 }
+.work-image-wrapper{
+    position: relative;
+}
 
 .work-pictures {
     height: 70vh;
@@ -108,7 +111,7 @@
     object-fit: cover;
 }
 
-.work-image-wrapper {
+.work-layout-image-wrapper {
     @include tablet {
         height: 80%;
     }
