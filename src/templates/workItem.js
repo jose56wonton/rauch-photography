@@ -9,7 +9,7 @@ class WorkItem extends Component {
     this.state = {
       active: 0,
       styles: []
-    };
+    };    
   }
   componentDidMount() {
     const { attachments } = this.props.data.markdownRemark.frontmatter;
@@ -42,19 +42,18 @@ class WorkItem extends Component {
                 active: i
               });
             }
-          })
-         
+          })         
           .addTo(this.state.controller)
       );
       if(i === attachments.length -1 ){
         this.setState({active: 0})
         
       }
-    });
-    
+    });    
   }
 
   initializePhotoBackgrounds = (photos) => {
+    this.setState({styles:[]})    
     photos.forEach((photo,i) => {
       Vibrant.from(photo.publicURL).getPalette((err, palette) => {    
         
@@ -62,13 +61,13 @@ class WorkItem extends Component {
         if(palette.Muted)
           rgb = palette.Muted._rgb;
         else if (palette.LightMuted)
-          rgb = palette.LightMuted._rgb;        
+          rgb = palette.LightMuted._rgb;   
+        
         this.state.styles.push({
           backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
         })         
       });
-    });
-    
+    });    
   }
  
   render() {
@@ -81,7 +80,7 @@ class WorkItem extends Component {
               className={`work-item-photo-wrapper ${
                 this.state.active === i ? "fade-in-wrapper" : ""
               }`}
-              style={this.state.active === i ? {} : this.state.styles[i]}
+              style={this.state.active === i ? {backgroundColor: `rgb(30,21,42)`} : this.state.styles[i]}
               id={`work-item-${i}`}
             >
               <img
@@ -97,7 +96,6 @@ class WorkItem extends Component {
     );
     return (
       <div className="container">
-        <div className="work-spacer" />
         {asdf}
       </div>
     );

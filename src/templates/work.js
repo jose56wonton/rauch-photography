@@ -60,21 +60,21 @@ export const query = graphql`
             left {
               childImageSharp{
                 sizes {
-                  ...GatsbyImageSharpSizes
+                  ...GatsbyImageSharpSizes_tracedSVG
                 }
               }
             }
             right {
               childImageSharp{
                 sizes {
-                  ...GatsbyImageSharpSizes
+                  ...GatsbyImageSharpSizes_tracedSVG
                 }
               }
             }
             center{
               childImageSharp{
                 sizes {
-                  ...GatsbyImageSharpSizes
+                  ...GatsbyImageSharpSizes_tracedSVG
                 }
               }
             }

@@ -1,6 +1,7 @@
 import Link from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
+import OnVisible from "react-on-visible";
 class Index extends Component {
   render() {
     const aboutData = this.props.data.allMarkdownRemark.edges[0].node;
@@ -15,22 +16,24 @@ class Index extends Component {
             </div>
           </div>
           <div className="column relative height1  is-12-mobile  is-hidden-mobile">
-            <div className="about-image-wrapper-1">
+            <OnVisible className="about-image-wrapper-1">
               <Img
                 sizes={aboutData.frontmatter.row1Image.childImageSharp.sizes}
                 className="about-image"
               />
-            </div>
+              <div className="visible-cover"/>
+            </OnVisible>
           </div>
         </div>
         <div className="columns vertical-spacer">
           <div className="column relative  is-6-tablet image-container-2 is-hidden-mobile">
-            <div className="about-image-wrapper-2">
+            <OnVisible className="about-image-wrapper-2">
               <Img
                 sizes={aboutData.frontmatter.row2Image.childImageSharp.sizes}
                 className="about-image"
               />
-            </div>           
+              <div className="visible-cover"/>
+            </OnVisible>           
           </div>
           <div className="column is-offset-4-sm is-6-tablet  is-10-mobile is-offset-1-mobile relative text-center">
             <div className="text-wrapper-2">

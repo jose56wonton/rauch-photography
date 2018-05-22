@@ -1,6 +1,7 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
+import OnVisible from "react-on-visible";
 class WorkCategoryLayout extends Component {
   constructor(props) {
     super(props);
@@ -30,10 +31,10 @@ class WorkCategoryLayout extends Component {
         {
           controller: new ScrollMagic.Controller(),
           classes: this.getClassesFromProps(),
-          textHover:false
+          textHover: false
         },
         () => {
-          this.initializeScene(ScrollMagic);
+          //this.initializeScene()
         }
       );
     }
@@ -68,64 +69,67 @@ class WorkCategoryLayout extends Component {
     }
     return classes;
   };
-  initializeScene = (ScrollMagic) => {
+  initializeScene = () => {
+    this.setTim
+    const isBrowser = typeof window !== "undefined";
+    const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-category-${this.props.index}`,
       triggerHook: ".5"
     })
       .duration(1000)
-      .on("progress", event => {
-        this.setState({
-          progress: event.progress,
-          shift: Math.floor(event.progress * 50)
-        });
-        if (this.props.version) {
-          this.setState({
-            cssForLeftImage: {
-              transform:
-                "translate(" +
-                Math.floor(event.progress * 50) +
-                "px, " +
-                Math.floor(event.progress * 25) +
-                "px)"
-            },
-            cssForRightImage: {
-              transform:
-                "translate(" +
-                -Math.floor(event.progress * 50) +
-                "px, " +
-                -Math.floor(event.progress * 25) +
-                "px)"
-            }
-          });
-        } else {
-          this.setState({
-            cssForLeftImage: {
-              transform:
-                "translate(" +
-                +Math.floor(event.progress * 50) +
-                "px, " +
-                -Math.floor(event.progress * 25) +
-                "px)"
-            },
-            cssForRightImage: {
-              transform:
-                "translate(" +
-                -Math.floor(event.progress * 50) +
-                "px, " +
-                Math.floor(event.progress * 25) +
-                "px)"
-            }
-          });
-        }
-      })
+      // .on("progress", event => {
+      //   this.setState({
+      //     progress: event.progress,
+      //     shift: Math.floor(event.progress * 50)
+      //   });
+      //   if (this.props.version) {
+      //     this.setState({
+      //       cssForLeftImage: {
+      //         transform:
+      //           "translate(" +
+      //           Math.floor(event.progress * 50) +
+      //           "px, " +
+      //           Math.floor(event.progress * 25) +
+      //           "px)"
+      //       },
+      //       cssForRightImage: {
+      //         transform:
+      //           "translate(" +
+      //           -Math.floor(event.progress * 50) +
+      //           "px, " +
+      //           -Math.floor(event.progress * 25) +
+      //           "px)"
+      //       }
+      //     });
+      //   } else {
+      //     this.setState({
+      //       cssForLeftImage: {
+      //         transform:
+      //           "translate(" +
+      //           +Math.floor(event.progress * 50) +
+      //           "px, " +
+      //           -Math.floor(event.progress * 25) +
+      //           "px)"
+      //       },
+      //       cssForRightImage: {
+      //         transform:
+      //           "translate(" +
+      //           -Math.floor(event.progress * 50) +
+      //           "px, " +
+      //           Math.floor(event.progress * 25) +
+      //           "px)"
+      //       }
+      //     });
+      //   }
+      // })
       .addTo(this.state.controller);
   };
   render() {
     return (
       <div className="work-category" id={`work-category-${this.props.index}`}>
         <div className="work-category-pictures columns is-gapless ">
-          <div
+          <OnVisible
             className={`column  ${this.state.classes[0]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
@@ -134,8 +138,10 @@ class WorkCategoryLayout extends Component {
               className={`work-category-left-picture`}
               sizes={this.props.left}
             />
-          </div>
-          <div
+            <div className="visible-cover"/>
+            
+          </OnVisible>
+          <OnVisible
             className={`column work-category-center ${this.state.classes[1]}`}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
@@ -145,21 +151,30 @@ class WorkCategoryLayout extends Component {
               className={`work-category-center-picture`}
               sizes={this.props.center}
             />
-          </div>
-          <div
+            <div className="visible-cover"/>
+          </OnVisible>
+          <OnVisible
             className={`column  ${this.state.classes[2]}`}
             key={(this.state.progress + 1) * 300}
             style={this.state.cssForRightImage}
           >
             <Img
               className={`work-category-right-picture`}
-              sizes={this.props.right}
+              sizes={this.props.right}              
             />
-          </div>
+            <div className="visible-cover work-category-right-picture"/>
+          </OnVisible>
         </div>
-        <div className="work-category-content" onClick={this.link}>
+        <div
+          className="work-category-content"
+          onClick={this.link}
+          onMouseEnter={this.hoverOffText}
+          onMouseLeave={this.hoverOnText}
+        >
           <h3
-            className={`underline ${this.state.textHover ? "" : "underline-active"}`}
+            className={`underline ${
+              this.state.textHover ? "" : "underline-active"
+            }`}
           >
             <span>{this.props.title}</span>
           </h3>

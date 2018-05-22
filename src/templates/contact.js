@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Link from "gatsby-link";
 import Modal from "../components/modal";
 import Input from "../components/input";
+import OnVisible from "react-on-visible";
+
 import TextArea from "../components/textArea";
 const INITIAL = "initial";
 const LOADING = "loading";
@@ -77,7 +79,7 @@ class Contact extends Component {
       "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
     );
     // Name validation
-    let {name,email} = this.state;
+    let { name, email } = this.state;
     name = name.trim();
     email = email.trim();
     if (name.indexOf(" ") === -1 || name.length < 6) {
@@ -120,11 +122,14 @@ class Contact extends Component {
       <div className="contact">
         <div className="contact-spacer" />
         <div className="columns contact-row-1">
-          <div className="column is-hidden-mobile is-12-mobile is-5-tablet is-4-desktop  contact-image-wrapper-1">
-            <Img
-              sizes={image1.childImageSharp.sizes}
-              className="contact-image"
-            />
+          <div className="column is-hidden-mobile is-12-mobile is-5-tablet is-4-desktop ">
+            <OnVisible className=" contact-image-wrapper-1">
+              <Img
+                sizes={image1.childImageSharp.sizes}
+                className="contact-image"
+              />
+              <div className="visible-cover"/>
+            </OnVisible>
           </div>
           <div className="contact-text-wrapper-1 column is-12-mobile is-7-tablet is-5-desktop ">
             <div>
@@ -133,11 +138,14 @@ class Contact extends Component {
               <p className="contact-text">@ {email}</p>
             </div>
           </div>
-          <div className="column is-hidden-touch is-3-desktop  contact-image-wrapper-2">
-            <Img
-              sizes={image2.childImageSharp.sizes}
-              className="contact-image"
-            />
+          <div className="column is-hidden-touch is-3-desktop">
+            <OnVisible className="contact-image-wrapper-2">
+              <Img
+                sizes={image2.childImageSharp.sizes}
+                className="contact-image"
+              />
+              <div className="visible-cover"/>
+            </OnVisible>
           </div>
         </div>
         <div className="columns contact-row-2">
@@ -179,16 +187,20 @@ class Contact extends Component {
                 className="underline-inverse"
                 name="submit"
               >
-                <span/>Send
+                <span />Send
               </a>
             </div>
           </div>
 
-          <div className="column is-hidden-mobile is-5-tablet is-6-desktop contact-image-wrapper-3">
-            <Img
-              sizes={image3.childImageSharp.sizes}
-              className="contact-image"
-            />
+          <div className="column is-hidden-mobile is-5-tablet is-6-desktop">
+            <OnVisible className="contact-image-wrapper-3">
+              <Img
+                sizes={image3.childImageSharp.sizes}
+                className="contact-image"
+                style={{color: "white"}}
+              />
+              <div className="visible-cover"/>
+            </OnVisible>
           </div>
         </div>
 
