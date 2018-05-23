@@ -49,51 +49,47 @@ class WorkLayout extends Component {
       triggerHook: ".5"
     })
       .duration(1000)
-      // .on("progress", event => {
-      //   this.setState({
-      //     progress: event.progress,
-      //     shift: Math.floor(event.progress * 50)
-      //   });
-      //   if (this.props.version) {
-      //     this.setState({
-      //       cssForSmallerImages: {
-      //         transform:
-      //           "translate(" +
-      //           -Math.floor(event.progress * 100) +
-      //           "px, " +
-      //           -Math.floor(event.progress * 50) +
-      //           "px)"
-      //       },
-      //       cssForLargerImages: {
-      //         transform:
-      //           "translate(" +
-      //           Math.floor(event.progress * 50) +
-      //           "px, " +
-      //           -Math.floor(event.progress * 25) +
-      //           "px)"
-      //       }
-      //     });
-      //   } else {
-      //     this.setState({
-      //       cssForSmallerImages: {
-      //         transform:
-      //           "translate(" +
-      //           Math.floor(event.progress * 100) +
-      //           "px, " +
-      //           -Math.floor(event.progress * 50) +
-      //           "px)"
-      //       },
-      //       cssForLargerImages: {
-      //         transform:
-      //           "translate(" +
-      //           -Math.floor(event.progress * 50) +
-      //           "px, " +
-      //           -Math.floor(event.progress * 25) +
-      //           "px)"
-      //       }
-      //     });
-      //   }
-      // })
+      .on("progress", event => {      
+        if (this.props.version) {
+          this.setState({
+            cssForSmallerImages: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 100) +
+                "px, " +
+                -Math.floor(event.progress * 50) +
+                "px)"
+            },
+            cssForLargerImages: {
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
+            }
+          });
+        } else {
+          this.setState({
+            cssForSmallerImages: {
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 100) +
+                "px, " +
+                -Math.floor(event.progress * 50) +
+                "px)"
+            },
+            cssForLargerImages: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
+            }
+          });
+        }
+      })
       .addTo(this.state.controller);
   };
   render() {
@@ -113,7 +109,6 @@ class WorkLayout extends Component {
                 className={`work-large-picture version-${this.props.version}`}
                 sizes={this.props.center}
               />
-              <div className="visible-cover"/>
             </OnVisible>
           </div>
           <div className="col-2">
@@ -129,7 +124,6 @@ class WorkLayout extends Component {
                 className={`work-small-picture version-${this.props.version}`}
                 sizes={this.props.left}
               />
-              <div className="visible-cover"/>
             </OnVisible>
             <div className="work-content-wrapper">
               <div

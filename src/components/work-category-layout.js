@@ -34,7 +34,7 @@ class WorkCategoryLayout extends Component {
           textHover: false
         },
         () => {
-          //this.initializeScene()
+          this.initializeScene()
         }
       );
     }
@@ -78,51 +78,48 @@ class WorkCategoryLayout extends Component {
       triggerHook: ".5"
     })
       .duration(1000)
-      // .on("progress", event => {
-      //   this.setState({
-      //     progress: event.progress,
-      //     shift: Math.floor(event.progress * 50)
-      //   });
-      //   if (this.props.version) {
-      //     this.setState({
-      //       cssForLeftImage: {
-      //         transform:
-      //           "translate(" +
-      //           Math.floor(event.progress * 50) +
-      //           "px, " +
-      //           Math.floor(event.progress * 25) +
-      //           "px)"
-      //       },
-      //       cssForRightImage: {
-      //         transform:
-      //           "translate(" +
-      //           -Math.floor(event.progress * 50) +
-      //           "px, " +
-      //           -Math.floor(event.progress * 25) +
-      //           "px)"
-      //       }
-      //     });
-      //   } else {
-      //     this.setState({
-      //       cssForLeftImage: {
-      //         transform:
-      //           "translate(" +
-      //           +Math.floor(event.progress * 50) +
-      //           "px, " +
-      //           -Math.floor(event.progress * 25) +
-      //           "px)"
-      //       },
-      //       cssForRightImage: {
-      //         transform:
-      //           "translate(" +
-      //           -Math.floor(event.progress * 50) +
-      //           "px, " +
-      //           Math.floor(event.progress * 25) +
-      //           "px)"
-      //       }
-      //     });
-      //   }
-      // })
+      .on("progress", event => {
+        console.log(event);
+        if (this.props.version) {
+          this.setState({
+            cssForLeftImage: {
+              transform:
+                "translate(" +
+                Math.floor(event.progress * 50) +
+                "px, " +
+                Math.floor(event.progress * 25) +
+                "px)"
+            },
+            cssForRightImage: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
+            }
+          });
+        } else {
+          this.setState({
+            cssForLeftImage: {
+              transform:
+                "translate(" +
+                +Math.floor(event.progress * 50) +
+                "px, " +
+                -Math.floor(event.progress * 25) +
+                "px)"
+            },
+            cssForRightImage: {
+              transform:
+                "translate(" +
+                -Math.floor(event.progress * 50) +
+                "px, " +
+                Math.floor(event.progress * 25) +
+                "px)"
+            }
+          });
+        }
+      })
       .addTo(this.state.controller);
   };
   render() {
@@ -138,7 +135,7 @@ class WorkCategoryLayout extends Component {
               className={`work-category-left-picture`}
               sizes={this.props.left}
             />
-            <div className="visible-cover"/>
+           
             
           </OnVisible>
           <OnVisible
@@ -151,7 +148,6 @@ class WorkCategoryLayout extends Component {
               className={`work-category-center-picture`}
               sizes={this.props.center}
             />
-            <div className="visible-cover"/>
           </OnVisible>
           <OnVisible
             className={`column work-image-wrapper ${this.state.classes[2]}`}
@@ -162,7 +158,6 @@ class WorkCategoryLayout extends Component {
               className={`work-category-right-picture`}
               sizes={this.props.right}              
             />
-            <div className="visible-cover work-category-right-picture"/>
           </OnVisible>
         </div>
         <div
@@ -185,3 +180,6 @@ class WorkCategoryLayout extends Component {
 }
 
 export default WorkCategoryLayout;
+
+
+// 
