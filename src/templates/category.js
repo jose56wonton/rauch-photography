@@ -8,6 +8,7 @@ export default ({ data }) => {
   if (data.allMarkdownRemark) {
     content = data.allMarkdownRemark.edges.map(({ node }, i ) => {
       const version = i%2;
+      
       return (
         <div key={i*10}>
           <CategoryTile
@@ -20,6 +21,7 @@ export default ({ data }) => {
             title={node.frontmatter.title}
             date={node.frontmatter.date}
             index={i}
+            pictureSample={node.frontmatter.center.publicURL}
             version={version}
             path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
           />
@@ -77,6 +79,7 @@ query findShit($name: String!){
                   ...GatsbyImageSharpSizes
                 }
               }
+              publicURL
              }
              leftOrientation
              rightOrientation

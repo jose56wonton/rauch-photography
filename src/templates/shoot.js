@@ -13,7 +13,6 @@ class Shoot extends Component {
   }
   componentDidMount() {
     const { attachments } = this.props.data.markdownRemark.frontmatter;
-
     const isBrowser = typeof window !== "undefined";
     const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
     if (ScrollMagic) {
