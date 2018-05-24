@@ -53,7 +53,8 @@ class WorkItem extends Component {
   }
 
   initializePhotoBackgrounds = (photos) => {
-    this.setState({styles:[]})    
+    this.setState({styles:[]})   
+    const styles = []; 
     photos.forEach((photo,i) => {
       Vibrant.from(photo.publicURL).getPalette((err, palette) => {    
         
@@ -63,11 +64,18 @@ class WorkItem extends Component {
         else if (palette.LightMuted)
           rgb = palette.LightMuted._rgb;   
         
-        this.state.styles.push({
+        styles.push({
           backgroundColor: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`
-        })         
+        })  
+        
+        if(i === photos.length-1){
+          console.log(styles)
+      this.setState({styles: styles})
+        }
+        
       });
-    });    
+    });  
+
   }
  
   render() {
@@ -80,7 +88,7 @@ class WorkItem extends Component {
               className={`work-item-photo-wrapper ${
                 this.state.active === i ? "fade-in-wrapper" : ""
               }`}
-              style={this.state.active === i ? {backgroundColor: `rgb(30,21,42)`} : this.state.styles[i]}
+              style={this.state.active === i ? null : this.state.styles[i]}
               id={`work-item-${i}`}
             >
               <img
