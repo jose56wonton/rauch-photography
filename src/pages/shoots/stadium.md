@@ -1,6 +1,6 @@
 ---
 title: "stadium"
-type: workItem
+type: shoot
 category: action
 date: "2017-03-10"
 path: "stadium"

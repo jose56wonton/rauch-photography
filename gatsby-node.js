@@ -13,8 +13,8 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const workItemTemplate = path.resolve(`src/templates/workItem.js`);
-  const workCategoryTemplate = path.resolve(`src/templates/workCategory.js`);
+  const shootTemplate = path.resolve(`src/templates/shoot.js`);
+  const categoryTemplate = path.resolve(`src/templates/category.js`);
   const indexTemplate = path.resolve("src/templates/index.js");
   const workTemplate = path.resolve("src/templates/work.js");
   const contactTemplate = path.resolve("src/templates/contact.js");
@@ -45,18 +45,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       // Individual work pages
      
       if (node.frontmatter.type === "category"){
+        console.log("asdf")
         createPage({
           path: `/work/${node.frontmatter.path}/`,
-          component: workCategoryTemplate,
+          component: categoryTemplate,
           context: {
             name: node.frontmatter.path
           }
         });
       }
-      if (node.frontmatter.type === "workItem") {
+      if (node.frontmatter.type === "shoot") {
         createPage({
           path: `/work/${node.frontmatter.category}/${node.frontmatter.path}/`,
-          component: workItemTemplate,
+          component: shootTemplate,
           context: {
             name: node.frontmatter.path
           }

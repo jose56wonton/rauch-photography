@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WorkCategoryLayout from "../components/work-category-layout";
+import CategoryTile from '../components/category/categoryTile';
 import Link from "gatsby-link";
 import Blank from "../components/blank";
 
@@ -10,7 +10,7 @@ export default ({ data }) => {
       const version = i%2;
       return (
         <div key={i*10}>
-          <WorkCategoryLayout
+          <CategoryTile
             left={node.frontmatter.left.childImageSharp.sizes}
             center={node.frontmatter.center.childImageSharp.sizes}
             right={node.frontmatter.right.childImageSharp.sizes}
@@ -40,7 +40,7 @@ export default ({ data }) => {
 export const query = graphql`
 query findShit($name: String!){
   allMarkdownRemark(   
-   filter: {fileAbsolutePath: {regex:"/work-item/.*\\.md$/"},frontmatter: { category : {eq: $name } }}
+   filter: {fileAbsolutePath: {regex:"/shoots/.*\\.md$/"},frontmatter: { category : {eq: $name } }}
   ) {
        totalCount
        edges {

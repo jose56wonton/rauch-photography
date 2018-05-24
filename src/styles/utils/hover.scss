@@ -22,7 +22,7 @@
   width: 0%;
   height: 1px;
   top: 55%;
-  background: $color-3;
+  background: $dark;
 }
 .strike-active span:before , .strike-active span:after {
   width: 100%;
@@ -32,11 +32,11 @@
 }
 .strike span:after {
   right: 2.5px;
-  background: $color-3;
+  background: $dark;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .strike-hover span:before{
-  background: $color-3;
+  background: $dark;
   width: 100%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -46,7 +46,7 @@
   transition: 0s;
 }
 .strike  span:hover:before {
-  background: $color-3;
+  background: $dark;
   width: 100%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -80,7 +80,7 @@
   width: 0%;
   height: 2px;
   top: 100%;
-  background: $color-3;
+  background: $dark;
 }
 .underline-active span:before , .underline-active span:after {
   width: 100%;
@@ -91,11 +91,11 @@
 .underline span:after {
   right: .1px;
   
-  background: $color-3;
+  background: $dark;
   transition: width .8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .underline span:hover:before, .underline-active span:before {
-  background: $color-3;
+  background: $dark;
   width: 100%;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -112,7 +112,7 @@
 .underline-inverse span{
   position:absolute;
   height: 2px;
-  background: $color-3;
+  background: $dark;
   top: 100%;
   left:0;
   right:0;

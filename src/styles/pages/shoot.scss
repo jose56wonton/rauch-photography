@@ -1,0 +1,34 @@
+// Work Item
+.work-spacer {
+  height: 6rem;
+}
+
+.work-item-box {
+  margin: 10vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fade-in-wrapper {
+  transition: ease .7s;
+  background-color: transparent !important;
+}
+
+.fade-in-photo {
+  opacity: 1 !important;
+  transition: ease .7s;
+}
+
+.work-item-photo-wrapper {
+  //background-color: $color-1;    
+  transition: ease .7s;
+}
+
+.work-item-photo {
+  max-width: 100%;
+  max-height: 80vh;
+  opacity: 0;
+  transition: ease .7s;
+  object-fit: cover;
+}

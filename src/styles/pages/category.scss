@@ -1,0 +1,127 @@
+
+// Work Category
+.work-category {
+  height: 92vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.work-category-pictures {
+  position: relative;
+  @include tablet {
+      height: 60vh;
+  }
+  @include mobile {
+      height: 45vh;
+  }
+  @include desktop {
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+  }
+}
+
+.work-category-left-picture {
+  min-height: 1px;
+  position: absolute;
+  top: 10%;
+  z-index: 51;
+  background-color: white;
+  object-fit: cover;
+  &.portrait {
+      left: 10%;
+      top: 10%;
+  }
+  &.landscape {
+      left: 0%;
+      top: 20%;
+  }
+}
+
+.work-category-center {
+  cursor: pointer;
+}
+
+.work-category-center-picture {
+  cursor: pointer;
+  top: 0%;
+  z-index: -1;
+  min-height: 1px;
+  height: 100%;
+  position: relative;
+  background-color: white;
+  object-fit: cover;
+  @include tablet {
+      &.portrait {
+          top: 5%;
+      }
+      &.landscape {
+          top: 20%;
+      }
+      position: absolute;
+      &.version-0 {
+          left: 4%;
+      }
+      &.version-1 {
+          right: 3%;
+          top: 4%;
+      }
+  }
+  @include mobile {
+      width: auto;
+      height: 47vh;
+  }
+}
+
+.is-offset-1 {
+  margin-left: 8.33333% !important;
+}
+
+.is-offset-1-mobile {
+  @include mobile {
+      margin-left: 8.33333% !important;
+  }
+}
+
+.work-category-right-picture {
+  min-height: 1px;
+  z-index: 50;
+  position: absolute;
+  background-color: white;
+  object-fit: cover;
+  top: 25%;
+  @include tablet {
+      .version-0 {
+          top: 20%;
+          right: 0%;
+      }
+      .version-1 {
+          top: 20%;
+          left: 0;
+      }
+  }
+}
+
+.work-category-content {
+  height: 10vh;
+  text-align: center;
+  @include tablet {
+      font-size: 3.5rem;
+      line-height: 4.5rem;
+      span:before,
+      span:after {
+          height: .35rem;
+      }
+  }
+  @include desktop {
+      font-size: 5rem;
+      line-height: 6rem;
+      span:before,
+      span:after {
+          height: .5rem;
+      }
+  }
+}

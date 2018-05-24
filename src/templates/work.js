@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WorkLayout from "../components/work-layout";
+import WorkTile from '../components/work/workTile';
 import Link from "gatsby-link";
 import Blank from '../components/blank'
 
@@ -19,7 +19,7 @@ class Work extends Component {
         
         return (
           <div key={i*11}  >
-            <WorkLayout
+            <WorkTile
               left={node.frontmatter.left.childImageSharp.sizes}
               center={node.frontmatter.center.childImageSharp.sizes}
               right={node.frontmatter.right.childImageSharp.sizes}
@@ -50,7 +50,7 @@ export default Work;
 
 export const query = graphql`
   query workQuery {
-    allMarkdownRemark(filter: {fileAbsolutePath: {regex:"/work-category/.*\\.md$/"}}) {
+    allMarkdownRemark(filter: {fileAbsolutePath: {regex:"/categories/.*\\.md$/"}}) {
       totalCount
       edges {
         node {

@@ -1,7 +1,8 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
-class WorkLayout extends Component {
+
+class WorkTile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -148,4 +149,4 @@ class WorkLayout extends Component {
   }
 }
 
-export default WorkLayout;
+export default WorkTile;

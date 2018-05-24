@@ -1,6 +1,6 @@
 ---
 title: "Drake"
-type: workItem
+type: shoot
 category: graduation
 date: "2017-08-10"
 path: "drake"
