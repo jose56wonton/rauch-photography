@@ -73,7 +73,7 @@ class CategoryTile extends Component {
     const isBrowser = typeof window !== "undefined";
     const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
     let scene = new ScrollMagic.Scene({
-      triggerElement: `#work-category-${this.props.index}`,
+      triggerElement: `#category-${this.props.index}`,
       triggerHook: ".5"
     })
       .duration(1000)
@@ -123,28 +123,28 @@ class CategoryTile extends Component {
   };
   render() {
     return (
-      <div className="work-category" id={`work-category-${this.props.index}`}>
-        <div className="work-category-pictures columns is-gapless ">
+      <div className="category" id={`category-${this.props.index}`}>
+        <div className="category-pictures columns is-gapless ">
           <div
             className={`column work-image-wrapper ${this.state.classes[0]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
           >
             <Img
-              className={`work-category-left-picture`}
+              className={`category-left-picture`}
               sizes={this.props.left}
             />
            
             
           </div>
           <div
-            className={`column work-category-center work-image-wrapper ${this.state.classes[1]}`}
+            className={`column category-center work-image-wrapper ${this.state.classes[1]}`}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
             onMouseLeave={this.hoverOnText}
           >
             <Img
-              className={`work-category-center-picture`}
+              className={`category-center-picture`}
               sizes={this.props.center}
             />
           </div>
@@ -154,13 +154,13 @@ class CategoryTile extends Component {
             style={this.state.cssForRightImage}
           >
             <Img
-              className={`work-category-right-picture`}
+              className={`category-right-picture`}
               sizes={this.props.right}              
             />
           </div>
         </div>
         <div
-          className="work-category-content"
+          className="category-content"
           onClick={this.link}
           onMouseEnter={this.hoverOffText}
           onMouseLeave={this.hoverOnText}
