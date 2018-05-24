@@ -1,7 +1,6 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
-import OnVisible from "react-on-visible";
 class WorkCategoryLayout extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +69,6 @@ class WorkCategoryLayout extends Component {
     return classes;
   };
   initializeScene = () => {
-    this.setTim
     const isBrowser = typeof window !== "undefined";
     const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
     let scene = new ScrollMagic.Scene({
@@ -126,7 +124,7 @@ class WorkCategoryLayout extends Component {
     return (
       <div className="work-category" id={`work-category-${this.props.index}`}>
         <div className="work-category-pictures columns is-gapless ">
-          <OnVisible
+          <div
             className={`column work-image-wrapper ${this.state.classes[0]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
@@ -137,8 +135,8 @@ class WorkCategoryLayout extends Component {
             />
            
             
-          </OnVisible>
-          <OnVisible
+          </div>
+          <div
             className={`column work-category-center work-image-wrapper ${this.state.classes[1]}`}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
@@ -148,8 +146,8 @@ class WorkCategoryLayout extends Component {
               className={`work-category-center-picture`}
               sizes={this.props.center}
             />
-          </OnVisible>
-          <OnVisible
+          </div>
+          <div
             className={`column work-image-wrapper ${this.state.classes[2]}`}
             key={(this.state.progress + 1) * 300}
             style={this.state.cssForRightImage}
@@ -158,7 +156,7 @@ class WorkCategoryLayout extends Component {
               className={`work-category-right-picture`}
               sizes={this.props.right}              
             />
-          </OnVisible>
+          </div>
         </div>
         <div
           className="work-category-content"

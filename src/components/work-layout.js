@@ -1,7 +1,6 @@
 import { navigateTo } from "gatsby-link";
 import React, { Component } from "react";
 import Img from "gatsby-image";
-import OnVisible from "react-on-visible";
 class WorkLayout extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +43,7 @@ class WorkLayout extends Component {
   };
 
   initializeScene = ScrollMagic => {
+    
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-${this.props.index}`,
       triggerHook: ".5"
@@ -97,7 +97,7 @@ class WorkLayout extends Component {
       <div className="work" id={`work-${this.props.index}`}>
         <div className={`work-pictures version-${this.props.version}`}>
           <div className="col-1">
-            <OnVisible
+            <div
               key={this.state.progress * 10}
               onClick={this.link}
               className="no-motion-touch work-image-wrapper"
@@ -109,10 +109,10 @@ class WorkLayout extends Component {
                 className={`work-large-picture version-${this.props.version}`}
                 sizes={this.props.center}
               />
-            </OnVisible>
+            </div>
           </div>
           <div className="col-2">
-            <OnVisible
+            <div
               key={this.state.progress * 20}
               className="work-layout-image-wrapper  no-motion-touch work-image-wrapper"
               style={this.state.cssForSmallerImages}
@@ -124,7 +124,7 @@ class WorkLayout extends Component {
                 className={`work-small-picture version-${this.props.version}`}
                 sizes={this.props.left}
               />
-            </OnVisible>
+            </div>
             <div className="work-content-wrapper">
               <div
                 className={`work-content  version-${this.props.version}`}

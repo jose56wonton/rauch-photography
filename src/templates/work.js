@@ -16,6 +16,7 @@ class Work extends Component {
     if(this.props.data.allMarkdownRemark){
       content = this.props.data.allMarkdownRemark.edges.map(({ node },i) => {
         const version = i%2;
+        
         return (
           <div key={i*11}  >
             <WorkLayout

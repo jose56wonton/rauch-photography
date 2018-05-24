@@ -19,6 +19,7 @@ export default ({ data }) => {
             rightOrientation={node.frontmatter.rightOrientation}
             title={node.frontmatter.title}
             date={node.frontmatter.date}
+            index={i}
             version={version}
             path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
           />
