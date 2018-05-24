@@ -45,7 +45,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       // Individual work pages
      
       if (node.frontmatter.type === "category"){
-        console.log("asdf")
         createPage({
           path: `/work/${node.frontmatter.path}/`,
           component: categoryTemplate,

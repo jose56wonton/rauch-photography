@@ -92,6 +92,8 @@ button:focus {
 
 .footer {
     background-color: white;
+    position: fixed;
+    bottom: 0px;
     padding: 50px;
     display: flex;
     justify-content: space-between;
@@ -130,7 +132,7 @@ button:focus {
 }
 
 .hero-cover {
-    height: 100vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
