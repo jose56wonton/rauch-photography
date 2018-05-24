@@ -85,7 +85,7 @@ class Shoot extends Component {
         );
       }
     );
-    return <div className="container">{asdf}</div>;
+    return <div className="container min-size">{asdf}</div>;
   }
 }
 export default Shoot;

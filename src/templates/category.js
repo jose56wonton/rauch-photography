@@ -30,7 +30,7 @@ export default ({ data }) => {
     content = <Blank />;
   }
   return (
-    <div className="container">
+    <div className="container min-size">
       <div className="work-spacer" />
       {content}
     </div>
