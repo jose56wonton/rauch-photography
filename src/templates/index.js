@@ -6,7 +6,7 @@ class Index extends Component {
   render() {
     const aboutData = this.props.data.allContentfulAbout.edges[0].node;
     return (
-      <div className="">
+      <div className="about-wrapper">
         <div className="about-spacer" />
         <div className="columns vertical-spacer">
           <div className="column is-offset-2-desktop is-4-desktop is-10-mobile is-offset-1-mobile text-right text-center">

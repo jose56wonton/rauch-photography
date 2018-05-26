@@ -96,8 +96,8 @@ class WorkTile extends Component {
   render() {
     return (
       <div className="work" id={`work-${this.props.index}`}>
-        <div className={`work-pictures version-${this.props.version}`}>
-          <div className="col-1">
+        <div className={`work-pictures columns version-${this.props.version}`}>
+          <div className="col-1 column is-hidden-touch">
             <div
               key={this.state.progress * 10}
               onClick={this.link}
@@ -112,7 +112,7 @@ class WorkTile extends Component {
               />
             </div>
           </div>
-          <div className="col-2">
+          <div className="col-2 column is-offset-1-touch is-10-touch">
             <div
               key={this.state.progress * 20}
               className="work-layout-image-wrapper  no-motion-touch work-image-wrapper"

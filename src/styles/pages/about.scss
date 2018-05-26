@@ -1,4 +1,6 @@
-
+.about-wrapper{
+  min-height: 70vh;
+}
 .about-spacer{
   height:11vh;
 }
@@ -49,6 +51,9 @@
 }
 .text-right{
   text-align: right;
+  @include mobile{
+    text-align: left;
+  }
 }
 .text-center{
   display: flex;
@@ -57,10 +62,7 @@
 }
 
 .text-wrapper-1{
-  padding: 2rem 40px;
-  @include tablet{
-    text-align:right;
-  }
+  padding: 2rem 40px;  
 }
 .text-wrapper-2{
   padding: 2rem 40px;
