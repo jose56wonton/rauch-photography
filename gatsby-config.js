@@ -1,6 +1,5 @@
-
-module.exports = {
-  //pathPrefix: '/rauch-photography',
+require('dotenv').config()
+module.exports = {  
   siteMetadata: {
     title: "Zach Rauch"
   },
@@ -30,8 +29,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `prhe16xf7y7f`,
-        accessToken: `14bc2cce65ea6333c936711a4b04bce778978c20a4488a803452dc7a11f7b2bc`,
+        spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
+        accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },
     },
     {

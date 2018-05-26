@@ -23,10 +23,8 @@ class Contact extends Component {
       message: "",
       status: INITIAL
     };
-    console.log(this.props)
   }
   handleChange = event => {
-    console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {

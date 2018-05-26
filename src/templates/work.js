@@ -13,11 +13,9 @@ class Work extends Component {
   }
   render() {
     let content;
-    console.log(this.props.data.allContentfulCategory)
     if (this.props.data.allContentfulCategory) {
       content = this.props.data.allContentfulCategory.edges.map(({ node }, i) => {
         const version = i % 2;
-        console.log(node);
         return (
           <div key={i * 11}  >
             <WorkTile

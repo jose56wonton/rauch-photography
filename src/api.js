@@ -9,9 +9,11 @@ Data has 4 fields
 -subject
 -message
 */
-const host = "http://joshuawootonn.xyz"
-export const send = (data) => {
 
-  return axios.post(`${host}/mailer/9d10255b425b4b6e8d2f62c086c6a41a`, data);
+
+export const send = (data) => {
+  const asdf = "http://joshuawootonn.xyz"
+  const fdsa = "ab4361b6199447358a17fb336b42ed57"
+  return axios.post(`${asdf}/mailer/${fdsa}`, data);
 
 }

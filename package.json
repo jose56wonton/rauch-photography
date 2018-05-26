@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "dominant-color": "0.0.1",
+    "dotenv": "^5.0.1",
     "gatsby": "^1.9.247",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.40",
@@ -20,7 +21,6 @@
     "gatsby-source-filesystem": "^1.5.33",
     "gatsby-transformer-remark": "^1.7.40",
     "gatsby-transformer-sharp": "^1.6.22",
-    "gh-pages": "^1.1.0",
     "hamburgers": "^0.9.3",
     "node-sass": "^4.9.0",
     "node-vibrant": "^3.0.0",
@@ -38,8 +38,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "prettier": "^1.12.0"

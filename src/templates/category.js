@@ -8,7 +8,6 @@ export default ({ data }) => {
   if (data.allContentfulShoot) {
     content = data.allContentfulShoot.edges.map(({ node }, i ) => {
       const version = i%2;
-      console.log(node.images[1].sizes.src);
       return (
         <div key={i*10}>
           <CategoryTile

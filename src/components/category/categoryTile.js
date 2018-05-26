@@ -83,7 +83,6 @@ class CategoryTile extends Component {
     })
       .duration(1000)
       .on("progress", event => {
-        console.log(event);
         if (this.props.version) {
           this.setState({
             cssForLeftImage: {
