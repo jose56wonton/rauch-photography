@@ -108,7 +108,7 @@ class WorkTile extends Component {
             >
               <Img
                 className={`work-large-picture version-${this.props.version}`}
-                sizes={this.props.center}
+                sizes={this.props.larger}
               />
             </div>
           </div>
@@ -123,7 +123,7 @@ class WorkTile extends Component {
             >
               <Img
                 className={`work-small-picture version-${this.props.version}`}
-                sizes={this.props.left}
+                sizes={this.props.smaller}
               />
             </div>
             <div className="work-content-wrapper">

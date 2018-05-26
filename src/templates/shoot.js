@@ -27,7 +27,7 @@ class Shoot extends Component {
     attachments.forEach((attachment, i) => {
       scenes.push(
         new ScrollMagic.Scene({
-          triggerElement: `#work-item-${i}`,
+          triggerElement: `#shoot-${i}`,
           triggerHook: ".5"
         })
           .duration(1000)

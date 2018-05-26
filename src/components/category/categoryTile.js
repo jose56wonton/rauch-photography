@@ -46,13 +46,16 @@ class CategoryTile extends Component {
       controller: null
     });
   };
+ 
   getClassesFromProps = () => {
     const {
-      leftOrientation,
-      centerOrientation,
-      rightOrientation,
       version
     } = this.props;
+    let 
+    leftOrientation = "portrait",
+    centerOrientation ="portrait",
+    rightOrientation =  "landscape";
+    
     const classes = [];
     if (leftOrientation === "portrait") {
       classes[0] = `${leftOrientation} version-${version} is-3-tablet is-offset-1 is-hidden-touch`;
@@ -135,7 +138,7 @@ class CategoryTile extends Component {
             <Img
               className={`category-left-picture`}
               sizes={this.props.left}
-            /> 
+            />
           </div>
           <div
             className={`column category-center work-image-wrapper ${this.state.classes[1]}`}
@@ -155,7 +158,7 @@ class CategoryTile extends Component {
           >
             <Img
               className={`category-right-picture`}
-              sizes={this.props.right}              
+              sizes={this.props.right}
             />
           </div>
         </div>
@@ -168,7 +171,7 @@ class CategoryTile extends Component {
           <h3
             className={`underline ${
               this.state.textHover ? "" : "underline-active"
-            }`}
+              }`}
           >
             <span >{this.props.title}</span>
           </h3>

@@ -8,16 +8,13 @@ export default ({ data }) => {
   if (data.allContentfulShoot) {
     content = data.allContentfulShoot.edges.map(({ node }, i ) => {
       const version = i%2;
-      console.log(node);
+      console.log(node.images[1].sizes.src);
       return (
         <div key={i*10}>
           <CategoryTile
             left={node.images[0].sizes}
-            center={node.images[0].sizes}
-            right={node.images[0].sizes}
-            leftOrientation={"portrait"}
-            centerOrientation={"portrait"}
-            rightOrientation={"portrait"}
+            center={node.images[1].sizes}
+            right={node.images[2].sizes}
             title={node.title}
             date={node.date}
             index={i}

@@ -21,12 +21,8 @@ class Work extends Component {
         return (
           <div key={i * 11}  >
             <WorkTile
-              left={node.images[0].sizes}
-              center={node.images[1].sizes}
-              right={node.images[0].sizes}
-              leftOrientation={"portrait"}
-              centerOrientation={"portrait"}
-              rightOrientation={"portrait"}
+              smaller={node.images[1].sizes}
+              larger={node.images[0].sizes}
               index={i}
               title={node.title}
               version={version}
