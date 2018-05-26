@@ -11,7 +11,6 @@ class CategoryTile extends Component {
       textHover: false,
       shift: 0,
       progress: 0,
-      color: {},
       cssForLeftImage: {},
       cssForRightImage: {},
       classes: []
@@ -38,7 +37,6 @@ class CategoryTile extends Component {
         },
         () => {
           this.initializeScene();
-          this.initializeColor();
         }
       );
     }
@@ -125,22 +123,6 @@ class CategoryTile extends Component {
       })
       .addTo(this.state.controller);
   };
-  initializeColor = () => {
-    this.props.pictureSample;
-    Vibrant.from(this.props.pictureSample).getPalette((err, palette) => {
-      let rgb;
-      //if (palette.Muted) rgb = palette.Muted._rgb;
-      // else if (palette.LightMuted) rgb = palette.LightMuted._rgb;
-      rgb = palette.Vibrant._rgb;
-      
-      console.log(rgb)
-      foreach
-
-      this.setState({
-        color: {color: `rgb(${Math.round(rgb[0],1)},${Math.round(rgb[1],1)},${Math.round(rgb[2],1)})`}
-      });      
-    });
-  }
   render() {
     return (
       <div className="category" id={`category-${this.props.index}`}>
@@ -187,9 +169,8 @@ class CategoryTile extends Component {
             className={`underline ${
               this.state.textHover ? "" : "underline-active"
             }`}
-            styles={this.state.color}
           >
-            <span styles={this.state.color}>{this.props.title}</span>
+            <span >{this.props.title}</span>
           </h3>
         </div>
       </div>
