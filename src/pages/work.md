@@ -1,6 +1,6 @@
 ---
 title: "Work"
 type: work
-path: "thanksgiving"
+path: "work"
 ---
 

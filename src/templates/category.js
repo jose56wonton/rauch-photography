@@ -5,25 +5,24 @@ import Blank from "../components/blank";
 
 export default ({ data }) => {
   let content;
-  if (data.allMarkdownRemark) {
-    content = data.allMarkdownRemark.edges.map(({ node }, i ) => {
+  if (data.allContentfulShoot) {
+    content = data.allContentfulShoot.edges.map(({ node }, i ) => {
       const version = i%2;
-      
+      console.log(node);
       return (
         <div key={i*10}>
           <CategoryTile
-            left={node.frontmatter.left.childImageSharp.sizes}
-            center={node.frontmatter.center.childImageSharp.sizes}
-            right={node.frontmatter.right.childImageSharp.sizes}
-            leftOrientation={node.frontmatter.leftOrientation}
-            centerOrientation={node.frontmatter.centerOrientation}
-            rightOrientation={node.frontmatter.rightOrientation}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
+            left={node.images[0].sizes}
+            center={node.images[0].sizes}
+            right={node.images[0].sizes}
+            leftOrientation={"portrait"}
+            centerOrientation={"portrait"}
+            rightOrientation={"portrait"}
+            title={node.title}
+            date={node.date}
             index={i}
-            pictureSample={node.frontmatter.center.publicURL}
             version={version}
-            path={`work/${node.frontmatter.category}/${node.frontmatter.path}`}
+            path={`work/${node.category.path}/${node.path}`}
           />
         </div>
       );
@@ -41,52 +40,76 @@ export default ({ data }) => {
 
 export const query = graphql`
 query findShit($name: String!){
-  allMarkdownRemark(   
-   filter: {fileAbsolutePath: {regex:"/shoots/.*\\.md$/"},frontmatter: { category : {eq: $name } }}
-  ) {
-       totalCount
-       edges {
-         node {
-           frontmatter {
-             title
-             date(formatString: "DD MMMM, YYYY")
-             path
-             category
-             attachments {
-              childImageSharp{
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-             }
-             left {
-              childImageSharp{
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-             }
-             right {
-              childImageSharp{
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-             }
-             center {
-              childImageSharp{
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-              publicURL
-             }
-             leftOrientation
-             rightOrientation
-             centerOrientation
-           }
-         }
-       }
-     }
+  allContentfulShoot(filter: {category:{path:{eq:$name}}}){
+    edges{
+      node{
+        title
+        path
+        category {
+          path
+        }
+        images{
+          sizes {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }	
+    }
+  }
  }
 `;
+
+
+// allMarkdownRemark(   
+//   filter: {fileAbsolutePath: {regex:"/shoots/.*\\.md$/"},frontmatter: { category : {eq: $name } }}
+//  ) {
+//       totalCount
+//       edges {
+//         node {
+//           frontmatter {
+//             title
+//             date(formatString: "DD MMMM, YYYY")
+//             path
+//             category
+//             attachments {
+//              childImageSharp{
+//                sizes {
+//                  ...GatsbyImageSharpSizes
+//                }
+//              }
+//             }
+//             left {
+//              childImageSharp{
+//                sizes {
+//                  ...GatsbyImageSharpSizes
+//                }
+//              }
+//             }
+//             right {
+//              childImageSharp{
+//                sizes {
+//                  ...GatsbyImageSharpSizes
+//                }
+//              }
+//             }
+//             center {
+//              childImageSharp{
+//                sizes {
+//                  ...GatsbyImageSharpSizes
+//                }
+//              }
+//              publicURL
+//             }
+//             leftOrientation
+//             rightOrientation
+//             centerOrientation
+//           }
+//         }
+//       }
+//     }
