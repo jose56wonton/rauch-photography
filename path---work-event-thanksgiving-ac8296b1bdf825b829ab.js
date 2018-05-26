@@ -1,2 +1,0 @@
-webpackJsonp([52254567274259],{476:function(t,a){t.exports={data:{markdownRemark:{frontmatter:{title:"Work",attachments:null}}},pathContext:{name:"thanksgiving"}}}});
-//# sourceMappingURL=path---work-event-thanksgiving-ac8296b1bdf825b829ab.js.map
