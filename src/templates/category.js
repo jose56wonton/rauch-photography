@@ -46,14 +46,8 @@ query findShit($name: String!){
           path
         }
         images{
-          sizes {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
+          sizes(maxWidth: 1920, quality: 90) {
+            ...GatsbyContentfulSizes
           }
         }
       }	
@@ -61,52 +55,3 @@ query findShit($name: String!){
   }
  }
 `;
-
-
-// allMarkdownRemark(   
-//   filter: {fileAbsolutePath: {regex:"/shoots/.*\\.md$/"},frontmatter: { category : {eq: $name } }}
-//  ) {
-//       totalCount
-//       edges {
-//         node {
-//           frontmatter {
-//             title
-//             date(formatString: "DD MMMM, YYYY")
-//             path
-//             category
-//             attachments {
-//              childImageSharp{
-//                sizes {
-//                  ...GatsbyImageSharpSizes
-//                }
-//              }
-//             }
-//             left {
-//              childImageSharp{
-//                sizes {
-//                  ...GatsbyImageSharpSizes
-//                }
-//              }
-//             }
-//             right {
-//              childImageSharp{
-//                sizes {
-//                  ...GatsbyImageSharpSizes
-//                }
-//              }
-//             }
-//             center {
-//              childImageSharp{
-//                sizes {
-//                  ...GatsbyImageSharpSizes
-//                }
-//              }
-//              publicURL
-//             }
-//             leftOrientation
-//             rightOrientation
-//             centerOrientation
-//           }
-//         }
-//       }
-//     }

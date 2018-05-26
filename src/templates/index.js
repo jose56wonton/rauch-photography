@@ -61,14 +61,8 @@ export const query = graphql`
           row2title,
           row1title,
           images{
-            sizes {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+            sizes(maxWidth: 1920, quality: 90) {
+              ...GatsbyContentfulSizes
             }
           }
         }	

@@ -63,7 +63,7 @@ class CategoryTile extends Component {
       classes[0] = `${leftOrientation} version-${version} is-4-tablet is-hidden-touch`;
     }
     if (centerOrientation === "portrait") {
-      classes[1] = `${centerOrientation} version-${version} is-10-mobile is-offset-1-mobile is-5-tablet`;
+      classes[1] = `${centerOrientation} version-${version} is-10-mobile is-offset-1-mobile is-5-tablet is-4-fullhd`;
     } else if (centerOrientation === "landscape") {
       classes[1] = `${centerOrientation} version-${version} is-12-mobile is-7-tablet `;
     }

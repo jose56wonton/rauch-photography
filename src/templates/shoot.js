@@ -79,7 +79,7 @@ class Shoot extends Component {
             index={i}
             active={this.state.active}
             style={this.state.styles[i]}
-            pictureSrc={picture.sizes.srcWebp}
+            pictureSrc={picture.file.url}
           />
         );
       }
@@ -100,14 +100,11 @@ export const query = graphql`
             path
           }
           images{
-            sizes {
+            file{
+              url
+            }
+            sizes{
               base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
             }
           }
         }	

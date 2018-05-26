@@ -244,8 +244,8 @@ export const query = graphql`
             phone
             location
           images {
-            sizes {
-              srcSet
+            sizes(maxWidth: 1920, quality: 90) {
+              ...GatsbyContentfulSizes
             }
           }
           

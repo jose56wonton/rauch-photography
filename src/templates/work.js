@@ -61,14 +61,8 @@ export const query = graphql`
           title,
           path,
           images{
-            sizes{
-              base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
+            sizes(maxWidth: 1920, quality: 90) {
+              ...GatsbyContentfulSizes
             }
           }
         }
@@ -76,41 +70,3 @@ export const query = graphql`
     }
   }
 `;
-
-
-// allMarkdownRemark(filter: {fileAbsolutePath: {regex:"/categories/.*\\.md$/"}}) {
-//   totalCount
-//   edges {
-//     node {
-//       frontmatter {
-//         title
-//         type
-//         path
-//         left {
-//           childImageSharp{
-//             sizes {
-//               ...GatsbyImageSharpSizes
-//             }
-//           }
-//         }
-//         right {
-//           childImageSharp{
-//             sizes {
-//               ...GatsbyImageSharpSizes
-//             }
-//           }
-//         }
-//         center{
-//           childImageSharp{
-//             sizes {
-//               ...GatsbyImageSharpSizes
-//             }
-//           }
-//         }
-//         leftOrientation
-//         rightOrientation
-//         centerOrientation
-//       }
-//     }
-//   }
-// }

@@ -39,7 +39,7 @@
         visibility: hidden;
         content: "";
         width: 0;
-    }
+    }    
     padding: 1rem;
 }
 
@@ -101,6 +101,10 @@
         width: 80%;
         height: 100%;
     }
+    @include widescreen{
+        width: 74%;
+        height: 100%;
+    }
 }
 
 .work-large-picture {
@@ -109,6 +113,9 @@
     height: 100%;
     position: absolute;
     object-fit: cover;
+    @include widescreen{
+        width: 85%;
+    }
 }
 
 .work-layout-image-wrapper {
