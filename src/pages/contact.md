@@ -2,7 +2,7 @@
 title: "Contact"
 type: contact
 path: "contact"
-email: "Zachary-Rauch@uiowa.edu"
+email: "zacharyrauch7@gmail.com"
 phone: "111-222-3333"
 location: "Iowa City"
 nameLabel: "Name"
@@ -16,3 +16,4 @@ image1: "../images/about/about-1.jpg"
 image2: "../images/about/about-2.jpg"
 image3: "../images/about/about-3.jpg"
 ---
+

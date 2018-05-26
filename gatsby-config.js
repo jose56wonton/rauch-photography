@@ -27,14 +27,13 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: "o0d1qjpq4810",
-    //     accessToken: "670785e88e381313ea0699295010c23abcec33db8401542d08fe22f2afeda5eb",
-    //     host: `preview.contentful.com`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `prhe16xf7y7f`,
+        accessToken: `14bc2cce65ea6333c936711a4b04bce778978c20a4488a803452dc7a11f7b2bc`,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

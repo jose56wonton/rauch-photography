@@ -23,6 +23,7 @@ class Contact extends Component {
       message: "",
       status: INITIAL
     };
+    console.log(this.props)
   }
   handleChange = event => {
     console.log(event.target.name);
@@ -30,14 +31,15 @@ class Contact extends Component {
   };
   handleSubmit = event => {
     const { name, email, message } = this.state;
-
+    const emailTo = this.props.data.allContentfulContact.edges[0].node.email;
     const err = this.validate();
     const here = this;
+
     if (!err) {
       api
         .send({
-          to: "jose56wonton@gmail.com",
-          from: "ZachRauch@ZachRauch.com",
+          to: emailTo,
+          from: "Notify@ZachRauch.com",
           subject: `New Contact - ${name}`,
           message: `
       Name: ${name}
@@ -110,13 +112,12 @@ class Contact extends Component {
       messageLabel,
       messagePlaceholder,
       buttonLabel,
-      image1,
-      image2,
-      image3,
+      images,
       email,
       phone,
       location
-    } = this.props.data.allMarkdownRemark.edges[0].node.frontmatter;
+    } = this.props.data.allContentfulContact.edges[0].node;
+    console.log(images)
 
     return (
       <div className="contact">
@@ -125,10 +126,10 @@ class Contact extends Component {
           <div className="column is-hidden-mobile is-12-mobile is-5-tablet is-4-desktop ">
             <OnVisible className=" contact-image-wrapper-1">
               <Img
-                sizes={image1.childImageSharp.sizes}
+                sizes={images[0].sizes}
                 className="contact-image"
               />
-              <div className="visible-cover"/>
+              <div className="visible-cover" />
             </OnVisible>
           </div>
           <div className="contact-text-wrapper-1 column is-12-mobile is-7-tablet is-5-desktop ">
@@ -141,10 +142,10 @@ class Contact extends Component {
           <div className="column is-hidden-touch is-3-desktop">
             <OnVisible className="contact-image-wrapper-2">
               <Img
-                sizes={image2.childImageSharp.sizes}
+                sizes={images[1].sizes}
                 className="contact-image"
               />
-              <div className="visible-cover"/>
+              <div className="visible-cover" />
             </OnVisible>
           </div>
         </div>
@@ -195,11 +196,11 @@ class Contact extends Component {
           <div className="column is-hidden-mobile is-5-tablet is-6-desktop">
             <OnVisible className="contact-image-wrapper-3">
               <Img
-                sizes={image3.childImageSharp.sizes}
+                sizes={images[2].sizes}
                 className="contact-image"
-                style={{color: "white"}}
+                style={{ color: "white" }}
               />
-              <div className="visible-cover"/>
+              <div className="visible-cover" />
             </OnVisible>
           </div>
         </div>
@@ -219,6 +220,7 @@ class Contact extends Component {
           close={this.closeModal}
         />
       </div>
+
     );
   }
 }
@@ -226,12 +228,10 @@ export default Contact;
 
 export const query = graphql`
   query contactQuery {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "contact" } } }) {
-      totalCount
+    allContentfulContact {
       edges {
         node {
-          frontmatter {
-            title
+          title
             path
             nameLabel
             namePlaceholder
@@ -243,31 +243,16 @@ export const query = graphql`
             email
             phone
             location
-            image1 {
-              childImageSharp {
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-            }
-            image2 {
-              childImageSharp {
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-            }
-            image3 {
-              childImageSharp {
-                sizes {
-                  ...GatsbyImageSharpSizes
-                }
-              }
+          images {
+            sizes {
+              srcSet
             }
           }
+          
         }
       }
     }
+    
   }
 `;
 
@@ -279,3 +264,6 @@ export const query = graphql`
 //     ...GatsbyImageSharpResolutions
 //   }
 // }
+
+
+
