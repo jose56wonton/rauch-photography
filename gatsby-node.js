@@ -89,6 +89,45 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           }
         });
       });
+      result.data.allContentfulCategory.edges.forEach(({ node }) => {
+        createPage({
+          path: `/work/${node.path}`,
+          component: categoryTemplate,
+          context: {
+            name: node.path
+          }
+        });
+      });
+      result.data.allContentfulContact.edges.forEach(({ node }) => {
+        createPage({
+          path: `/contact`,
+          component: contactTemplate,
+          context: {
+            name: node.path
+          }
+        });
+      });
+      result.data.allContentfulAbout.edges.forEach(({ node }) => {
+        createPage({
+          path: `/`,
+          component: indexTemplate,
+          context: {
+            name: node.path
+          }
+        });
+      });
+      result.data.allContentfulWork.edges.forEach(({ node }) => {
+        createPage({
+          path: `/work`,
+          component: workTemplate,
+          context: {
+            name: node.path
+          }
+        });
+      });
+
+
+
     });
 };
 
