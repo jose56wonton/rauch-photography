@@ -20,77 +20,116 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const contactTemplate = path.resolve("src/templates/contact.js");
   // create work pages
 
- 
+
 
   graphql(`
     {
-      allMarkdownRemark {
+      allContentfulShoot {
         edges {
           node {
-            frontmatter {
+            title,
+        
+            path,
+            category{
               path
-              type
-              category
-            }
+           }
+            
           }
         }
       }
+      allContentfulWork{
+        edges{
+          node{
+            title            
+            path
+          }	
+        }
+      }
+      
+      allContentfulCategory {
+        edges {
+          node {
+            title,
+            path
+            
+          }
+        }
+      }
+      allContentfulContact {
+        edges {
+          node {
+            title,
+            path
+            
+          }
+        }
+      }
+      allContentfulAbout {
+        edges {
+          node {
+            title,
+            path
+            
+          }
+        }
+      }
+
     }
   `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
-
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      // Individual work pages
-     
-      if (node.frontmatter.type === "category"){
-        createPage({
-          path: `/work/${node.frontmatter.path}/`,
-          component: categoryTemplate,
-          context: {
-            name: node.frontmatter.path
-          }
-        });
+      if (result.errors) {
+        return Promise.reject(result.errors);
       }
-      if (node.frontmatter.type === "shoot") {
+
+      result.data.allContentfulShoot.edges.forEach(({ node }) => {
         createPage({
-          path: `/work/${node.frontmatter.category}/${node.frontmatter.path}/`,
+          path: `/work/${node.category.path}/${node.path}/`,
           component: shootTemplate,
           context: {
-            name: node.frontmatter.path
+            name: node.path
           }
         });
-      }
-      // Index page
-      if (node.frontmatter.type === "index") {
-        createPage({
-          path: `/`,
-          component: indexTemplate,
-          context: {
-            name: "index"
-          }
-        });
-      }
-      // Work page
-      if (node.frontmatter.type === "work") {
-        createPage({
-          path: `/work`,
-          component: workTemplate,
-          context: {
-            name: "work"
-          }
-        });
-      }
-      if (node.frontmatter.type === "contact") {
-        createPage({
-          path: `/contact`,
-          component: contactTemplate,
-          context: {
-            name: "contact"
-          }
-        });
-      }
+      });
     });
-  });
 };
+
+/*
+if (node.frontmatter.type === "category"){
+  createPage({
+    path: `/work/${node.frontmatter.path}/`,
+    component: categoryTemplate,
+    context: {
+      name: node.frontmatter.path
+    }
+  });
+}
+// Index page
+if (node.frontmatter.type === "index") {
+  createPage({
+    path: `/`,
+    component: indexTemplate,
+    context: {
+      name: "index"
+    }
+  });
+}
+// Work page
+if (node.frontmatter.type === "work") {
+  createPage({
+    path: `/work`,
+    component: workTemplate,
+    context: {
+      name: "work"
+    }
+  });
+}
+if (node.frontmatter.type === "contact") {
+  createPage({
+    path: `/contact`,
+    component: contactTemplate,
+    context: {
+      name: "contact"
+    }
+  });
+}
+
+*/

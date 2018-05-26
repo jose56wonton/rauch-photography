@@ -12,19 +12,19 @@ class Shoot extends Component {
     };
   }
   componentDidMount() {
-    const { attachments } = this.props.data.markdownRemark.frontmatter;
+    const { images } = this.props.data.allContentfulShoot.edges[0].node;
     const isBrowser = typeof window !== "undefined";
     const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
     if (ScrollMagic) {
       this.setState({ controller: new ScrollMagic.Controller() }, () => {
-        this.initialScrollScenes(attachments, ScrollMagic);
-        this.initializePhotoBackgrounds(attachments);
+        this.initialScrollScenes(images, ScrollMagic);
+        this.initializePhotoBackgrounds(images);
       });
     }
   }
-  initialScrollScenes = (attachments, ScrollMagic) => {
+  initialScrollScenes = (images, ScrollMagic) => {
     let scenes = [];
-    attachments.forEach((attachment, i) => {
+    images.forEach((image, i) => {
       scenes.push(
         new ScrollMagic.Scene({
           triggerElement: `#shoot-${i}`,
@@ -44,7 +44,7 @@ class Shoot extends Component {
           })
           .addTo(this.state.controller)
       );
-      if (i === attachments.length - 1) {
+      if (i === image.length - 1) {
         this.setState({ active: 0 });
       }
     });
@@ -54,7 +54,7 @@ class Shoot extends Component {
     this.setState({ styles: [] });
     const styles = [];
     photos.forEach((photo, i) => {
-      Vibrant.from(photo.publicURL).getPalette((err, palette) => {
+      Vibrant.from(photo.sizes.base64).getPalette((err, palette) => {
         let rgb;
         if (palette.Muted) rgb = palette.Muted._rgb;
         else if (palette.LightMuted) rgb = palette.LightMuted._rgb;
@@ -72,14 +72,14 @@ class Shoot extends Component {
   };
 
   render() {
-    const asdf = this.props.data.markdownRemark.frontmatter.attachments.map(
+    const asdf = this.props.data.allContentfulShoot.edges[0].node.images.map(
       (picture, i) => {
         return (
           <ShootTile
             index={i}
             active={this.state.active}
             style={this.state.styles[i]}
-            pictureSrc={picture.publicURL}
+            pictureSrc={picture.sizes.srcWebp}
           />
         );
       }
@@ -91,13 +91,28 @@ export default Shoot;
 
 export const query = graphql`
   query findMarkdown($name: String!) {
-    markdownRemark(frontmatter: { path: { eq: $name } }) {
-      frontmatter {
-        title
-        attachments {
-          publicURL
-        }
+    allContentfulShoot(filter:{path: {eq:$name}}){
+      edges{
+        node{
+          title,        
+          path,
+          category{
+            path
+          }
+          images{
+            sizes {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+        }	
       }
     }
+    
   }
 `;
