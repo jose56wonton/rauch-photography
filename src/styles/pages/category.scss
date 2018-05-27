@@ -2,6 +2,15 @@
 // Work Category
 .category {
   height: 92vh;
+  max-height: 1200px;
+  @include mobile{
+    height: 70vh;
+    max-height: 800px;
+}
+@include tablet{
+    height: 70vh;
+    max-height: 800px;
+}
   position: relative;
   display: flex;
   justify-content: center;
@@ -12,13 +21,10 @@
 .category-pictures {
   position: relative;
   @include tablet {
-      height: 60vh;
-  }
-  @include mobile {
-      height: 45vh;
-  }
+    height: 55%;
+}   
   @include desktop {
-      height: 70vh;
+      height: 70%;
       display: flex;
       justify-content: center;
   }
@@ -69,10 +75,11 @@
           right: 3%;
           top: 4%;
       }
+      height: 120%;
   }
   @include mobile {
       width: auto;
-      height: 47vh;
+      height: 100%;
   }
 }
 

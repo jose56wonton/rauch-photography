@@ -68,9 +68,9 @@ class CategoryTile extends Component {
       classes[1] = `${centerOrientation} version-${version} is-12-mobile is-7-tablet `;
     }
     if (rightOrientation === "portrait") {
-      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop is-hidden-mobile`;
+      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop is-hidden-touch`;
     } else if (rightOrientation === "landscape") {
-      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-7-tablet is-4-desktop is-hidden-mobile`;
+      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-7-tablet is-4-desktop is-hidden-touch`;
     }
     return classes;
   };
@@ -130,7 +130,7 @@ class CategoryTile extends Component {
       <div className="category" id={`category-${this.props.index}`}>
         <div className="category-pictures columns is-gapless ">
           <div
-            className={`column work-image-wrapper ${this.state.classes[0]}`}
+            className={`column category-image-wrapper ${this.state.classes[0]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
           >
@@ -140,7 +140,7 @@ class CategoryTile extends Component {
             />
           </div>
           <div
-            className={`column category-center work-image-wrapper ${this.state.classes[1]}`}
+            className={`column category-image-wrapper ${this.state.classes[1]}`}
             onClick={this.link}
             onMouseEnter={this.hoverOffText}
             onMouseLeave={this.hoverOnText}
@@ -151,7 +151,7 @@ class CategoryTile extends Component {
             />
           </div>
           <div
-            className={`column work-image-wrapper ${this.state.classes[2]}`}
+            className={`column category-image-wrapper ${this.state.classes[2]}`}
             key={(this.state.progress + 1) * 300}
             style={this.state.cssForRightImage}
           >

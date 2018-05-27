@@ -44,27 +44,27 @@ class WorkTile extends Component {
   };
 
   initializeScene = ScrollMagic => {
-    
+
     let scene = new ScrollMagic.Scene({
       triggerElement: `#work-${this.props.index}`,
-      triggerHook: ".5"
+      triggerHook: ".9"
     })
-      .duration(1000)
-      .on("progress", event => {      
+      .duration(5000)
+      .on("progress", event => {
         if (this.props.version) {
           this.setState({
             cssForSmallerImages: {
               transform:
                 "translate(" +
-                -Math.floor(event.progress * 100) +
+                -Math.floor(event.progress * 200) +
                 "px, " +
-                -Math.floor(event.progress * 50) +
+                -Math.floor(event.progress * 25) +
                 "px)"
             },
             cssForLargerImages: {
               transform:
                 "translate(" +
-                Math.floor(event.progress * 50) +
+                Math.floor(event.progress * 200) +
                 "px, " +
                 -Math.floor(event.progress * 25) +
                 "px)"
@@ -75,15 +75,15 @@ class WorkTile extends Component {
             cssForSmallerImages: {
               transform:
                 "translate(" +
-                Math.floor(event.progress * 100) +
+                Math.floor(event.progress * 200) +
                 "px, " +
-                -Math.floor(event.progress * 50) +
+                -Math.floor(event.progress * 25) +
                 "px)"
             },
             cssForLargerImages: {
               transform:
                 "translate(" +
-                -Math.floor(event.progress * 50) +
+                -Math.floor(event.progress * 200) +
                 "px, " +
                 -Math.floor(event.progress * 25) +
                 "px)"
@@ -96,26 +96,28 @@ class WorkTile extends Component {
   render() {
     return (
       <div className="work" id={`work-${this.props.index}`}>
-        <div className={`work-pictures columns version-${this.props.version}`}>
-          <div className="col-1 column is-hidden-touch">
-            <div
-              key={this.state.progress * 10}
-              onClick={this.link}
-              className="no-motion-touch work-image-wrapper"
-              style={this.state.cssForLargerImages}
-              onMouseEnter={this.hoverOffText}
-              onMouseLeave={this.hoverOnText}
-            >
-              <Img
-                className={`work-large-picture version-${this.props.version}`}
-                sizes={this.props.larger}
-              />
-            </div>
+        <div className={`work-pictures columns is-gapless version-${this.props.version}`}>
+          <div className="column col-1 is-6 is-hidden-touch">
+          <div
+            key={this.state.progress * 10}
+            onClick={this.link}
+            className="work-image-wrapper"
+            style={this.state.cssForLargerImages}
+            onMouseEnter={this.hoverOffText}
+            onMouseLeave={this.hoverOnText}
+          >
+            <Img
+              className={`work-large-picture version-${this.props.version}`}
+              sizes={this.props.larger}
+            />
           </div>
-          <div className="col-2 column is-offset-1-touch is-10-touch">
+          </div>
+          
+          <div className="column col-2 is-6 is-12-touch">
+            <div className="columns is-gapless is-multiline">
             <div
               key={this.state.progress * 20}
-              className="work-layout-image-wrapper  no-motion-touch work-image-wrapper"
+              className="work-image-wrapper column is-12 no-motion-touch"
               style={this.state.cssForSmallerImages}
               onClick={this.link}
               onMouseEnter={this.hoverOffText}
@@ -126,23 +128,24 @@ class WorkTile extends Component {
                 sizes={this.props.smaller}
               />
             </div>
-            <div className="work-content-wrapper">
-              <div
-                className={`work-content  version-${this.props.version}`}
-                onClick={this.link}
-                onMouseEnter={this.hoverOffText}
-                onMouseLeave={this.hoverOnText}
-              >
-                <h3
-                  className={`underline ${
-                    this.state.textHover ? "" : "underline-active"
+            <div
+              className={`work-content column is-12 version-${this.props.version}`}
+              onClick={this.link}
+              onMouseEnter={this.hoverOffText}
+              onMouseLeave={this.hoverOnText}
+            >
+              <h3
+                className={`underline ${
+                  this.state.textHover ? "" : "underline-active"
                   }`}
-                >
-                  <span>{this.props.title} </span>
-                </h3>
-              </div>
+              >
+                <span>{this.props.title} </span>
+              </h3>
             </div>
+            </div>
+            
           </div>
+
         </div>
       </div>
     );
