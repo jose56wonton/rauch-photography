@@ -15,24 +15,24 @@
 }
 
 .fade-in-wrapper {
-  transition: ease .7s;
+  transition: ease .4s;
   background-color: transparent !important;
 }
 
 .fade-in-photo {
   opacity: 1 !important;
-  transition: ease .7s;
+  transition: ease .4s;
 }
 
 .shoot-photo-wrapper {
   //background-color: $color-1;    
-  transition: ease .7s;
+  transition: ease .4s;
 }
 
 .shoot-photo {
   max-width: 100%;
   max-height: 80vh;
   opacity: 0;
-  transition: ease .7s;
+  transition: ease .4s;
   object-fit: cover;
 }
