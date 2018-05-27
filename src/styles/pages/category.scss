@@ -1,134 +1,132 @@
 
+@include desktop{
 // Work Category
-.category {
-  height: 92vh;
-  max-height: 1200px;
-  @include mobile{
-    height: 70vh;
-    max-height: 800px;
+  .category {
+    height: 80vh;
+    max-height: 1000px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    .category-pictures {
+      position: relative;
+    
+      @include desktop {
+          height: 80%;
+          display: flex;
+          justify-content: center;
+      }
+      .category-left-picture {
+        min-height: 1px;
+        position: absolute;
+        top: 17%;
+        z-index: 51;
+        background-color: white;
+        object-fit: cover;      
+      }     
+        
+      .category-center-picture {
+        cursor: pointer;
+        top: 0%;
+        z-index: -1;
+        min-height: 1px;
+        height: 100%;
+        position: relative;
+        background-color: white;
+        object-fit: cover; 
+      
+      }
+      .category-right-picture {
+        min-height: 1px;
+        z-index: 50;
+        position: absolute;
+        background-color: white;
+        object-fit: cover;
+        top: 10%;      
+      }   
+    }
+    .category-content {
+      height: 20%;
+
+      text-align: center;
+      cursor: pointer;
+      font-size: 4rem;
+      line-height: 5rem;
+      span:before,
+      span:after {
+          height: .45rem;
+      }
+    }
+  }
+
+
 }
-@include tablet{
-    height: 70vh;
-    max-height: 800px;
-}
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+@include widescreen{
+  .category {
+    height: 92vh;
+    max-height: 1200px;
+  }
+  .category-content {
+    font-size: 5rem;
+    line-height: 6rem;
+    span:before,
+    span:after {
+        height: .5rem;
+    }
+  }
 }
 
-.category-pictures {
-  position: relative;
-  @include tablet {
-    height: 55%;
-}   
-  @include desktop {
-      height: 70%;
+@include tablet{
+  .category{
+      height: 80vh;  
+      overflow: hidden;
+      position: relative;
       display: flex;
       justify-content: center;
+      flex-direction: column;       
+  }
+  .category-center-picture,.category-right-picture{
+    top: 0;
+  }
+  .category-content {
+      position: relative;
+      text-align: center;
+      width: 100%;      
+      
+      font-size: 3rem;
+      line-height: 4rem;
+      span:before,
+      span:after {
+          height: .4rem;
+      }
+  }
+}
+@include mobile{
+  .category{
+    height: 60vh;
+  }
+  .category-content {     
+    font-size: 2rem;
+    line-height:2.6rem;
+    span:before,
+    span:after {
+        height: .3rem;
+    }
   }
 }
 
-.category-left-picture {
-  min-height: 1px;
-  position: absolute;
-  top: 10%;
-  z-index: 51;
-  background-color: white;
-  object-fit: cover;
-  &.portrait {
-      left: 10%;
-      top: 10%;
-  }
-  &.landscape {
-      left: 0%;
-      top: 20%;
-  }
-}
 
-.category-center {
-  cursor: pointer;
-}
-
-.category-center-picture {
-  cursor: pointer;
-  top: 0%;
-  z-index: -1;
-  min-height: 1px;
-  height: 100%;
-  position: relative;
-  background-color: white;
-  object-fit: cover;
-  @include tablet {
-      &.portrait {
-          top: 5%;
-      }
-      &.landscape {
-          top: 20%;
-      }
-      position: absolute;
-      &.version-0 {
-          left: 4%;
-      }
-      &.version-1 {
-          right: 3%;
-          top: 4%;
-      }
-      height: 120%;
-  }
-  @include mobile {
-      width: auto;
-      height: 100%;
-  }
-}
 
 .is-offset-1 {
   margin-left: 8.33333% !important;
 }
 
-.is-offset-1-mobile {
-  @include mobile {
-      margin-left: 8.33333% !important;
-  }
+.is-offset-1-inverse{
+  margin-right: 8.33333% !important;
 }
 
-.category-right-picture {
-  min-height: 1px;
-  z-index: 50;
-  position: absolute;
-  background-color: white;
-  object-fit: cover;
-  top: 25%;
-  @include tablet {
-      .version-0 {
-          top: 20%;
-          right: 0%;
-      }
-      .version-1 {
-          top: 20%;
-          left: 0;
-      }
-  }
-}
 
-.category-content {
-  height: 10vh;
-  text-align: center;
-  @include tablet {
-      font-size: 3.5rem;
-      line-height: 4.5rem;
-      span:before,
-      span:after {
-          height: .35rem;
-      }
-  }
-  @include desktop {
-      font-size: 5rem;
-      line-height: 6rem;
-      span:before,
-      span:after {
-          height: .5rem;
-      }
-  }
-}
+
+

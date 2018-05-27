@@ -48,30 +48,11 @@ class CategoryTile extends Component {
   };
  
   getClassesFromProps = () => {
-    const {
-      version
-    } = this.props;
-    let 
-    leftOrientation = "portrait",
-    centerOrientation ="portrait",
-    rightOrientation =  "landscape";
-    
-    const classes = [];
-    if (leftOrientation === "portrait") {
-      classes[0] = `${leftOrientation} version-${version} is-3-tablet is-offset-1 is-hidden-touch`;
-    } else if (leftOrientation === "landscape") {
-      classes[0] = `${leftOrientation} version-${version} is-4-tablet is-hidden-touch`;
-    }
-    if (centerOrientation === "portrait") {
-      classes[1] = `${centerOrientation} version-${version} is-10-mobile is-offset-1-mobile is-5-tablet is-4-fullhd`;
-    } else if (centerOrientation === "landscape") {
-      classes[1] = `${centerOrientation} version-${version} is-12-mobile is-7-tablet `;
-    }
-    if (rightOrientation === "portrait") {
-      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-4-tablet is-3-desktop is-hidden-touch`;
-    } else if (rightOrientation === "landscape") {
-      classes[2] = `${rightOrientation} version-${version} is-6-mobile is-7-tablet is-4-desktop is-hidden-touch`;
-    }
+    const {version} = this.props;  
+    const classes = [];    
+    classes[0] = `is-3-tablet ${this.props.version === 1 ? "is-offset-1-inverse" : "is-offset-1"} portrait is-hidden-touch`; 
+    classes[1] = ` is-5-desktop is-hidden-touch`;   
+    classes[2] = ` is-12-tablet is-4-desktop `;    
     return classes;
   };
   initializeScene = () => {
@@ -79,16 +60,16 @@ class CategoryTile extends Component {
     const ScrollMagic = isBrowser ? require("scrollmagic") : undefined;
     let scene = new ScrollMagic.Scene({
       triggerElement: `#category-${this.props.index}`,
-      triggerHook: ".5"
+      triggerHook: ".9"
     })
-      .duration(1000)
+      .duration(5000)
       .on("progress", event => {
         if (this.props.version) {
           this.setState({
             cssForLeftImage: {
               transform:
                 "translate(" +
-                Math.floor(event.progress * 50) +
+                Math.floor(event.progress * 200) +
                 "px, " +
                 Math.floor(event.progress * 25) +
                 "px)"
@@ -96,7 +77,7 @@ class CategoryTile extends Component {
             cssForRightImage: {
               transform:
                 "translate(" +
-                -Math.floor(event.progress * 50) +
+                -Math.floor(event.progress * 200) +
                 "px, " +
                 -Math.floor(event.progress * 25) +
                 "px)"
@@ -107,7 +88,7 @@ class CategoryTile extends Component {
             cssForLeftImage: {
               transform:
                 "translate(" +
-                +Math.floor(event.progress * 50) +
+                +Math.floor(event.progress * 200) +
                 "px, " +
                 -Math.floor(event.progress * 25) +
                 "px)"
@@ -115,7 +96,7 @@ class CategoryTile extends Component {
             cssForRightImage: {
               transform:
                 "translate(" +
-                -Math.floor(event.progress * 50) +
+                -Math.floor(event.progress * 200) +
                 "px, " +
                 Math.floor(event.progress * 25) +
                 "px)"
@@ -126,17 +107,18 @@ class CategoryTile extends Component {
       .addTo(this.state.controller);
   };
   render() {
+    console.log(this.props.index);
     return (
       <div className="category" id={`category-${this.props.index}`}>
-        <div className="category-pictures columns is-gapless ">
+        <div className="category-pictures columns  is-gapless ">
           <div
-            className={`column category-image-wrapper ${this.state.classes[0]}`}
+            className={`column category-image-wrapper no-motion-touch ${this.props.version === 0 ? this.state.classes[0] : this.state.classes[2]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
           >
             <Img
               className={`category-left-picture`}
-              sizes={this.props.left}
+              sizes={this.props.version === 0 ? this.props.left : this.props.right}
             />
           </div>
           <div
@@ -151,13 +133,13 @@ class CategoryTile extends Component {
             />
           </div>
           <div
-            className={`column category-image-wrapper ${this.state.classes[2]}`}
+            className={`column category-image-wrapper no-motion-touch ${this.props.version === 0 ? this.state.classes[2] : this.state.classes[0]}`}
             key={(this.state.progress + 1) * 300}
             style={this.state.cssForRightImage}
           >
             <Img
               className={`category-right-picture`}
-              sizes={this.props.right}
+              sizes={this.props.version === 0 ? this.props.right : this.props.left}
             />
           </div>
         </div>
