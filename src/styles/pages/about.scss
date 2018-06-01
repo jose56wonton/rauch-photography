@@ -1,8 +1,11 @@
 .about-wrapper{
   min-height: 70vh;
+  .columns{
+    margin:0;
+  }
 }
 .about-spacer{
-  height:11vh;
+  height: 80px;
 }
 .about-title{
   @include tablet{
@@ -20,9 +23,12 @@
 }
 
 .vertical-spacer{
-  padding-top: 6rem;
+  padding-top: 100px;
   @include mobile{
-    padding-top: 0;
+    padding-top: 100px;
+    &:last-child{
+      padding-top: 0px;
+    }    
   }
 }
 .relative{
@@ -30,12 +36,11 @@
 }
 .height1{
   height: 70vh;
+  
 }
-.image-container-2{
-  height: 84vh;
-  display:flex;
-  flex-direction:row;
-  justify-content: space-between;
+.height{
+  height: 86vh;
+  max-height: 1000px;
 }
 .about-image-wrapper-1{
   height: 100%;
@@ -62,10 +67,10 @@
 }
 
 .text-wrapper-1{
-  padding: 2rem 40px;  
+  padding: 1.8rem;  
 }
 .text-wrapper-2{
-  padding: 2rem 40px;
+  padding: 1.8rem;
   @include tablet{
     text-align:left;
   }

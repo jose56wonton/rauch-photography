@@ -1,6 +1,7 @@
 .navbar {
     padding: 1.8rem;
     background-color: transparent;
+    height: 100px;
     .navbar-brand {
         display: flex;
         justify-content: space-between;
@@ -87,16 +88,17 @@ button:focus {
 }
 
 .min-size {
-    min-height: 87vh;
+    min-height: calc(100vh - 100px) ;
 }
 
 .footer {
     background-color: white;
-   
+    height: 100px !important;
     bottom: 0px;
-    padding: 50px;
+    padding: 1.8rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: .9rem;
     @include tablet {
         span:before,
@@ -145,4 +147,17 @@ button:focus {
 
 .column {
     padding: 0;
+}
+
+
+.four0four{
+  h1{
+    font-size: 3rem;
+    
+  }
+  margin-top:100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

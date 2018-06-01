@@ -1,11 +1,11 @@
 require('dotenv').config()
-module.exports = {  
+module.exports = {
   siteMetadata: {
     title: "Zach Rauch"
   },
   plugins: [
     `gatsby-transformer-sharp`,
-     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sharp`,
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
@@ -15,12 +15,30 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./src/images/logoBlack.png",
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images/`
       }
-    },{
+    }, {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/app/*`] },
     },

@@ -28,7 +28,7 @@ class Shoot extends Component {
       scenes.push(
         new ScrollMagic.Scene({
           triggerElement: `#shoot-${i}`,
-          triggerHook: ".5"
+          triggerHook: ".6"
         })
           .duration(1000)
           .on("start", event => {
@@ -84,7 +84,7 @@ class Shoot extends Component {
         );
       }
     );
-    return <div className="container min-size">{asdf}</div>;
+    return <div className="shoot container min-size">{asdf}</div>;
   }
 }
 export default Shoot;

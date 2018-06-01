@@ -3,7 +3,7 @@
 }
 
 .contact-spacer {
-    height: 12vh;
+    height: 100px;
 }
 
 .contact-title {
@@ -23,7 +23,9 @@
 }
 
 .contact-row-1 {
-    height: 80vh;
+    height: 86vh;
+    max-height: 1000px;
+    padding:0 1.8rem;
     @include mobile {
         height: auto;
         flex-direction: column-reverse;
@@ -32,14 +34,17 @@
 }
 
 .contact-row-2 {
-    height: 80vh;
+    height: 86vh;
+    max-height: 1000px; 
+    padding:0 1.8rem;
+    
     @include mobile {
         height: auto;
     }
     @include tablet {
         height: auto;
     }
-    padding:0 3.6rem;
+ 
 }
 
 .contact-image-wrapper-1 {
@@ -86,6 +91,9 @@
     align-items: center;
     div {
         padding: 3.6rem;
+        @include mobile{
+          padding: 3.6rem 0rem;
+        }
     }
 }
 
@@ -97,14 +105,21 @@
         width: 100%;
     }
     padding:3.6rem;
-    @include mobile {
-        padding: 0;
+    @include mobile {        
+        @include mobile{
+          padding: 3.6rem 0rem;
+          &:last-child{
+            padding-top: 0rem;
+          }
+        }
     }
 }
 
 .contact {
     
-    
+    .columns{
+      margin:0;
+    }
     .modal-title{
     font-size: 3rem;
         

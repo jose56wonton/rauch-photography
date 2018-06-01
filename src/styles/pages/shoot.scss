@@ -1,14 +1,16 @@
 // Work Item
 .work-spacer {
-  height: 6rem;
+  height: 100px;
+}
+
+.shoot{
+  padding: 0 1.8rem;
+  margin-top: 100px ;
 }
 
 .shoot-box {
-  margin: 10vh 0;
-
-  @include mobile{
-    margin: 15vh 0;
-  }
+  margin-bottom: 10vh;
+  
   display: flex;
   justify-content: center;
   align-items: center;
