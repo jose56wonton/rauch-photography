@@ -107,7 +107,6 @@ class CategoryTile extends Component {
       .addTo(this.state.controller);
   };
   render() {
-    console.log(this.props.index);
     return (
       <div className="category" id={`category-${this.props.index}`}>
         <div className="category-pictures columns  is-gapless ">
