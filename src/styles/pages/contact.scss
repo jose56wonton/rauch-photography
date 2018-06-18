@@ -3,7 +3,9 @@
 }
 
 .contact-spacer {
-    height: 100px;
+    @include desktop{
+        height: 100px;
+    }
 }
 
 .contact-title {

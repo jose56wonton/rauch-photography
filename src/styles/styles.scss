@@ -33,3 +33,32 @@ root {
 .gatsby-image-outer-wrapper {
     height: 100%;
 }
+
+@include desktop{
+    h1{
+        font-size: 4rem;
+    }
+    h2{
+        font-size: 3rem;
+    }
+    h3{
+        font-size: 2rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+}
+@include tablet{
+    h1{
+        font-size: 3rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    h3{
+        font-size: 1.3rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+}

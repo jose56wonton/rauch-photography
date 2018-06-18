@@ -23,9 +23,12 @@
 }
 
 .vertical-spacer{
-  padding-top: 100px;
-  @include mobile{
+  @include desktop{
     padding-top: 100px;
+  }
+  
+  @include mobile{
+    
     &:last-child{
       padding-top: 0px;
     }    
@@ -62,16 +65,17 @@
 }
 .text-center{
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .text-wrapper-1{
-  padding: 1.8rem;  
+  padding: 1.8rem; 
+  text-align: right;
+  @include tablet{
+    text-align: left;
+  } 
 }
 .text-wrapper-2{
   padding: 1.8rem;
-  @include tablet{
-    text-align:left;
-  }
+  text-align:left;  
 }
