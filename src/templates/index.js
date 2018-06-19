@@ -8,7 +8,7 @@ class Index extends Component {
     return (
       <div className="about-wrapper">
         <div className="columns vertical-spacer">
-          <div className="column is-offset-1-desktop is-5-desktop is-12-mobile  text-center">
+          <div className="column is-offset-1-tablet is-5-tablet is-6-desktop is-12-mobile  text-box-1">
             <div className="text-wrapper-1">
               <div
                 dangerouslySetInnerHTML={{
@@ -31,7 +31,7 @@ class Index extends Component {
               <div className="visible-cover" />
             </OnVisible>
           </div>
-          <div className="column is-5-desktop is-12-mobile  text-center">
+          <div className="column is-6-desktop is-12-mobile  text-box-1">
             <div className="text-wrapper-2">
               <div
                 dangerouslySetInnerHTML={{

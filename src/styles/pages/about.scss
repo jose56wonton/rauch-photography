@@ -63,9 +63,18 @@
     text-align: left;
   }
 }
-.text-center{
+.text-box-1{
   display: flex;
   align-items: center;
+
+    
+    justify-content: right;
+  
+}
+.text-box-2{
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
 .text-wrapper-1{
