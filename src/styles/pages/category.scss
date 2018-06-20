@@ -20,6 +20,7 @@
       }
       .category-left-picture {
         min-height: 1px;
+        cursor: pointer;
         position: absolute;
         top: 17%;
         z-index: 51;
@@ -39,6 +40,7 @@
       
       }
       .category-right-picture {
+        cursor: pointer;
         min-height: 1px;
         z-index: 50;
         position: absolute;
@@ -65,7 +67,7 @@
 }
 @include widescreen{
   .category {
-    height: calc(100vh - 202px);
+    height: calc(100vh - 100px);
     max-height: 1200px;
   }
   .category-content {

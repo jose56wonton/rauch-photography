@@ -114,6 +114,9 @@ class CategoryTile extends Component {
             className={`column category-image-wrapper no-motion-touch ${this.props.version === 0 ? this.state.classes[0] : this.state.classes[2]}`}
             key={(this.state.progress + 1) * 400}
             style={this.state.cssForLeftImage}
+            onClick={this.link}
+            onMouseEnter={this.hoverOffText}
+            onMouseLeave={this.hoverOnText}
           >
             <Img
               className={`category-left-picture`}
@@ -135,6 +138,9 @@ class CategoryTile extends Component {
             className={`column category-image-wrapper no-motion-touch ${this.props.version === 0 ? this.state.classes[2] : this.state.classes[0]}`}
             key={(this.state.progress + 1) * 300}
             style={this.state.cssForRightImage}
+            onClick={this.link}
+            onMouseEnter={this.hoverOffText}
+            onMouseLeave={this.hoverOnText}
           >
             <Img
               className={`category-right-picture`}
@@ -144,16 +150,16 @@ class CategoryTile extends Component {
         </div>
         <div
           className="category-content"
-          onClick={this.link}
-          onMouseEnter={this.hoverOffText}
-          onMouseLeave={this.hoverOnText}
+         
         >
-          <h1
+          <h1 
             className={`underline ${
               this.state.textHover ? "" : "underline-active"
               }`}
           >
-            <span >{this.props.title}</span>
+            <span onClick={this.link}
+          onMouseEnter={this.hoverOffText}
+          onMouseLeave={this.hoverOnText}>{this.props.title}</span>
           </h1>
         </div>
       </div>

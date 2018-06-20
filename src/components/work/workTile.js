@@ -130,16 +130,16 @@ class WorkTile extends Component {
             </div>
             <div
               className={`work-content column is-12 version-${this.props.version}`}
-              onClick={this.link}
-              onMouseEnter={this.hoverOffText}
-              onMouseLeave={this.hoverOnText}
+              
             >
-              <h1
+              <h1 
                 className={`underline ${
                   this.state.textHover ? "" : "underline-active"
                   }`}
               >
-                <span>{this.props.title} </span>
+                <span onClick={this.link}
+              onMouseEnter={this.hoverOffText}
+              onMouseLeave={this.hoverOnText}>{this.props.title} </span>
               </h1>
             </div>
             </div>
