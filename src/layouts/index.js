@@ -22,6 +22,7 @@ class Layout extends Component {
   };
 
   render() {
+    console.log(this.props.data.allContentfulLinks.edges[0].node);
     return (
       <div className="min-size">
       <Helmet
@@ -34,7 +35,7 @@ class Layout extends Component {
       <Header toggleBurger={this.toggleBurger} burgerActive={this.state.active} siteTitle={this.props.data.site.siteMetadata.title} />
       <SideBar toggleBurger={this.toggleBurger} burgerActive={this.state.active}/>
       {this.props.children()}
-      <Footer siteTitle={this.props.data.site.siteMetadata.title} />
+      <Footer links={this.props.data.allContentfulLinks.edges[0].node} siteTitle={this.props.data.site.siteMetadata.title} />
     </div>
     );
   }
@@ -51,6 +52,14 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulLinks{
+      edges{
+        node{
+          facebook
+          instagram
+        }
       }
     }
   }
