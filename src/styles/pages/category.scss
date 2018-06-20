@@ -2,7 +2,7 @@
 @include desktop{
 // Work Category
   .category {
-    height: 80vh;
+    height: calc(100vh - 202px);
     max-height: 1000px;
     position: relative;
     display: flex;
@@ -56,7 +56,7 @@
       line-height: 5rem;
       span:before,
       span:after {
-          height: .45rem;
+          height: .35rem;
       }
     }
   }
@@ -65,7 +65,7 @@
 }
 @include widescreen{
   .category {
-    height: 92vh;
+    height: calc(100vh - 202px);
     max-height: 1200px;
   }
   .category-content {
@@ -112,7 +112,7 @@
     line-height:2.6rem;
     span:before,
     span:after {
-        height: .3rem;
+        height: .2rem;
     }
   }
 }

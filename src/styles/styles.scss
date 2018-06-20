@@ -45,20 +45,43 @@ root {
         font-size: 2rem;
     }
     p{
-        font-size: 1rem;
+        font-size: 1.2rem;
+    }
+    ul{
+      margin:0;
+      list-style-type: none;
+    }
+    li{
+      font-size: 1.2rem;
+    }
+    li:before { 
+      content: "- ";
     }
 }
+
 @include tablet{
-    h1{
-        font-size: 3rem;
-    }
-    h2{
-        font-size: 2rem;
-    }
-    h3{
-        font-size: 1.3rem;
-    }
-    p{
-        font-size: 1rem;
-    }
+  h1{
+      font-size: 3rem;
+      line-height: 4rem;
+  }
+  h2{
+      font-size: 2rem;
+  }
+  h3{
+      font-size: 1.3rem;
+  }
+  p{
+      font-size: 1rem;
+  }
+  ul{
+    margin:0;
+    list-style-type: none;
+  }
+  li{
+    font-size: 1rem;
+  }
+  li:before { 
+    content: "- ";
+  }
+  
 }

@@ -7,8 +7,8 @@ class Index extends Component {
     const aboutData = this.props.data.allContentfulAbout.edges[0].node
     return (
       <div className="about-wrapper">
-        <div className="columns vertical-spacer">
-          <div className="column is-offset-1-tablet is-5-tablet is-6-desktop is-12-mobile  text-box-1">
+        <div className="columns vertical-spacer row-1">
+          <div className="column is-6-tablet is-12-mobile  text-box-1">
             <div className="text-wrapper-1">
               <div
                 dangerouslySetInnerHTML={{
@@ -24,14 +24,14 @@ class Index extends Component {
             </OnVisible>
           </div>
         </div>
-        <div className="columns vertical-spacer">
+        <div className="columns vertical-spacer row-2">
           <div className="column relative height is-6-tablet is-hidden-mobile">
             <OnVisible className="about-image-wrapper-2">
               <Img sizes={aboutData.images[1].sizes} className="about-image" />
               <div className="visible-cover" />
             </OnVisible>
           </div>
-          <div className="column is-6-desktop is-12-mobile  text-box-1">
+          <div className="column is-6-desktop is-12-mobile  text-box-2">
             <div className="text-wrapper-2">
               <div
                 dangerouslySetInnerHTML={{

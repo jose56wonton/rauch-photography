@@ -1,7 +1,7 @@
 // Work
 @include desktop{
     .work {    
-        height: 80vh;
+        hheight: calc(100vh - 202px);
         max-height: 1000px; 
         overflow: hidden;
         position: relative;
@@ -11,6 +11,7 @@
     
         .work-pictures {
             height: 80%;  
+           
             @include desktop{
                 &.version-0 {
                     flex-direction: row-reverse;
@@ -70,7 +71,7 @@
                     line-height: 5rem;
                     span:before,
                     span:after {
-                        height: .45rem;
+                        height: .35rem;
                     }
                 }
             }
@@ -80,16 +81,13 @@
 }
 @include widescreen{
     .work {
-      height: 92vh;
+      height: calc(100vh - 202px);
       max-height: 1200px;
     }
     .work-content {
       font-size: 5rem;
       line-height: 6rem;
-      span:before,
-      span:after {
-          height: .5rem;
-      }
+      
     }
   }
 @include tablet{
@@ -105,14 +103,14 @@
         position: relative;
         text-align: center;
         width: 100%;   
+        margin-top:1rem !important;        
         
-        
-            font-size: 3rem;
-            line-height: 4rem;
-            span:before,
-            span:after {
-                height: .4rem;
-            }
+        font-size: 3rem;
+        line-height: 6rem;
+        span:before,
+        span:after {
+            height: .4rem;
+        }
     }
 }
 @include mobile{
@@ -121,12 +119,12 @@
     }
     .work-content {
        
-            font-size: 2rem;
-            line-height:2.6rem;
-            span:before,
-            span:after {
-                height: .3rem;
-            }
+      font-size: 2rem;
+      line-height:2.6rem;
+      span:before,
+      span:after {
+          height: .2rem;
+      }
     }
 }
 

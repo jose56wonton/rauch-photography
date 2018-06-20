@@ -148,13 +148,13 @@ class CategoryTile extends Component {
           onMouseEnter={this.hoverOffText}
           onMouseLeave={this.hoverOnText}
         >
-          <h3
+          <h1
             className={`underline ${
               this.state.textHover ? "" : "underline-active"
               }`}
           >
             <span >{this.props.title}</span>
-          </h3>
+          </h1>
         </div>
       </div>
     );

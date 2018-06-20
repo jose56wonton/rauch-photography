@@ -1,5 +1,11 @@
-.contact-height {
-    height: 86vh;
+.contact {
+    min-height: calc(100vh - 202px);
+    @include touch {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;   
+      align-items: center;   
+    }
 }
 
 .contact-spacer {
@@ -20,7 +26,7 @@
 }
 
 .contact-text {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     line-height: 2rem;
 }
 
@@ -28,10 +34,14 @@
     height: 86vh;
     max-height: 1000px;
     padding:0 1.8rem;
+    @include tablet{
+      width:80%;
+    }
     @include mobile {
         height: auto;
         flex-direction: column-reverse;
         height: auto;
+        width:90%;
     }
 }
 
@@ -40,13 +50,15 @@
     max-height: 1000px; 
     padding:0 1.8rem;
     
-    @include mobile {
-        height: auto;
-    }
+   
     @include tablet {
         height: auto;
+        width:80%;
     }
- 
+    @include mobile {
+      height: auto;
+      width:90%;
+  }
 }
 
 .contact-image-wrapper-1 {
