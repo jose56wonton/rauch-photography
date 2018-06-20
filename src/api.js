@@ -12,8 +12,9 @@ Data has 4 fields
 
 
 export const send = (data) => {
+  const dsa = "https://mailer-dot-tools-207802.appspot.com"
   const asdf = "http://joshuawootonn.xyz"
   const fdsa = "ab4361b6199447358a17fb336b42ed57"
-  return axios.post(`${asdf}/mailer/${fdsa}`, data);
+  return axios.post(`${dsa}/${fdsa}`, data);
 
 }

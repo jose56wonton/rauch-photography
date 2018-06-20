@@ -25,17 +25,14 @@
     margin-bottom : 0px !important;
 }
 
-.contact-text {
-    font-size: 1.1rem;
-    line-height: 2rem;
-}
+
 
 .contact-row-1 {
     height: 86vh;
     max-height: 1000px;
     padding:0 1.8rem;
     @include tablet{
-      width:80%;
+      width:90%;
     }
     @include mobile {
         height: auto;
@@ -53,7 +50,7 @@
    
     @include tablet {
         height: auto;
-        width:80%;
+        width:90%;
     }
     @include mobile {
       height: auto;
@@ -78,10 +75,16 @@
     position: relative;
     height: 100%;
     .contact-image {
-        top: 50%;
-        height: 40%;
+        top: 35%;
+        height: 45%;
+        @include big{
+
+          height: 50%;
+        };
+        
         position: absolute;
         object-fit: cover;
+        // z-index: 2000;
     }
 }
 
@@ -89,7 +92,11 @@
     position: relative;
     height: 100%;
     .contact-image {
-        height: 80%;
+        
+        height: 60%;  
+        @include big{
+          height: 70%;
+        };      
         max-height: 80vh;
         top: 50%;
         transform: translateY(-50%);
@@ -126,6 +133,9 @@
             padding-top: 0rem;
           }
         }
+    }
+    @include tablet {
+      padding:3.6rem 0 ;
     }
 }
 

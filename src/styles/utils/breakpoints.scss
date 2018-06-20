@@ -11,3 +11,6 @@
 @mixin widescreen {
   @media (min-width: 1416px) { @content; }
 }
+@mixin big {
+  @media (min-width: 1650px) { @content; }
+}

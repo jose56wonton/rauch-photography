@@ -121,7 +121,7 @@ class Contact extends Component {
       <div className="contact">
         <div className="contact-spacer" />
         <div className="columns contact-row-1">
-          <div className="column is-hidden-mobile is-12-mobile is-5-tablet is-4-desktop ">
+          <div className="column is-hidden-mobile is-12-mobile is-6-tablet is-4-desktop ">
             <OnVisible className=" contact-image-wrapper-1">
               <Img
                 sizes={images[0].sizes}
@@ -130,14 +130,14 @@ class Contact extends Component {
               <div className="visible-cover" />
             </OnVisible>
           </div>
-          <div className="contact-text-wrapper-1 column is-12-mobile is-7-tablet is-5-desktop ">
+          <div className="contact-text-wrapper-1 column is-12-mobile is-6-tablet is-4-desktop  ">
             <div>
               <p className="contact-title">Contact</p>
               <p className="contact-text"># {phone}</p>
               <p className="contact-text">@ {email}</p>
             </div>
           </div>
-          <div className="column is-hidden-touch is-3-desktop">
+          <div className="column is-hidden-touch is-4-desktop ">
             <OnVisible className="contact-image-wrapper-2">
               <Img
                 sizes={images[1].sizes}
@@ -148,7 +148,7 @@ class Contact extends Component {
           </div>
         </div>
         <div className="columns contact-row-2">
-          <div className="column is-12-mobile is-8-tablet is-5-desktop is-offset-1-desktop contact-text-wrapper-2">
+          <div className="column is-12-mobile  is-5-desktop is-offset-1-desktop contact-text-wrapper-2">
             <div>
               <Input
                 label={nameLabel}
@@ -191,7 +191,7 @@ class Contact extends Component {
             </div>
           </div>
 
-          <div className="column is-hidden-mobile is-5-tablet is-6-desktop">
+          <div className="column is-hidden-touch is-5-desktop">
             <OnVisible className="contact-image-wrapper-3">
               <Img
                 sizes={images[2].sizes}

@@ -28,7 +28,7 @@ class Shoot extends Component {
       scenes.push(
         new ScrollMagic.Scene({
           triggerElement: `#shoot-${i}`,
-          triggerHook: ".6"
+          triggerHook: ".5"
         })
           .duration(1000)
           .on("start", event => {

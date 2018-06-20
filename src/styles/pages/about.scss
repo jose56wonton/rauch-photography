@@ -85,7 +85,7 @@
   padding: 1.8rem; 
   text-align: right;
   width: 100%;
-  @include tablet{
+  @include mobile{
     text-align: left;
   } 
 }
@@ -93,16 +93,16 @@
   padding: 1.8rem;
   text-align:left; 
   width: 100%;
-  @include tablet{
+  @include mobile{
     text-align: left;
   }  
 }
 
 @include tablet{
   .row-1{
-    width: 80%;
+    width: 90%;
   }
   .row-2{
-    width: 80%;
+    width: 90%;
   }
 }
