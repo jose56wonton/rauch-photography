@@ -67,7 +67,7 @@
 }
 @include widescreen{
   .category {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 0px);
     max-height: 1200px;
   }
   .category-content {
