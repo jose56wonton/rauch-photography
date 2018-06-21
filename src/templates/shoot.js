@@ -64,7 +64,6 @@ class Shoot extends Component {
         });
 
         if (i === photos.length - 1) {
-          console.log(styles);
           this.setState({ styles: styles });
         }
       });
@@ -80,6 +79,7 @@ class Shoot extends Component {
             active={this.state.active}
             style={this.state.styles[i]}
             pictureSrc={picture.file.url}
+            pictureSize={picture}
           />
         );
       }
@@ -103,8 +103,8 @@ export const query = graphql`
             file{
               url
             }
-            sizes{
-              base64
+            sizes(maxWidth: 1000, quality: 90) {
+              ...GatsbyContentfulSizes
             }
           }
         }	

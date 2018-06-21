@@ -4,6 +4,7 @@ class ShootTile extends Component {
   
   render() {
     const {index,active,style,pictureSrc} = this.props;
+    console.log(this.props.pictureSize.sizes.src)
     return (
       <div key={index} className="shoot-box">
         <div
@@ -13,7 +14,8 @@ class ShootTile extends Component {
         >
           <img
             className={`shoot-photo ${active === index && "fade-in-photo"}`}
-            src={pictureSrc}
+            src={this.props.pictureSize.sizes.src}
+            
           />
         </div>
       </div>

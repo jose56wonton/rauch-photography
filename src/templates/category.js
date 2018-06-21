@@ -45,7 +45,7 @@ query findShit($name: String!){
           path
         }
         images{
-          sizes(maxWidth: 1920, quality: 90) {
+          sizes(maxWidth: 1000, quality: 90) {
             ...GatsbyContentfulSizes
           }
         }
