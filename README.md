@@ -1,6 +1,13 @@
 # Rauch Photography
-This is a personal website made for Zach Rauch!
+This is a personal website made for Zach Rauch Photography!
 
-I plan on making it initially with react, since that's what I am used to, and then I will migrate to contentful for cms and gatsby.js for static generation.
+## Technologies
+- Gatsby.JS - static site generator
+- Netlify - free static site hosting
+- Contentful - content management system
 
-Link will be available soon!
+## Packages
+- dominant-color - image color detection 
+- scrollmagic - dynamic scrolling effects
+
+## [Live](http://zacharyrauchphotography.com/)
