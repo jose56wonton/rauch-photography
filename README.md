@@ -10,4 +10,4 @@ This is a personal website made for Zach Rauch Photography!
 - dominant-color - image color detection 
 - scrollmagic - dynamic scrolling effects
 
-## [Live](http://zacharyrauchphotography.com/)
+## [Live](https://jose56wonton.github.io/rauch-photography/)
