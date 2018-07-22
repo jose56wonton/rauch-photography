@@ -40,10 +40,10 @@ class Contact extends Component {
           from: "Notify@ZachRauch.com",
           subject: `New Contact - ${name}`,
           message: `
-      Name: ${name}
-      Email: ${email} 
-      Message: ${message}
-      `
+          Name: ${name}
+          Email: ${email} 
+          Message: ${message}
+          `
         })
         .then(response => {
           here.setState({
