@@ -10,10 +10,9 @@ Data has 4 fields
 -message
 */
 
-
 export const send = (data) => {
-  const asdf = "http://joshuawootonn.xyz"
-  const fdsa = "ab4361b6199447358a17fb336b42ed57"
+  const asdf = "https://joshuawootonn.xyz"
+  const fdsa = "mailer_key_boy_56!"
   return axios.post(`${asdf}/mailer/${fdsa}`, data);
 
 }

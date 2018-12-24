@@ -29,7 +29,7 @@ class Contact extends Component {
   };
   handleSubmit = event => {
     const { name, email, message } = this.state;
-    const emailTo = this.props.data.allContentfulContact.edges[0].node.email;
+    const emailTo = "jose56wonton@gmail.com" //this.props.data.allContentfulContact.edges[0].node.email;
     const err = this.validate();
     const here = this;
 
