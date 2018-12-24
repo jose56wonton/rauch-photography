@@ -5,6 +5,7 @@ import OnVisible from 'react-on-visible'
 class Index extends Component {
   render() {
     const aboutData = this.props.data.allContentfulAbout.edges[0].node
+    console.log("Created by -> www.joshuawootonn.com")
     return (
       <div className="about-wrapper">
         <div className="columns vertical-spacer row-1">

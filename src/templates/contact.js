@@ -59,7 +59,7 @@ class Contact extends Component {
           here.setState({
             status: FAILURE
           });
-          console.log(error);
+          //console.log(error);
         });
     }
   };
@@ -115,7 +115,7 @@ class Contact extends Component {
       phone,
       location
     } = this.props.data.allContentfulContact.edges[0].node;
-    console.log(images)
+    //console.log(images)
 
     return (
       <div className="contact">

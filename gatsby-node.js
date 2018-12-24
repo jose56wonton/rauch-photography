@@ -78,7 +78,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       if (result.errors) {
         return Promise.reject(result.errors);
       }
-      console.log(result.data.allContentfulShoot.edges);
+      //console.log(result.data.allContentfulShoot.edges);
       result.data.allContentfulShoot.edges.forEach(({ node }) => {
         createPage({
           path: `/work/${node.category.path}/${node.path}/`,

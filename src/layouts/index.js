@@ -22,7 +22,7 @@ class Layout extends Component {
   };
 
   render() {
-    console.log(this.props.data.allContentfulLinks.edges[0].node);
+    //console.log(this.props.data.allContentfulLinks.edges[0].node);
     return (
       <div className="min-size">
       <Helmet
